@@ -5,7 +5,7 @@
   - Se connecter ✅
   - Se déco ✅
 
-- Profil : 
+- Profil : @gaoubak @JinSu77
   - Modifier ses informations perso 
   - Modifier sa photo de profil et bannière
   - Désactiver et réactiver son compte
@@ -15,12 +15,12 @@
   - Pouvoir recherche un membre
   - Pouvoir ajouter ou supprimer un membre comme connexion
 
-- Contenu :
+- Contenu : @gaoubak @JinSu77
   - Créer une publication apparaissant sur son profil
   -  Commenter une publication ou un autre commentaire (Un niveau max)
-  -  Réagir à une publication ou un commentaire avec un emji
+  -  Réagir à une publication ou un commentaire avec un emoji
 
-- Groupes
+- Groupes @Daiiruin @V-eljko
   - Pouvoir créer un groupe public ou privé
   - Pouvoir s'inscire à un groupe public, ou candidater à groupe privé
   - Pouvoir voir les publications des groupes public
@@ -32,13 +32,15 @@
     - Pouvoir changer les droits d'un utilisateur
     - Pouvoir exclure un membre d'un groupe
     - Pouvoir changer les informations du groupe
+
 - Pages :
   - Pouvoir créer des pages publiques
   - Pouvoir visualier le contenu des pages
   - En tant qu'admin :
     - Pouvoir ajouter ou supprimer des admin à ces pages
     - Pourvoir modifier les contenus de la page (nom, description,image)
-- Messagerie :
+
+- Messagerie : @Setsudan @carim75
   - Pouvoir de envoyer un message privé à une relation
   - Pouvoir modifer un message privé envoyé à une relation
   - Pouvoir supprimer un message privé envoyé à une relation
@@ -46,3 +48,9 @@
   - Pouvoir définir le nom et l'image du groupe de messagerie
 
 - Autre fonctionalité à rajouter
+
+|        |        |        |
+| ------ | ------ | ------ |
+| Team 1 | Kader  | Adrien |
+| Team 2 | Veljko | Arsène |
+| Team 3 | Ethan  | Carim  |
