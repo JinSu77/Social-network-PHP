@@ -35,7 +35,7 @@
     - Pouvoir exclure un membre d'un groupe
     - Pouvoir changer les informations du groupe
 
-- Pages : **Team 3**
+- Pages : **Team 2**
   - Pouvoir créer des pages publiques
   - Pouvoir visualier le contenu des pages
   - En tant qu'admin :

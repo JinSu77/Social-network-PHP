@@ -1,7 +1,7 @@
 @import url("http://fonts.cdnfonts.com/css/kollektif");
-$light: #f8fafc;
-$dark: #0f172a;
-$dark100: #2a4076;
+$light: #0f172a;
+$dark: #f8fafc;
+$dark100: #efefef;
 $primary: #ff5733;
 :root {
   font-family: "Kollektif", sans-serif;
@@ -29,7 +29,7 @@ body {
   padding: 0 2.5vw;
 }
 a {
-  color: $light;
+  color: $dark;
   text-decoration: none;
 }
 @import "./components/LoginSignUp";
@@ -53,6 +53,8 @@ a {
   height: 5vh;
   button {
     margin: 0 1vw;
+    color: $dark;
+    text-decoration: none;
   }
   .mid {
     display: flex;
