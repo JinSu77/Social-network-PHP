@@ -49,7 +49,8 @@
   - Pouvoir créer une groupe de groupe de messagerie avec ses relations
   - Pouvoir définir le nom et l'image du groupe de messagerie
 
-- Autre fonctionalité à rajouter
+- Autre fonctionalité à rajouter:
+  - Une navbar avec les options
 
 | Team   | Membre 1 | Membre 2 |
 | ------ | -------- | -------- |
@@ -65,3 +66,15 @@
 | VOJINOVIC Veljko    | --   | [@V-eljko](https://github.com/V-eljko)   | [Vojinovic Veljko](https://www.linkedin.com/in/veljko-vojinovic-365823226/)            |
 | Adrien              | --   | [@JinSu77](https://github.com/JinSu77)   | --                                                                                     |
 | Carim               | --   | [@carim75](https://github.com/carim75)   | --                                                                                     |
+
+
+---
+
+## Progress tracker
+
+#### 09/05/2022
+
+- Design de l'archi réseau @gaoubak
+- Login/Logout/SignUp @Setsudan
+- Création du squelette de l'interface @Setsudan
+- Ajout du CSS

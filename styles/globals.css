@@ -24,7 +24,8 @@ button {
 body {
   display: flex;
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 95vw;
+  margin: 0 2.5vw;
 }
 
 a {
