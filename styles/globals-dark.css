@@ -177,4 +177,11 @@ a {
 }
 #navbar .right {
   border-left: #f8fafc 1px solid;
+  display: flex;
+  align-items: center;
+}
+
+.theme-ico {
+  height: 3vh;
+  width: 3vh;
 }/*# sourceMappingURL=globals-dark.css.map */

@@ -175,4 +175,11 @@ a {
 }
 #navbar .right {
   border-left: #0f172a 1px solid;
+  display: flex;
+  align-items: center;
+}
+
+.theme-ico {
+  height: 3vh;
+  width: 3vh;
 }/*# sourceMappingURL=globals.css.map */

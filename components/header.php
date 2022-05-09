@@ -14,14 +14,16 @@ session_start();
     const ThemeToggle = () => {
         if (window.location == "http://localhost/projet-backend/") {
             window.location = "http://localhost/projet-backend/?theme=dark"
+
         } else if (window.location == "http://localhost/projet-backend/?theme=dark") {
             window.location = "http://localhost/projet-backend/"
+
         }
     }
     </script>
     <?php
     if (isset($_GET['theme']) && $_GET['theme'] == 'dark') {
-        echo '<link rel="stylesheet" href="./styles/darkTheme/globals-dark.css" />';
+        echo '<link rel="stylesheet" href="./styles/globals-dark.css" />';
     } else {
         echo '<link rel="stylesheet" href="./styles/globals.css" />';
     }
