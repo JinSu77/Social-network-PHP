@@ -9,7 +9,7 @@ require_once "./components/header.php" ?>
             //Si l'utilisateur est connecté on le renvoie directement sur le dashboard de ses projets
             // Sinon on affiche les options pour se connecter ou créer un compte
             if (isset($_SESSION["useruid"])) {
-                header('location: ./dashboard.php');
+                header('location: ./pages/Landing.php');
             } else {
                 echo '<div class="links"><a href="./signUp.php">Créer un compte</a>|<a href="./Login.php">Se connecter</a></div>';
             }

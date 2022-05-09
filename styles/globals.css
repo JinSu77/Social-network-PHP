@@ -1,0 +1,68 @@
+@import url("http://fonts.cdnfonts.com/css/kollektif");
+:root {
+  font-family: "Kollektif", sans-serif;
+  font-size: 16px;
+  background: #0f172a;
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+a {
+  color: #f8fafc;
+  text-decoration: none;
+}
+
+.Login-Form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+.Login-Form form {
+  background: #2a4076;
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 45vh;
+  width: 25vw;
+  border-radius: 8px;
+  border: #0f172a 3px solid;
+}
+.Login-Form form .uid,
+.Login-Form form .password {
+  display: flex;
+  flex-direction: column;
+  margin: 1vh 0;
+}
+.Login-Form form button {
+  background: #ff5733;
+  border: none;
+  height: 5vh;
+  width: 5vw;
+  border-radius: 8px;
+  color: #f8fafc;
+  font-weight: bold;
+}
+.Login-Form form a {
+  align-self: center;
+  width: 50%;
+  margin-top: 3vh;
+  font-weight: 400;
+}/*# sourceMappingURL=globals.css.map */
