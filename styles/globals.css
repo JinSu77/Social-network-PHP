@@ -16,6 +16,11 @@
   transition: 300ms ease-in-out;
 }
 
+button {
+  background: transparent;
+  border: none;
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -140,4 +145,30 @@ a {
 
 .logSign-board a {
   color: #0f172a;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5vh;
+}
+#navbar button {
+  margin: 0 1vw;
+}
+#navbar .mid {
+  display: flex;
+  width: 100%;
+  margin-left: auto;
+  justify-content: right;
+  flex: 2;
+}
+#navbar .right {
+  border-left: #0f172a 1px solid;
 }/*# sourceMappingURL=globals.css.map */

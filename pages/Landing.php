@@ -1,5 +1,7 @@
 <?php
-require "./components/header.php"; ?>
+require "./components/header.php";
+require "./components/navbar.php";
+?>
 <main id="Landing">
     <? #Chaque section est à remplacer par vos parties 
     ?>

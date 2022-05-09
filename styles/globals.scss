@@ -15,6 +15,10 @@
   box-sizing: border-box;
   transition: 300ms ease-in-out;
 }
+button {
+  background: transparent;
+  border: none;
+}
 body {
   display: flex;
   min-height: 100vh;
@@ -29,5 +33,30 @@ a {
 .logSign-board {
   a {
     color: $dark;
+  }
+}
+#navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5vh;
+  button {
+    margin: 0 1vw;
+  }
+  .mid {
+    display: flex;
+    width: 100%;
+    margin-left: auto;
+    justify-content: right;
+    flex: 2;
+  }
+  .right {
+    border-left: $dark 1px solid;
   }
 }

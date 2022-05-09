@@ -11,6 +11,7 @@ function EmptyInputSignUp($name, $email, $password, $pwdcheck)
     }
     return $result;
 }
+
 // Vérifie que l'username n'est pas de charactère spéciaux
 // @Setsudan
 function InvalidUsername($name)
@@ -22,6 +23,7 @@ function InvalidUsername($name)
     }
     return $result;
 }
+
 // Vérifie que l'email soit valide
 // @Setsudan
 function InvalidEmail($email)
@@ -33,6 +35,7 @@ function InvalidEmail($email)
     }
     return $result;
 }
+
 // Vérifie que les mdp soit correspondant
 // @Arsène
 function pwdMatch($password, $pwdcheck)
@@ -69,7 +72,9 @@ function UsernameExist($connection, $name, $email)
 
     mysqli_stmt_close($stmt);
 }
+
 # La théorie dit qu'on en a pas besoin mais au casou je le garde
+
 /* function projectNameExist($connection, $projectname)
 {
     $sql = "SELECT * FROM projects WHERE projectname = ?;";
@@ -91,6 +96,7 @@ function UsernameExist($connection, $name, $email)
 
     mysqli_stmt_close($stmt);
 } */
+
 // Créer un utilisateur dans la base de donnée
 // @Setsudan
 function createUser($connection, $name, $email, $password)
