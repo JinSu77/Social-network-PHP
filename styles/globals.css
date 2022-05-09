@@ -2,8 +2,8 @@
 :root {
   font-family: "Kollektif", sans-serif;
   font-size: 16px;
-  background: #0f172a;
-  color: #f8fafc;
+  background: #f8fafc;
+  color: #0f172a;
   overflow-x: hidden;
 }
 
@@ -13,6 +13,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition: 300ms ease-in-out;
 }
 
 body {
@@ -26,15 +27,17 @@ a {
   text-decoration: none;
 }
 
-.Login-Form {
+.Login-Form,
+.SignUp-Form {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100vw;
 }
-.Login-Form form {
-  background: #2a4076;
+.Login-Form form,
+.SignUp-Form form {
+  background: #ff5733;
   color: #f8fafc;
   display: flex;
   flex-direction: column;
@@ -43,24 +46,45 @@ a {
   height: 45vh;
   width: 25vw;
   border-radius: 8px;
-  border: #0f172a 3px solid;
+  border: #f8fafc 3px solid;
 }
 .Login-Form form .uid,
-.Login-Form form .password {
+.Login-Form form .password,
+.Login-Form form .email,
+.Login-Form form .username,
+.Login-Form form .passCheck,
+.SignUp-Form form .uid,
+.SignUp-Form form .password,
+.SignUp-Form form .email,
+.SignUp-Form form .username,
+.SignUp-Form form .passCheck {
   display: flex;
   flex-direction: column;
   margin: 1vh 0;
 }
-.Login-Form form button {
-  background: #ff5733;
+.Login-Form form input,
+.SignUp-Form form input {
+  background: none;
+  border: none;
+  border-bottom: #0f172a 2px solid;
+  height: 1vh;
+}
+.Login-Form form input:focus,
+.SignUp-Form form input:focus {
+  height: 3vh;
+}
+.Login-Form form button,
+.SignUp-Form form button {
+  background: #f8fafc;
   border: none;
   height: 5vh;
   width: 5vw;
   border-radius: 8px;
-  color: #f8fafc;
+  color: #0f172a;
   font-weight: bold;
 }
-.Login-Form form a {
+.Login-Form form a,
+.SignUp-Form form a {
   align-self: center;
   width: 50%;
   margin-top: 3vh;
