@@ -78,3 +78,4 @@
 - Login/Logout/SignUp @Setsudan
 - Création du squelette de l'interface @Setsudan
 - Ajout du CSS
+- Ajout du dark mode
