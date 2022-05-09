@@ -1,7 +1,7 @@
 <?php
 //Fichier contenant la majorité des fonction php utilisé
 // Vérifie que le formulaire n'est pas d'input vide
-// @Ethan
+// @Setsudan
 function EmptyInputSignUp($name, $email, $password, $pwdcheck)
 {
     if (empty($name) || empty($email) || empty($password) || empty($pwdcheck)) {
@@ -12,7 +12,7 @@ function EmptyInputSignUp($name, $email, $password, $pwdcheck)
     return $result;
 }
 // Vérifie que l'username n'est pas de charactère spéciaux
-// @Ethan
+// @Setsudan
 function InvalidUsername($name)
 {
     if (preg_match("/^*[a-zA-Z0-9]$/", $name)) {
@@ -23,7 +23,7 @@ function InvalidUsername($name)
     return $result;
 }
 // Vérifie que l'email soit valide
-// @Ethan
+// @Setsudan
 function InvalidEmail($email)
 {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -46,7 +46,7 @@ function pwdMatch($password, $pwdcheck)
 }
 
 //Vérifie qu'un mail ou nom d'utilisateur est déjà pris
-//@Ethan
+//@Setsudan
 
 function UsernameExist($connection, $name, $email)
 {
@@ -69,7 +69,8 @@ function UsernameExist($connection, $name, $email)
 
     mysqli_stmt_close($stmt);
 }
-function projectNameExist($connection, $projectname)
+# La théorie dit qu'on en a pas besoin mais au casou je le garde
+/* function projectNameExist($connection, $projectname)
 {
     $sql = "SELECT * FROM projects WHERE projectname = ?;";
     $stmt = mysqli_stmt_init($connection);
@@ -89,9 +90,9 @@ function projectNameExist($connection, $projectname)
     }
 
     mysqli_stmt_close($stmt);
-}
+} */
 // Créer un utilisateur dans la base de donnée
-// @Ethan
+// @Setsudan
 function createUser($connection, $name, $email, $password)
 {
     $sql = "INSERT INTO users (email,password,username) VALUES (?,?,?);";
@@ -107,6 +108,7 @@ function createUser($connection, $name, $email, $password)
     header("location: ../Login.php");
     exit();
 }
+#! à refaire pour les post mais la fonctions est bonne
 function saveProject($connection, $author, $projectName, $board)
 {
     $sql = "INSERT INTO projects (author,projectname,board) VALUES (?,?,?);";
@@ -121,8 +123,9 @@ function saveProject($connection, $author, $projectName, $board)
     header("location: ./whiteboard.php");
     exit();
 }
+
 // Vérifie que le formulaire n'est pas d'input vide
-// @Ethan
+// @Setsudan
 function EmptyInputLogin($username, $pwd)
 {
     if (empty($username) || empty($pwd)) {
@@ -132,8 +135,9 @@ function EmptyInputLogin($username, $pwd)
     }
     return $result;
 }
+
 // Login l'utilisateur
-// @Ethan
+// @Setsudan
 function loginUser($connection, $uid, $pwd)
 {
     $uidExist = UsernameExist($connection, $uid, $uid);

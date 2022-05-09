@@ -1,5 +1,4 @@
 <?php
-// PDO pas utilisé car php utilisé est procédurale et non OOP
 // Code inclus quand la connection à la base de donné est nécéssaire
 $ip = "localhost";
 $dbUsername = "root";
