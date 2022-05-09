@@ -1,5 +1,5 @@
 <?php
-require "./components/header.php"; ?>
+require "../components/header.php"; ?>
 <main id="LandingPage">
     <? #Chaque section est à remplacer par vos parties 
     ?>
@@ -8,4 +8,6 @@ require "./components/header.php"; ?>
     <section>Créer un post</section>
     <section>Post d'amis</section>
     <section>Message récents</section>
+    <?php #Pour accéder au Login/Signup retirer /pages/Landing.php et remplacer le par /Login.php
+    ?>
 </main>
