@@ -64,7 +64,7 @@
 | GAOUSSOU Bakayoko   | --   | [@gaoubak](https://github.com/gaoubak)   | [Gaoussou Bakayoko](https://www.linkedin.com/in/kader-bakayoko-341b53190/)             |
 | DOBROVOLSKYY Arsène | --   | [@Daiiruin](https://github.com/Daiiruin) | [DOBROVOLSKYY Arsène](https://www.linkedin.com/in/ars%C3%A8ne-dobrovolskyy-458045226/) |
 | VOJINOVIC Veljko    | --   | [@V-eljko](https://github.com/V-eljko)   | [Vojinovic Veljko](https://www.linkedin.com/in/veljko-vojinovic-365823226/)            |
-| Adrien              | --   | [@JinSu77](https://github.com/JinSu77)   | [--]()                                                                                 |
+| Adrien HA           | --   | [@JinSu77](https://github.com/JinSu77)   | [Adrien HA](https://www.linkedin.com/in/adrien-ha-b39045226/)                          |
 | Carim               | --   | [@carim75](https://github.com/carim75)   | [--]()                                                                                 |
 
 ## Progress tracker
@@ -75,4 +75,3 @@
 - Login/Logout/SignUp @Setsudan
 - Création du squelette de l'interface @Setsudan
 - Ajout du dark mode @Setsudan
-- Ajout d'un système de messagerie @carim75
