@@ -1,6 +1,6 @@
-@import url("http://fonts.cdnfonts.com/css/kollektif");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,500;0,600;1,300;1,400&display=swap");
 :root {
-  font-family: "Kollektif", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   background: #0f172a;
   color: #f8fafc;
@@ -43,7 +43,7 @@ a {
 }
 .Login-Form form,
 .SignUp-Form form {
-  background: #ff5733;
+  background: #06b6d4;
   color: #0f172a;
   display: flex;
   flex-direction: column;
@@ -109,6 +109,16 @@ a {
 #Landing .column {
   min-height: 90vh;
 }
+#Landing section {
+  background: #1e293b;
+  border-radius: 18px;
+  padding: 2vh 2vw;
+}
+#Landing input {
+  border-radius: 2px;
+  border: none;
+  background: #64748b;
+}
 #Landing .mid {
   width: 50vw;
   flex: 2;
@@ -117,14 +127,13 @@ a {
   align-items: center;
 }
 #Landing .mid .CreatePost {
-  width: 100%;
+  width: 90%;
   height: 25vh;
-  background: cyan;
 }
 #Landing .mid .Flux {
+  margin-top: 2vh;
   height: auto;
-  width: 100%;
-  background: green;
+  width: 90%;
 }
 #Landing .left,
 #Landing .right {
@@ -133,21 +142,77 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: red;
 }
 #Landing .left .UserProfile {
   height: 50vh;
-  width: 100%;
-  background: purple;
+  margin: 0.5vh 0;
+  width: 90%;
 }
 #Landing .left .UserGroupe {
+  margin: 0.5vh 0;
   height: 40vh;
-  width: 100%;
-  background: blue;
+  width: 90%;
 }
-
-.logSign-board a {
-  color: #f8fafc;
+#Landing .right .RecentMessages {
+  height: 90vh;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+#Landing .right .RecentMessages::-webkit-scrollbar {
+  width: 5px;
+}
+#Landing .right .RecentMessages::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 8px;
+}
+#Landing .right .RecentMessages::-webkit-scrollbar-thumb {
+  background: #06b6d4;
+}
+#Landing .right .RecentMessages::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+#Landing .right .RecentMessages #searchuser {
+  height: 4vh;
+}
+#Landing .right .RecentMessages .recent-messages-list {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: safe;
+}
+#Landing .right .RecentMessages .recent-messages-list .message-box {
+  margin: 2vh 0;
+  height: 7vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  font-weight: 300;
+  width: auto;
+}
+#Landing .right .RecentMessages .recent-messages-list .message-box .userpfp {
+  background: url("./img/pfp.jpg");
+  background-size: cover;
+  height: 6vh;
+  width: 6vh;
+  margin-right: 0.5vw;
+  border-radius: 60%;
+}
+#Landing .right .RecentMessages .recent-messages-list .message-box .latest-message {
+  text-align: left;
+}
+#Landing .right .RecentMessages .recent-messages-list .read-false {
+  font-weight: 600;
 }
 
 #navbar {
@@ -163,10 +228,35 @@ a {
   width: 100vw;
   height: 5vh;
 }
+#navbar .logo {
+  height: 4vh;
+  width: auto;
+  border-radius: 60%;
+}
+#navbar .left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#navbar .left input {
+  margin-left: 1vw;
+  height: 3vh;
+  border-radius: 2px;
+  border: none;
+  background: #64748b;
+}
 #navbar button {
   margin: 0 1vw;
   color: #f8fafc;
-  text-decoration: none;
+}
+#navbar button:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+}
+#navbar button:first-child img {
+  margin: 0 0.5vw;
 }
 #navbar .mid {
   display: flex;
@@ -178,10 +268,26 @@ a {
 #navbar .right {
   border-left: #f8fafc 1px solid;
   display: flex;
-  align-items: center;
+}
+
+.pfp {
+  height: 3vh;
+  width: 3vh;
+  border-radius: 60%;
+}
+
+.ico {
+  height: 3vh;
+  width: 3vh;
 }
 
 .theme-ico {
   height: 3vh;
   width: 3vh;
+  fill: #f8fafc;
+  stroke: #f8fafc;
+}
+
+.logSign-board a {
+  color: #f8fafc;
 }/*# sourceMappingURL=globals-dark.css.map */

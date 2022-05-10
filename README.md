@@ -67,9 +67,6 @@
 | Adrien HA           | --   | [@JinSu77](https://github.com/JinSu77)   | [Adrien HA](https://www.linkedin.com/in/adrien-ha-b39045226/)                          |
 | Carim               | --   | [@carim75](https://github.com/carim75)   | [--]()                                                                                 |
 
-
----
-
 ## Progress tracker
 
 #### 09/05/2022
@@ -78,3 +75,10 @@
 - Login/Logout/SignUp @Setsudan
 - Création du squelette de l'interface @Setsudan
 - Ajout du dark mode @Setsudan
+
+#### 10/05/2022
+
+- update de l'ui @Setsudan
+- Implémentation du système de connection @Setsudan
+- Ajout du système des messages récent @Setsudan
+- Ajout des logos proposé

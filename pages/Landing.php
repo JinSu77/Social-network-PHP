@@ -14,7 +14,7 @@ require "./components/navbar.php";
         <section class="Flux">Flux de post</section>
     </div>
     <div class="right column">
-        <section class="RecentMessages">Message récents</section>
+        <?php require "./components/recentmessages.php"; ?>
     </div>
     <?php #Pour accéder au Login/Signup retirer /pages/Landing.php et remplacer le par /Login.php
     ?>
