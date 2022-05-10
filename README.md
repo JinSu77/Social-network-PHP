@@ -75,3 +75,8 @@
 - Login/Logout/SignUp @Setsudan
 - Création du squelette de l'interface @Setsudan
 - Ajout du dark mode @Setsudan
+
+#### 10/05/2022
+
+- update de l'ui @Setsudan
+- Implémentation du système de connection @Setsudan
