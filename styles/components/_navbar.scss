@@ -10,6 +10,23 @@
   left: 0;
   width: 100vw;
   height: 5vh;
+  .logo {
+    height: 4vh;
+    width: auto;
+    border-radius: 60%;
+  }
+  .left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    input {
+      margin-left: 1vw;
+      height: 3vh;
+      border-radius: 2px;
+      border: none;
+      background: $dark200;
+    }
+  }
   button {
     margin: 0 1vw;
     color: $dark;

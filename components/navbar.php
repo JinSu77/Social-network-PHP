@@ -1,7 +1,8 @@
 <?php require "./includes/db_connect.inc.php";
 ?>
 <div id="navbar">
-    <div class="left"><img src="#" alt="logo" />
+    <div class="left">
+        <img src="./styles/img/RasLeCul.png" alt="logo" class="logo" />
         <input type="search" name="searchpeople" id="">
     </div>
     <div class="mid">

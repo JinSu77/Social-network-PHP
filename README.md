@@ -80,3 +80,5 @@
 
 - update de l'ui @Setsudan
 - Implémentation du système de connection @Setsudan
+- Ajout du système des messages récent @Setsudan
+- Ajout des logos proposé

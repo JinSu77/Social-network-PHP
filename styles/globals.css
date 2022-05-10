@@ -1,6 +1,6 @@
-@import url("http://fonts.cdnfonts.com/css/kollektif");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,500;0,600;1,300;1,400&display=swap");
 :root {
-  font-family: "Kollektif", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   background: #f8fafc;
   color: #0f172a;
@@ -117,8 +117,7 @@ a {
 #Landing input {
   border-radius: 2px;
   border: none;
-  border-bottom: #0f172a 1px solid;
-  background: #f8fafc;
+  background: #334155;
 }
 #Landing .mid {
   width: 50vw;
@@ -160,13 +159,60 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+#Landing .right .RecentMessages::-webkit-scrollbar {
+  width: 5px;
+}
+#Landing .right .RecentMessages::-webkit-scrollbar-track {
+  background: #0f172a;
+  border-radius: 8px;
+}
+#Landing .right .RecentMessages::-webkit-scrollbar-thumb {
+  background: #06b6d4;
+}
+#Landing .right .RecentMessages::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+#Landing .right .RecentMessages #searchuser {
+  height: 4vh;
 }
 #Landing .right .RecentMessages .recent-messages-list {
   flex: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: safe;
+}
+#Landing .right .RecentMessages .recent-messages-list .message-box {
+  margin: 2vh 0;
+  height: 7vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
   justify-content: space-evenly;
+  font-weight: 300;
+  width: auto;
+}
+#Landing .right .RecentMessages .recent-messages-list .message-box .userpfp {
+  background: url("./img/pfp.jpg");
+  background-size: cover;
+  height: 6vh;
+  width: 6vh;
+  margin-right: 0.5vw;
+  border-radius: 60%;
+}
+#Landing .right .RecentMessages .recent-messages-list .message-box .latest-message {
+  text-align: left;
+}
+#Landing .right .RecentMessages .recent-messages-list .read-false {
+  font-weight: 600;
 }
 
 #navbar {
@@ -181,6 +227,23 @@ a {
   left: 0;
   width: 100vw;
   height: 5vh;
+}
+#navbar .logo {
+  height: 4vh;
+  width: auto;
+  border-radius: 60%;
+}
+#navbar .left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#navbar .left input {
+  margin-left: 1vw;
+  height: 3vh;
+  border-radius: 2px;
+  border: none;
+  background: #334155;
 }
 #navbar button {
   margin: 0 1vw;
