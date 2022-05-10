@@ -1,0 +1,52 @@
+#navbar {
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5vh;
+  button {
+    margin: 0 1vw;
+    color: $dark;
+    &:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 500;
+      img {
+        margin: 0 0.5vw;
+      }
+    }
+  }
+  .mid {
+    display: flex;
+    width: 100%;
+    margin-left: auto;
+    justify-content: right;
+    flex: 2;
+  }
+  .right {
+    border-left: $dark 1px solid;
+    display: flex;
+  }
+}
+.pfp {
+  height: 3vh;
+  width: 3vh;
+  border-radius: 60%;
+}
+.ico {
+  height: 3vh;
+  width: 3vh;
+}
+.theme-ico {
+  height: 3vh;
+  width: 3vh;
+  fill: $dark;
+  stroke: $dark;
+}

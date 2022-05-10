@@ -9,6 +9,17 @@
   .column {
     min-height: 90vh;
   }
+  section {
+    background: $light100;
+    border-radius: 18px;
+    padding: 2vh 2vw;
+  }
+  input {
+    border-radius: 2px;
+    border: none;
+    border-bottom: $dark 1px solid;
+    background: $light;
+  }
   .mid {
     width: 50vw;
     flex: 2;
@@ -16,14 +27,13 @@
     flex-direction: column;
     align-items: center;
     .CreatePost {
-      width: 100%;
+      width: 90%;
       height: 25vh;
-      background: cyan;
     }
     .Flux {
+      margin-top: 2vh;
       height: auto;
-      width: 100%;
-      background: green;
+      width: 90%;
     }
   }
   .left,
@@ -33,18 +43,33 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: red;
   }
   .left {
     .UserProfile {
       height: 50vh;
-      width: 100%;
-      background: purple;
+      margin: 0.5vh 0;
+      width: 90%;
     }
     .UserGroupe {
+      margin: 0.5vh 0;
       height: 40vh;
-      width: 100%;
-      background: blue;
+      width: 90%;
+    }
+  }
+  .right {
+    .RecentMessages {
+      height: 90vh;
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      .recent-messages-list {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+      }
     }
   }
 }
