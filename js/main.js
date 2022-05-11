@@ -11,37 +11,43 @@ const ThemeToggle = () => {
 const Logout = () => {
   window.location = "http://localhost/projet-backend/includes/Logout.inc.php";
 };
-const userMessages = [
-  {
-    user: "Maria DeLopez",
-    latestmessage: "Lemme see yo body baby",
-    read: false,
-  },
-  {
-    user: "John Doe",
-    latestmessage: "Yo bro can you come tonight ?",
-    read: false,
-  },
-  {
-    user: "Katy Petty",
-    latestmessage:
-      "Oh baby you cute but I got a boyfriend and I ain't sharin it",
-    read: true,
-  },
-  {
-    user: "Biola Kuruz",
-    latestmessage: "Help I need to see yo momma she to big",
-    read: true,
-  },
-  {
-    user: "Patrick Sebastien",
-    latestmessage:
-      "Ha ! Qu'est-ce qu'on est serré, au fond de cette boite,Chantent les sardines, chantent les sardines,Ha ! Qu'est-ce qu'on est serré, au fond de cette boite,Chantent les sardines entre l'huile et les aromates. (x2) ",
-    read: true,
-  },
-  {
-    user: "Krush Sanda",
-    latestmessage: "I love you Sanda",
-    read: true,
-  },
-];
+
+const searchBar = document.getElementById("searchuser"),
+  usersList = document.getElementById("discussionlist");
+
+searchBar.onkeyup = () => {
+  let searchTerm = searchBar.value;
+  if (searchTerm != "") {
+    searchBar.classList.add("active");
+  } else {
+    searchBar.classList.remove("active");
+  }
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "php/search.php", true);
+  xhr.onload = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        let data = xhr.response;
+        usersList.innerHTML = data;
+      }
+    }
+  };
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send("searchTerm=" + searchTerm);
+};
+
+setInterval(() => {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "php/users.php", true);
+  xhr.onload = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        let data = xhr.response;
+        if (!searchBar.classList.contains("active")) {
+          usersList.innerHTML = data;
+        }
+      }
+    }
+  };
+  xhr.send();
+}, 500);
