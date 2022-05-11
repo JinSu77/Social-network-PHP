@@ -29,10 +29,7 @@
       background: none;
       border: none;
       border-bottom: $dark 2px solid;
-      height: 1vh;
-      &:focus {
-        height: 3vh;
-      }
+      height: 3vh;
     }
     button {
       background: $light;

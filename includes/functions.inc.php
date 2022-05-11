@@ -73,30 +73,6 @@ function UsernameExist($connection, $name, $email)
     mysqli_stmt_close($stmt);
 }
 
-# La théorie dit qu'on en a pas besoin mais au casou je le garde
-
-/* function projectNameExist($connection, $projectname)
-{
-    $sql = "SELECT * FROM projects WHERE projectname = ?;";
-    $stmt = mysqli_stmt_init($connection);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../signUp.php?error=stmtFailed");
-        exit();
-    }
-    mysqli_stmt_bind_param($stmt, "s", $projectname);
-    mysqli_stmt_execute($stmt);
-    $resultData = mysqli_stmt_get_result($stmt);
-
-    if ($row = mysqli_fetch_assoc($resultData)) {
-        return $row;
-    } else {
-        $result = false;
-        return $result;
-    }
-
-    mysqli_stmt_close($stmt);
-} */
-
 // Créer un utilisateur dans la base de donnée
 // @Setsudan
 function createUser($connection, $name, $email, $password)

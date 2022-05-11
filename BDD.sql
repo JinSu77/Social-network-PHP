@@ -1,25 +1,26 @@
 CREATE TABLE `users`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `e-mail` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
     `username` VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
-    `user_post` JSON NOT NULL,
-    `user_photo` TEXT NOT NULL,
-    `bio` VARCHAR(255) NOT NULL
+    `user_post` JSON NULL,
+    `user_photo` TEXT NULL,
+    `bio` VARCHAR(255) NULL
 );
 CREATE TABLE `Post`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` INT UNSIGNED NOT NULL,
     `post_text` LONGTEXT NULL,
     `post_img` TEXT NULL,
-    `post_date` DATETIME NOT NULL
+    `post_date` DATETIME NOT NULL,
+    `page_post` JSON NULL,
+    `groupe_post` JSON NULL
 );
 CREATE TABLE `groupe`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL,
     `image` TEXT NULL,
-    `banniere` TEXT NULL,
-    `groupe_id` INT UNSIGNED NOT NULL
+    `banniere` TEXT NULL
 );
 CREATE TABLE `message`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -32,10 +33,9 @@ CREATE TABLE `message`(
 );
 CREATE TABLE `page`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) NOT NULL,
-    `description` VARCHAR(255) NOT NULL,
-    `banniere` TEXT NOT NULL,
-    `page_id` INT UNSIGNED NOT NULL
+    `name` VARCHAR(255) NULL,
+    `description` VARCHAR(255) NULL,
+    `banniere` TEXT NULL
 );
 CREATE TABLE `users_groupes`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -68,14 +68,14 @@ CREATE TABLE `user_page`(
 CREATE TABLE `reaction_like`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` INT UNSIGNED NOT NULL,
-    `post_id` INT UNSIGNED NOT NULL
+    `post_id` INT UNSIGNED NULL
 );
 CREATE TABLE `reaction_comment`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` INT UNSIGNED NOT NULL,
     `post_id` INT UNSIGNED NOT NULL,
-    `text` LONGTEXT NOT NULL,
-    `date` DATETIME NOT NULL
+    `text` LONGTEXT NULL,
+    `date` DATETIME NULL
 );
 ALTER TABLE
     `follower` ADD CONSTRAINT `follower_follower_id_foreign` FOREIGN KEY(`follower_id`) REFERENCES `users`(`id`);

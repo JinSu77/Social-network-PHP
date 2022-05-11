@@ -3,7 +3,7 @@
 $ip = "localhost";
 $dbUsername = "root";
 $dbPass = "";
-$dbName = "paintenmieux";
+$dbName = "pathetic";
 
 $connection = mysqli_connect($ip, $dbUsername, $dbPass, $dbName);
 if (!$connection) {

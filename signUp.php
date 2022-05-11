@@ -3,12 +3,6 @@ require "./components/header.php" ?>
 <section class="SignUp-Form">
     <form action="./includes/signUp.inc.php" method="POST">
         <h1>Sign Up</h1>
-        <div class="pfp">
-            <label for="pfp">Your Profile Picture</label>
-            <?php # a refaire
-            ?>
-            <input type="image" src="#" alt="pfp" name="pfp">
-        </div>
         <div class="email">
             <label for="email">Your email</label>
             <input type="email" name="email" id="">

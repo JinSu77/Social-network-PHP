@@ -73,10 +73,6 @@ a {
   background: none;
   border: none;
   border-bottom: #f8fafc 2px solid;
-  height: 1vh;
-}
-.Login-Form form input:focus,
-.SignUp-Form form input:focus {
   height: 3vh;
 }
 .Login-Form form button,

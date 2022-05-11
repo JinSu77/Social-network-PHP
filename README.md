@@ -58,14 +58,14 @@
 | Team 2 | Veljko   | Arsène   |
 | Team 3 | Ethan    | Carim    |
 
-| Personne            | Rôle | Github                                   | Linkedin                                                                               |
-| ------------------- | ---- | ---------------------------------------- | -------------------------------------------------------------------------------------- |
-| VIDEAU Ethan        | --   | [@Setsudan](https://github.com/Setsudan) | [Launay Ethan](https://www.linkedin.com/in/videau-launay-ethan/)                       |
-| GAOUSSOU Bakayoko   | --   | [@gaoubak](https://github.com/gaoubak)   | [Gaoussou Bakayoko](https://www.linkedin.com/in/kader-bakayoko-341b53190/)             |
-| DOBROVOLSKYY Arsène | --   | [@Daiiruin](https://github.com/Daiiruin) | [DOBROVOLSKYY Arsène](https://www.linkedin.com/in/ars%C3%A8ne-dobrovolskyy-458045226/) |
-| VOJINOVIC Veljko    | --   | [@V-eljko](https://github.com/V-eljko)   | [Vojinovic Veljko](https://www.linkedin.com/in/veljko-vojinovic-365823226/)            |
-| Adrien HA           | --   | [@JinSu77](https://github.com/JinSu77)   | [Adrien HA](https://www.linkedin.com/in/adrien-ha-b39045226/)                          |
-| Carim               | --   | [@carim75](https://github.com/carim75)   | [--]()                                                                                 |
+| Personne            | Rôle         | Github                                   | Linkedin                                                                               |
+| ------------------- | ------------ | ---------------------------------------- | -------------------------------------------------------------------------------------- |
+| VIDEAU Ethan        | --           | [@Setsudan](https://github.com/Setsudan) | [Launay Ethan]                                                                         |
+| GAOUSSOU Bakayoko   | Archi Réseau | [@gaoubak](https://github.com/gaoubak)   | [Gaoussou Bakayoko](https://www.linkedin.com/in/kader-bakayoko-341b53190/)             |
+| DOBROVOLSKYY Arsène | --           | [@Daiiruin](https://github.com/Daiiruin) | [DOBROVOLSKYY Arsène](https://www.linkedin.com/in/ars%C3%A8ne-dobrovolskyy-458045226/) |
+| VOJINOVIC Veljko    | --           | [@V-eljko](https://github.com/V-eljko)   | [Vojinovic Veljko](https://www.linkedin.com/in/veljko-vojinovic-365823226/)            |
+| Adrien HA           | --           | [@JinSu77](https://github.com/JinSu77)   | [Adrien HA](https://www.linkedin.com/in/adrien-ha-b39045226/)                          |
+| Carim               | --           | [@carim75](https://github.com/carim75)   | [--]()                                                                                 |
 
 ## Progress tracker
 
@@ -82,3 +82,4 @@
 - Implémentation du système de connection @Setsudan
 - Ajout du système des messages récent @Setsudan
 - Ajout des logos proposé
+- Finalisation de l'archi réseau + ajout de la BDD SQL
