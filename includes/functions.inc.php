@@ -90,6 +90,7 @@ function createUser($connection, $name, $email, $password)
     header("location: ../Login.php");
     exit();
 }
+
 #! à refaire pour les post mais la fonctions est bonne
 function saveProject($connection, $author, $projectName, $board)
 {

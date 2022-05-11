@@ -98,3 +98,4 @@
 #### 11/05/2022
 
 - Debug de la BDD + ajout de la fonctionalité des post @gaoubak
+- Ajouts de la fonctionnalité permettant de poster @gaoubak
