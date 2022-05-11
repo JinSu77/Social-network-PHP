@@ -1,5 +1,16 @@
 # Projet Back
 
+## Structure du dossier
+
+- components : Tout les parties visible ou nécéssaire sur plusieurs pages
+- includes : toutes les fonctions php ou les partie de code non visibles nécéssaire au fonctionnement du site
+- js : tout les fichiers javascript
+- pages : les différentes page si il y a
+- sql : la BDD à importer dans une base de donnée nommée "pathetic"
+- styles : le scss/css pour les modes light/dark
+- Les fichiers présents dans la racine du projet sont index.php et .gitattributes le reste doit être mis dans les dossiers concernées
+
+## TODO LIST
 - Authentification : 
   - Créer son compte ✅
   - Se connecter ✅
@@ -82,4 +93,8 @@
 - Implémentation du système de connection @Setsudan
 - Ajout du système des messages récent @Setsudan
 - Ajout des logos proposé
-- Finalisation de l'archi réseau + ajout de la BDD SQL
+- Finalisation de l'archi réseau + ajout de la BDD SQL @gaoubak
+
+#### 11/05/2022
+
+- Debug de la BDD + ajout de la fonctionalité des post @gaoubak

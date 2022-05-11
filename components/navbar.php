@@ -2,7 +2,7 @@
 ?>
 <div id="navbar">
     <div class="left">
-        <img src="./styles/img/RasLeCul.png" alt="logo" class="logo" />
+        <img src="./styles/img/logo.png" alt="logo" class="logo" />
         <input type="search" name="searchpeople" id="">
     </div>
     <div class="mid">

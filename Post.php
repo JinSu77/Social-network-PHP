@@ -3,7 +3,7 @@
 class Post {
     public function __construct($bdd){
         $this-> bdd = $bdd;
-        $this->connect = $this->bdd->connectDb()//function pour se connecter a la base de donne
+        $this->connect = $this->bdd->connectDb();//function pour se connecter a la base de donne
 
     }
     // envoyer le post dur la bd
@@ -30,6 +30,3 @@ class Post {
         return true ;
     }
 }
-
-
-/>
