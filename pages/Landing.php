@@ -1,6 +1,9 @@
 <?php
 require "./components/header.php";
 require "./components/navbar.php";
+include_once("./includes/Post.inc.php");
+include_once("./includes/Post.php");
+include_once("./includes/db_connect.inc.php");
 ?>
 <main id="Landing">
     <? #Chaque section est à remplacer par vos parties 
@@ -23,14 +26,23 @@ require "./components/navbar.php";
     </div>
     <div class="mid column">
         <section class="CreatePost">
-            <form action="#">
+            <?php
+                if($_SERVER['REQUEST_METHOD'] == "POST") {
+                    $post = new Post($bdd);
+                    $post_text = filter_input(INPUT_POST, "post");
+                    $post_img = filter_input(INPUT_POST, "createpostImg");
+                    $result = $post->sentPost( $_SESSION["userid"], $post_text, $post_img);
+                    print_r($_POST);
+                }
+            ?>
+            <form method="post" action="#">
                 <div class="top">
                     <img src="#" alt="" class="pfp">
-                    <input type="text" name="createpostText" id="createpostinput" placeholder="What's happenning ?">
+                    <input type="text" name="post" id="createpostinput" placeholder="What's happenning ?">
                 </div>
                 <div class="bottom">
                     <input type="file" name="createpostImg" id="createpostImg" placeholder="Image">
-                    <button type="submit">Send post</button>
+                    <button type="submit" value="post">Send post</button>
                 </div>
             </form>
         </section>

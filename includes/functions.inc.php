@@ -94,7 +94,7 @@ function loginUser($uid, $pwd)
         exit();
     } else if ($checkPass === true) {
         session_start();
-        $_SESSION["userid"] = $uidExist['usersId'];
+        $_SESSION["userid"] = $uidExist['id'];
         $_SESSION["useruid"] = $uidExist['username'];
         header("location: ../index.php");
         exit();
