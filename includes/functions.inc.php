@@ -90,21 +90,6 @@ function createUser($connection, $name, $email, $password)
     header("location: ../Login.php");
     exit();
 }
-#! à refaire pour les post mais la fonctions est bonne
-function saveProject($connection, $author, $projectName, $board)
-{
-    $sql = "INSERT INTO projects (author,projectname,board) VALUES (?,?,?);";
-    $stmt = mysqli_stmt_init($connection);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../signup.php?error=JeSaisPas");
-        exit();
-    }
-    mysqli_stmt_bind_param($stmt, "sss", $author, $projectName, $board);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ./whiteboard.php");
-    exit();
-}
 
 // Vérifie que le formulaire n'est pas d'input vide
 // @Setsudan
