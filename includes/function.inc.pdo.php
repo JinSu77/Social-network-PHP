@@ -1,4 +1,4 @@
-<?php 
+<?php
 function EmptyInputSignUp($name, $email, $password, $pwdcheck)
 {
     if (empty($name) || empty($email) || empty($password) || empty($pwdcheck)) {
@@ -55,28 +55,30 @@ function EmptyInputLogin($username, $pwd)
 }
 
 
-function UserNameExist( $name , $email){
-    $request = connectDb() -> prepare("SELECT * FROM users WHERE username = ? OR email = ?;");
-    $request -> execute([$name , $email]);
+function UserNameExist($name, $email)
+{
+    $request = DB->connectDb()->prepare("SELECT * FROM users WHERE username = ? OR email = ?;");
+    $request->execute([$name, $email]);
     $resultat = $request->fetch(PDO::FETCH_ASSOC);
 
-    if ($resultat){
+    if ($resultat) {
         return $resultat;
-        
     } else {
-            return false;
+        return false;
     }
 }
 
-function createUser($connection, $name, $email, $password){
-    $request = connectDb() -> prepare("INSERT INTO users (email,password,username) VALUES (?,?,?);");
-    $request -> execute([$connection, $name, $email, $password]);
+function createUser($connection, $name, $email, $password)
+{
+    $request = DB->connectDb()->prepare("INSERT INTO users (email,password,username) VALUES (?,?,?);");
+    $request->execute([$connection, $name, $email, $password]);
     $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function loginUser($connection, $uid, $pwd){
-    $uidExist = UserNameExist($connection, $name , $email);
-    
+function loginUser($connection, $uid, $pwd)
+{
+    $uidExist = UserNameExist($connection, $uid, $uid);
+
     if ($uidExist === false) {
         header("location: ../Login.php?error=wrongLogin");
         exit();
@@ -94,5 +96,4 @@ function loginUser($connection, $uid, $pwd){
         header("location: ../index.php");
         exit();
     }
-
 }
