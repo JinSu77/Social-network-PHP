@@ -1,4 +1,6 @@
 <?php
+require_once('./db_connect.inc.php');
+
 function EmptyInputSignUp($name, $email, $password, $pwdcheck)
 {
     if (empty($name) || empty($email) || empty($password) || empty($pwdcheck)) {
@@ -57,7 +59,8 @@ function EmptyInputLogin($username, $pwd)
 
 function UserNameExist($name, $email)
 {
-    $request = DB->connectDb()->prepare("SELECT * FROM users WHERE username = ? OR email = ?;");
+    $db = new DB();
+    $request = $db->connectDb()->prepare("SELECT * FROM users WHERE username = ? OR email = ?;");
     $request->execute([$name, $email]);
     $resultat = $request->fetch(PDO::FETCH_ASSOC);
 
@@ -70,14 +73,15 @@ function UserNameExist($name, $email)
 
 function createUser($connection, $name, $email, $password)
 {
-    $request = DB->connectDb()->prepare("INSERT INTO users (email,password,username) VALUES (?,?,?);");
+    $db = new DB();
+    $request = $db->connectDb()->prepare("INSERT INTO users (email,password,username) VALUES (?,?,?);");
     $request->execute([$connection, $name, $email, $password]);
     $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function loginUser($connection, $uid, $pwd)
+function loginUser($uid, $pwd)
 {
-    $uidExist = UserNameExist($connection, $uid, $uid);
+    $uidExist = UserNameExist($uid, $uid);
 
     if ($uidExist === false) {
         header("location: ../Login.php?error=wrongLogin");
