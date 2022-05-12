@@ -9,20 +9,29 @@ require "./components/navbar.php";
         <section class="UserProfile">
             <img src="#" alt="" id="bannerimg">
             <img src="#" alt="" id="userpfp">
-            <span id="username"></span>
-            <p id="userbio"></p>
-            <span class="userfollower"></span>
-            <span class="userfollows"></span>
+            <span id="username">Loading</span>
+            <p id="userbio">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                neque voluptates maiores.</p>
+            <span class="userfollower">
+                <p>69420</p>
+            </span>
+            <span class="userfollows">
+                <p>69420</p>
+            </span>
         </section>
         <section class="UserGroupe">Groupes</section>
     </div>
     <div class="mid column">
         <section class="CreatePost">
             <form action="#">
-                <img src="#" alt="" class="pfp">
-                <input type="text" name="createpostText" id="createpostinput" placeholder="What's happenning ?">
-                <input type="file" name="createpostImg" id="createpostImg" placeholder="Image">
-                <button type="submit">Send post</button>
+                <div class="top">
+                    <img src="#" alt="" class="pfp">
+                    <input type="text" name="createpostText" id="createpostinput" placeholder="What's happenning ?">
+                </div>
+                <div class="bottom">
+                    <input type="file" name="createpostImg" id="createpostImg" placeholder="Image">
+                    <button type="submit">Send post</button>
+                </div>
             </form>
         </section>
         <section class="Flux">Flux de post</section>
