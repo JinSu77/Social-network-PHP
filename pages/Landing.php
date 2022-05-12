@@ -6,11 +6,11 @@ require "./components/navbar.php";
     <? #Chaque section est à remplacer par vos parties 
     ?>
     <div class="left column">
-        <section class="UserProfile">Profile</section>
+        <?php require "./components/profil.php; " ?>
         <section class="UserGroupe">Groupes</section>
     </div>
     <div class="mid column">
-        <section class="CreatePost">Créer un post</section>
+        <?php require "./components/createpost.php; " ?>
         <section class="Flux">Flux de post</section>
     </div>
     <div class="right column">
