@@ -56,7 +56,6 @@ function EmptyInputLogin($username, $pwd)
     return $result;
 }
 
-
 function UserNameExist($name, $email)
 {
     $db = new DB();

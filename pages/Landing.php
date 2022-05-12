@@ -6,15 +6,38 @@ require "./components/navbar.php";
     <? #Chaque section est à remplacer par vos parties 
     ?>
     <div class="left column">
-        <section class="UserProfile">Profile</section>
+        <section class="UserProfile">
+            <img src="#" alt="" id="bannerimg">
+            <img src="#" alt="" id="userpfp">
+            <span id="username">Loading</span>
+            <p id="userbio">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                neque voluptates maiores.</p>
+            <span class="userfollower">
+                <p>69420</p>
+            </span>
+            <span class="userfollows">
+                <p>69420</p>
+            </span>
+        </section>
         <section class="UserGroupe">Groupes</section>
     </div>
     <div class="mid column">
-        <section class="CreatePost">Créer un post</section>
+        <section class="CreatePost">
+            <form action="#">
+                <div class="top">
+                    <img src="#" alt="" class="pfp">
+                    <input type="text" name="createpostText" id="createpostinput" placeholder="What's happenning ?">
+                </div>
+                <div class="bottom">
+                    <input type="file" name="createpostImg" id="createpostImg" placeholder="Image">
+                    <button type="submit">Send post</button>
+                </div>
+            </form>
+        </section>
         <section class="Flux">Flux de post</section>
     </div>
     <div class="right column">
-        <?php require "./components/recentmessages.php"; ?>
+        <?php require_once "./components/recentmessages.php"; ?>
     </div>
     <?php #Pour accéder au Login/Signup retirer /pages/Landing.php et remplacer le par /Login.php
     ?>
