@@ -56,7 +56,7 @@ function EmptyInputLogin($username, $pwd)
 
 
 function UserNameExist( $name , $email){
-    $request = connectDb() -> prepare("SELECT * FROM users WHERE username = ? OR email = ?;")
+    $request = connectDb() -> prepare("SELECT * FROM users WHERE username = ? OR email = ?;");
     $request -> execute([$name , $email]);
     $resultat = $request->fetch(PDO::FETCH_ASSOC);
 
@@ -96,5 +96,3 @@ function loginUser($connection, $uid, $pwd){
     }
 
 }
-
-/>

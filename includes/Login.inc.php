@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $pwd = $_POST['pwd'];
 
     require_once "./db_connect.inc.php";
-    require_once "./functions.inc.php";
+    require_once "./function.inc.pdo.php";
     // Fonctions dans fonctions.inc.php
     if (EmptyInputLogin($username, $pwd) !== false) {
         header("location: ../Login.php?error=emptyinput");
