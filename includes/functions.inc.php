@@ -1,7 +1,6 @@
 <?php
-//Fichier contenant la majorité des fonction php utilisé
-// Vérifie que le formulaire n'est pas d'input vide
-// @Setsudan
+require_once('./db_connect.inc.php');
+
 function EmptyInputSignUp($name, $email, $password, $pwdcheck)
 {
     if (empty($name) || empty($email) || empty($password) || empty($pwdcheck)) {
@@ -47,54 +46,6 @@ function pwdMatch($password, $pwdcheck)
     }
     return $result;
 }
-
-//Vérifie qu'un mail ou nom d'utilisateur est déjà pris
-//@Setsudan
-
-function UsernameExist($connection, $name, $email)
-{
-    $sql = "SELECT * FROM users WHERE username = ? OR email = ?;";
-    $stmt = mysqli_stmt_init($connection);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../signUp.php?error=stmtFailed");
-        exit();
-    }
-    mysqli_stmt_bind_param($stmt, "ss", $name, $email);
-    mysqli_stmt_execute($stmt);
-    $resultData = mysqli_stmt_get_result($stmt);
-
-    if ($row = mysqli_fetch_assoc($resultData)) {
-        return $row;
-    } else {
-        $result = false;
-        return $result;
-    }
-
-    mysqli_stmt_close($stmt);
-}
-
-// Créer un utilisateur dans la base de donnée
-// @Setsudan
-function createUser($connection, $name, $email, $password)
-{
-    $sql = "INSERT INTO users (email,password,username) VALUES (?,?,?);";
-    $stmt = mysqli_stmt_init($connection);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../signup.php?error=JeSaisPas");
-        exit();
-    }
-    $hashedpwd = password_hash($password, PASSWORD_DEFAULT);
-    mysqli_stmt_bind_param($stmt, "sss", $email, $hashedpwd, $name);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ../Login.php");
-    exit();
-}
-#! à refaire pour les post mais la fonctions est bonne
-
-
-// Vérifie que le formulaire n'est pas d'input vide
-// @Setsudan
 function EmptyInputLogin($username, $pwd)
 {
     if (empty($username) || empty($pwd)) {
@@ -105,11 +56,33 @@ function EmptyInputLogin($username, $pwd)
     return $result;
 }
 
-// Login l'utilisateur
-// @Setsudan
-function loginUser($connection, $uid, $pwd)
+
+function UserNameExist($name, $email)
 {
-    $uidExist = UsernameExist($connection, $uid, $uid);
+    $db = new DB();
+    $request = $db->connectDb()->prepare("SELECT * FROM users WHERE username = ? OR email = ?;");
+    $request->execute([$name, $email]);
+    $resultat = $request->fetch(PDO::FETCH_ASSOC);
+
+    if ($resultat) {
+        return $resultat;
+    } else {
+        return false;
+    }
+}
+
+function createUser($name, $email, $password)
+{
+    $db = new DB();
+    $bdd = $db->connectDb();
+    $request = $db->connectDb()->prepare("INSERT INTO users (email,password,username) VALUES (?,?,?);");
+    $request->execute([$bdd, $name, $email, $password]);
+    $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function loginUser($uid, $pwd)
+{
+    $uidExist = UserNameExist($uid, $uid);
 
     if ($uidExist === false) {
         header("location: ../Login.php?error=wrongLogin");
@@ -129,5 +102,3 @@ function loginUser($connection, $uid, $pwd)
         exit();
     }
 }
-
-"SELECT TOP 1 * FROM PlacedOrderDetails ORDER BY DateTimeCreated DESC"
