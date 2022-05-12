@@ -27,12 +27,12 @@ if (isset($_POST['submit'])) {
         header("location: ../signUp.php?error=passwordAreDifferent");
         exit();
     }
-    if (UsernameExist($connection, $name, $email) !== false) {
+    if (UsernameExist($name, $email) !== false) {
         header("location: ../signUp.php?error=usernameTaken");
         exit();
     }
 
-    createUser($connection, $name, $email, $password);
+    createUser($name, $email, $password);
     header("location: ../Login.php");
 } else {
     header("location: ../signUp.php");
