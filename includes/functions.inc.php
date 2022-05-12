@@ -74,10 +74,9 @@ function UserNameExist($name, $email)
 function createUser($name, $email, $password)
 {
     $db = new DB();
-    $bdd = $db->connectDb();
     $request = $db->connectDb()->prepare("INSERT INTO users (email,password,username) VALUES (?,?,?);");
-    $request->execute([$bdd, $name, $email, $password]);
-    $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
+    $pass = password_hash($password, PASSWORD_DEFAULT);
+    $request->execute([$email, $pass, $name]);
 }
 
 function loginUser($uid, $pwd)
