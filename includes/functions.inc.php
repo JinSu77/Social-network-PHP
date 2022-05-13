@@ -96,6 +96,7 @@ function loginUser($uid, $pwd)
         session_start();
         $_SESSION["userid"] = $uidExist['usersId'];
         $_SESSION["useruid"] = $uidExist['username'];
+        $_SESSION["bio"] = "";
         header("location: ../index.php");
         exit();
     }
