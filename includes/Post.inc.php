@@ -10,10 +10,10 @@ class Post
         $this->bdd = $bdd;
     }
     // envoyer le post dur la bd
-    public function sentPost($post_text, $post_img, $post_date, $user_id, $type)
+    public function sentPost($user_id, $post_text, $post_img)
     {
-        $request =  $this->bdd->prepare("INSERT INTO Post(user_id,post_text,post_img,post_date,type VALUES (?,?,?,now(),?)");
-        $request->execute([$user_id, $post_text, $post_img, $post_date, $type]);
+        $request =  $this->bdd->prepare("INSERT INTO post(user_id,post_text,post_img,post_date) VALUES (?,?,?,now())");
+        $request->execute([$user_id, $post_text, $post_img]);
         return true;
     }
     // recupere to les post possible
