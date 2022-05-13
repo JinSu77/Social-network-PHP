@@ -6,4 +6,4 @@ $searchUserCommand = "SELECT username FROM users WHERE username like ?";
 $request = $db->connectDb()->prepare($searchUserCommand);
 $request->execute(['%' . $_POST['search'] . '%']);
 $resultat = $request->fetch(PDO::FETCH_ASSOC);
-var_dump($resultat);
+echo json_encode($resultat);
