@@ -39,41 +39,6 @@ class Profile
         $request -> execute([$bio, $_SESSION["userid"]]);
         $_SESSION["useruid"] = $bio; 
     }
-    public function uploadMaPhoto(){
-        $error = 0;
-        if(isset($_FILES['profilPicture']) && $_FILES['profilPicture']['error'] == 0){
-            // La size de la photo de profil doit être inférieur à 10mo.
-            if($_FILES['profilPicture']['size'] <= 10000000){
-                $imageInfos = pathinfo($_FILES['profilPicture']['name']);
-                $extensionImage = $imageInfos['extension'];
-                $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
-            
-    
-                if(in_array($extensionImage, $extensionAutorisee)){
-                    $fileName = time().rand().'.'.$extensionImage;
-                    $myFilePath = "../upload/".$fileName;
-                    move_uploaded_file($_FILES['profilPicture']['tmp_name'], $myFilePath);
-                    
-                }else {
-                    $error = 1;
-                }
-    
-            } else {
-                $error = 1;
-            }
-        }else{
-            $error = 1;
-        }
-    
-        if($error == 1){
-            echo "Erreur, votre photo n'a pas été upload.";
-            $error = 0;
-        } /* else {
-            http_response_code(302);
-            header("location: ../Landing.php");
-            exit();
-        } */
-    }
 
 }
 
