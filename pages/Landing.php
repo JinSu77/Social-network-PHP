@@ -39,6 +39,7 @@ require "./components/navbar.php";
     <div class="right column">
         <?php require_once "./components/recentmessages.php"; ?>
     </div>
-    <?php #Pour accéder au Login/Signup retirer /pages/Landing.php et remplacer le par /Login.php
+    <?php
+    #Pour accéder au Login/Signup retirer /pages/Landing.php et remplacer le par /Login.php
     ?>
 </main>

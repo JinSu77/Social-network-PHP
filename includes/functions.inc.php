@@ -83,18 +83,17 @@ function loginUser($uid, $pwd)
     $uidExist = UserNameExist($uid, $uid);
 
     if ($uidExist === false) {
-        header("location: ../Login.php?error=wrongLogin");
+        header("location: ../Login.php?error=YouDontExist");
         exit();
     }
     $pwdHashed = $uidExist['password'];
     $checkPass = password_verify($pwd, $pwdHashed);
 
     if ($checkPass === false) {
-        header("location: ../login.php?error=wrongLogin");
+        header("location: ../login.php?error=wrondPassword");
         exit();
     } else if ($checkPass === true) {
         session_start();
-        $_SESSION["userid"] = $uidExist['usersId'];
         $_SESSION["useruid"] = $uidExist['username'];
         header("location: ../index.php");
         exit();
