@@ -30,6 +30,7 @@ class Post
         $request->execute([$uid]);
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
     }
+    // delete un post
     public function deletePost($id)
     {
         $request =  $this->bdd->prepare("DELETE FROM Post where id = ? ");
