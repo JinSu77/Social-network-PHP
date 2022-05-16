@@ -53,6 +53,8 @@ echo $_FILES['profilPicture']['tmp_name'];
                 $post_text = filter_input(INPUT_POST, "post");
                 $post_img = filter_input(INPUT_POST, "createpostImg");
                 $result = $post->sentPost($_SESSION["userid"], $post_text, $post_img);
+/*                 $maPhoto = "createpostImg";
+                PostMaPhoto($maPhoto); */
             }
             ?>
             <form method="post" action="#" enctype="multipart/form-data">

@@ -167,14 +167,14 @@ function afficherPostImage($id)
     echo "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
 }
 
-function PostMaPhoto()
+function PostMaPhoto($maPhoto)
 {
     $id = $_SESSION["userid"];
     $error = 0;
-    if (isset($_FILES['profilPicture']) && $_FILES['profilPicture']['error'] == 0) {
+    if (isset($_FILES[$maPhoto]) && $_FILES[$maPhoto]['error'] == 0) {
         // La size de la photo de profil doit être inférieur à 10mo.
-        if ($_FILES['profilPicture']['size'] <= 10000000) {
-            $imageInfos = pathinfo($_FILES['profilPicture']['name']);
+        if ($_FILES[$maPhoto]['size'] <= 10000000) {
+            $imageInfos = pathinfo($_FILES[$maPhoto]['name']);
             $extensionImage = $imageInfos['extension'];
             $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
             
@@ -182,7 +182,7 @@ function PostMaPhoto()
                 $fileName = time().rand().'.'.$extensionImage;
                 $myPublicFilePath = "uploads/".$fileName;
                 $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
-                move_uploaded_file($_FILES['profilPicture']['tmp_name'], $myFilePath);
+                move_uploaded_file($_FILES[$maPhoto]['tmp_name'], $myFilePath);
             } else {
                 $error = 1;
             }
