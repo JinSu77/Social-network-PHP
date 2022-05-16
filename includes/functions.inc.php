@@ -101,23 +101,25 @@ function loginUser($uid, $pwd)
     }
 }
 
-function afficherMonImageDeProfil($id){
+function afficherMonImageDeProfil($id)
+{
     $id = $_SESSION["userid"];
     $db = new DB();
     $maRequete = $db->connectDb()->prepare("SELECT user_photo from users where id= ? ");
-    $maRequete->execute([ $id]);
+    $maRequete->execute([$id]);
     $result = $maRequete->fetch();
 
     $myFilePath = $result["user_photo"];
-    echo "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>".'<br>';
+    echo "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
 }
 
-function uploadMaPhoto(){
-    $id = $_SESSION["userid"]; 
+function uploadMaPhoto()
+{
+    $id = $_SESSION["userid"];
     $error = 0;
-    if(isset($_FILES['profilPicture']) && $_FILES['profilPicture']['error'] == 0){
+    if (isset($_FILES['profilPicture']) && $_FILES['profilPicture']['error'] == 0) {
         // La size de la photo de profil doit être inférieur à 10mo.
-        if($_FILES['profilPicture']['size'] <= 10000000){
+        if ($_FILES['profilPicture']['size'] <= 10000000) {
             $imageInfos = pathinfo($_FILES['profilPicture']['name']);
             $extensionImage = $imageInfos['extension'];
             $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
@@ -127,7 +129,7 @@ function uploadMaPhoto(){
                 $myPublicFilePath = "uploads/".$fileName;
                 $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
                 move_uploaded_file($_FILES['profilPicture']['tmp_name'], $myFilePath);
-            }else {
+            } else {
                 $error = 1;
             }
             $db = new DB();
@@ -136,15 +138,14 @@ function uploadMaPhoto(){
             $myPublicFilePath,
             $id
             ]);
-
         } else {
             $error = 1;
         }
-    }else{
+    } else {
         $error = 1;
     }
 
-    if($error == 1){
+    if ($error == 1) {
         echo "Erreur, votre photo n'a pas été upload.";
         $error = 0;
     } /* else {

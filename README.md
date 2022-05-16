@@ -25,7 +25,7 @@
   - Supprimer son compte ❓
 
 - Relations :
-  - Pouvoir recherche un membre
+  - Pouvoir recherche un membre ✅
   - Pouvoir ajouter ou supprimer un membre comme connexion
 
 - Contenu : **Team 1**
@@ -99,3 +99,13 @@
 
 - Debug de la BDD + ajout de la fonctionalité des post @gaoubak
 - Ajouts de la fonctionnalité permettant de poster @gaoubak
+
+#### 12/05/2022
+
+- Création de l'interface pour chercher les utilisateurs @Setsudan
+- Ajout de la fonctionalité d'ajout de post @gaoubak @JinSu77
+
+#### 13/05/2022
+
+- Finalisation du backend permettant de chercher un utilisateur @Setsudan
+- Finialisation de l'option permettant d'ajouter une photo de profil @gaoubak @JinSu77
