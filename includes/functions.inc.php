@@ -159,7 +159,7 @@ function afficherPostImage($id)
 {
     $id = $_SESSION["userid"];
     $db = new DB();
-    $maRequete = $db->connectDb()->prepare("SELECT post_photo from Post where id= ? ");
+    $maRequete = $db->connectDb()->prepare("SELECT post_img from Post where id= ? ");
     $maRequete->execute([$id]);
     $result = $maRequete->fetch();
 

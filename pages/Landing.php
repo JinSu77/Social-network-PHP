@@ -63,20 +63,35 @@ echo $_FILES['profilPicture']['tmp_name'];
                 <div class="bottom">
                     <input type="file" name="createpostImg" id="createpostImg" placeholder="Image">
                     <button type="submit" value="post">Send post</button>
+                    <div style="width:400px; background-color: red">
+
+                     </div>
                 </div>
             </form>
         </section>
+        <?php                      if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                        $post = new Post($bdd);
+                         $test = $post-> getLastPost($_SESSION["userid"]); 
+                         var_dump($test) ; ?>
+                         
+                  <?php  }?>
+                 <?php foreach($test as $teest): ?> 
         <section class="Flux">
+        
+
             <div class="all-posts">
                 <div class="main-post">
                     <div class="header-post">
                         <div class="profile-post">
                             <a class="picture-post" href="/search?query=%40{{this.name}}">&nbsp;</a>
                             <div class="name-date-post">
-                                <a href="/search?query=%40{{this.name}}" class="name-post">{{this.name}}</a>
-                                <div class="date-post">{{this.relative_time}}</div>
+                                <?= $_SESSION["useruid"] ?>
+                                <a href="/search?query=%40{{this.name}}" class="name-post"></a>
+                                <div class="date-post"><?= $teest["post_date"]?></div>
                             </div>
-                            <i class="material-icons">more_vert</i>
+                            <i class="material-icons">rr</i>
+                        <?= $teest["post_text"]; ?>
+
                         </div>
                     </div>
                     <div class="content-post">
@@ -90,6 +105,8 @@ echo $_FILES['profilPicture']['tmp_name'];
                 </div>
             </div>
         </section>
+
+        <?php endforeach; ?>
     </div>
     <div class="right column">
         <?php require_once "./components/recentmessages.php"; ?>

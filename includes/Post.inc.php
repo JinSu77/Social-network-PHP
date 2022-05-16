@@ -23,17 +23,24 @@ class Post
         $request =  $this->bdd->prepare("SELECT Post.id FROM Post INNER JOIN users ON Post.user_id = users.id WHERE Post.id = ? ");
         $request->execute([$id]);
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($resultat as $values){
+        // foreach ($resultat as $values){
             
-        }
-            
+        // }
+        var_dump($resultat);
     }
     //recuper les 3 dernier post de l'utilisateur
-    public function  getLastPost($uid)
+    public function getLastPost($uid)
     {
-        $request = $this->bdd->prepare("SELECT users.id FROM Post INNER JOIN users ON Post.user_id = users.id WHERE users.id = ? ORDER BY Post.post_date  DESC LIMIT 3");
+        $request = $this->bdd->prepare("SELECT post_text , post_img , post_date FROM Post INNER JOIN users ON Post.user_id = users.id WHERE users.id = ? ORDER BY Post.post_date  DESC LIMIT 3");
         $request->execute([$uid]);
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
+/*          foreach($resultat as $result){
+            echo $_SESSION["useruid"];
+            echo $result["post_text"]."</br>";
+            echo $result["post_img"]."</br>";
+            echo $result["post_date"]."</br>";
+        } */
+        return $resultat;
     }
     public function deletePost($id)
     {
