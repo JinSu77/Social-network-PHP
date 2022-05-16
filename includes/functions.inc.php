@@ -124,7 +124,8 @@ function uploadMaPhoto(){
             
             if(in_array($extensionImage, $extensionAutorisee)){
                 $fileName = time().rand().'.'.$extensionImage;
-                $myFilePath = "../uploads/".$fileName;
+                $myPublicFilePath = "uploads/".$fileName;
+                $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
                 move_uploaded_file($_FILES['profilPicture']['tmp_name'], $myFilePath);
             }else {
                 $error = 1;
@@ -132,7 +133,7 @@ function uploadMaPhoto(){
             $db = new DB();
             $request = $db->connectDb()->prepare("UPDATE users SET user_photo=? where id=?");
             $request->execute([
-            $myFilePath,
+            $myPublicFilePath,
             $id
             ]);
 
