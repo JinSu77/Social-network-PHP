@@ -30,12 +30,15 @@ echo $_FILES['profilPicture']['tmp_name'];
             </span>
             <p id="userbio">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 neque voluptates maiores.</p>
-            <span class="userfollower">
-                <p>69420</p>
+            <span class="stats">
+                <span class="userfollower">
+                    <p>69420</p>
+                </span>
+                <span class="userfollows">
+                    <p>69420</p>
+                </span>
             </span>
-            <span class="userfollows">
-                <p>69420</p>
-            </span>
+
         </section>
         <section class="UserGroupe">Groupes</section>
     </div>

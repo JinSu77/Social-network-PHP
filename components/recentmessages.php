@@ -30,4 +30,4 @@ const searchUser = (searchInput) => {
 </script>
 <?php
 $getChannels = "SELECT * FROM chanel WHERE user-id = {$_SESSION['uid']}"
-?>w
+?>

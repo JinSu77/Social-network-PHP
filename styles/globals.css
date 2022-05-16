@@ -186,48 +186,48 @@ a {
   justify-content: center;
 }
 #Landing .left .UserProfile {
+  padding: 0;
+  margin: 0;
   height: 50vh;
-  margin: 0.5vh 0;
   width: 90%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #Landing .left .UserProfile #bannerimg {
   width: 100%;
-  grid-column: 1/3;
-  grid-row: 1;
+  height: 15vh;
   background-color: cadetblue;
 }
 #Landing .left .UserProfile #userpfp {
+  position: relative;
+  top: 10vh;
   border-radius: 60%;
-  background: red;
   height: 6vh;
   width: 6vh;
-  grid-column: 1/3;
-  align-self: center;
-  grid-row: 1/3;
-  margin: auto;
 }
 #Landing .left .UserProfile #username {
-  width: 100%;
+  width: 80%;
   font-size: 1.35rem;
   margin: 3vh auto;
   text-align: center;
-  grid-column: 1/3;
-  grid-row: 3;
 }
 #Landing .left .UserProfile #userbio {
-  grid-column: 1/3;
-  grid-row: 4;
   font-size: 1rem;
-  width: 100%;
+  width: 80%;
   text-align: left;
 }
-#Landing .left .UserProfile #userfollowers,
-#Landing .left .UserProfile #userfollows {
+#Landing .left .UserProfile .stats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
   width: 100%;
   margin: auto 0;
+}
+#Landing .left .UserProfile .stats #userfollowers,
+#Landing .left .UserProfile .stats #userfollows {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -327,7 +327,7 @@ a {
   height: 3vh;
   border-radius: 2px;
   border: none;
-  background: #334155;
+  border-bottom: 3px #f8fafc;
 }
 #navbar button {
   margin: 0 1vw;
