@@ -12,6 +12,7 @@ class Post
     // envoyer le post dur la bd
     public function sentPost($user_id, $post_text, $post_img)
     {
+
         $request =  $this->bdd->prepare("INSERT INTO post(user_id,post_text,post_img,post_date) VALUES (?,?,?,now())");
         $request->execute([$user_id, $post_text, $post_img]);
         return true;
@@ -36,4 +37,8 @@ class Post
         $request->execute([$id]);
         return true;
     }
+    public function uploadPhotoPost(){
+
+    }
+
 }

@@ -154,3 +154,57 @@ function uploadMaPhoto()
         exit();
     } */
 }
+
+function afficherPostImage($id)
+{
+    $id = $_SESSION["userid"];
+    $db = new DB();
+    $maRequete = $db->connectDb()->prepare("SELECT post_photo from Post where id= ? ");
+    $maRequete->execute([$id]);
+    $result = $maRequete->fetch();
+
+    $myFilePath = $result["user_photo"];
+    echo "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
+}
+
+function PostMaPhoto()
+{
+    $id = $_SESSION["userid"];
+    $error = 0;
+    if (isset($_FILES['profilPicture']) && $_FILES['profilPicture']['error'] == 0) {
+        // La size de la photo de profil doit être inférieur à 10mo.
+        if ($_FILES['profilPicture']['size'] <= 10000000) {
+            $imageInfos = pathinfo($_FILES['profilPicture']['name']);
+            $extensionImage = $imageInfos['extension'];
+            $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
+            
+            if(in_array($extensionImage, $extensionAutorisee)){
+                $fileName = time().rand().'.'.$extensionImage;
+                $myPublicFilePath = "uploads/".$fileName;
+                $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
+                move_uploaded_file($_FILES['profilPicture']['tmp_name'], $myFilePath);
+            } else {
+                $error = 1;
+            }
+            $db = new DB();
+            $request = $db->connectDb()->prepare("UPDATE Post SET post_img=? where id=?");
+            $request->execute([
+            $myPublicFilePath,
+            $id
+            ]);
+        } else {
+            $error = 1;
+        }
+    } else {
+        $error = 1;
+    }
+
+    if ($error == 1) {
+        echo "Erreur, votre photo n'a pas été upload.";
+        $error = 0;
+    } /* else {
+        http_response_code(302);
+        header("location: ../Landing.php");
+        exit();
+    } */
+}

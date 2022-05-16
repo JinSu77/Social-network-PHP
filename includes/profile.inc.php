@@ -39,6 +39,14 @@ class Profile
         $request -> execute([$bio, $_SESSION["userid"]]);
         $_SESSION["useruid"] = $bio; 
     }
+    //supprimé un profile 
+    public function DeleteUser($id)
+    {
+        $request = $this->bdd->prepare("DELETE FROM users where id = ?");
+        $request->execute([$id]);
+        return true;
+        header("location: ../login.php?error=wrongLogin");
+    }
 
 }
 
