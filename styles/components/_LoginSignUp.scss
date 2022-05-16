@@ -13,8 +13,8 @@
   background-size: cover;
   transition: 600ms ease-in-out;
   form {
-    background: $primary;
-    color: $light;
+    background: $tertiary;
+    color: $secondary;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,16 +37,16 @@
     input {
       background: none;
       border: none;
-      border-bottom: $dark 2px solid;
+      border-bottom: $primary 2px solid;
       height: 3vh;
     }
     button {
-      background: $light;
+      background: $secondary;
       border: none;
       height: 5vh;
       width: 5vw;
       border-radius: 8px;
-      color: $dark;
+      color: $primary;
       font-weight: bold;
     }
     a {

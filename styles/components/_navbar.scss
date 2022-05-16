@@ -24,12 +24,12 @@
       height: 3vh;
       border-radius: 2px;
       border: none;
-      border-bottom: 3px $light;
+      border-bottom: 3px $secondary;
     }
   }
   button {
     margin: 0 1vw;
-    color: $dark;
+    color: $primary;
     &:first-child {
       display: flex;
       align-items: center;
@@ -48,7 +48,7 @@
     flex: 2;
   }
   .right {
-    border-left: $dark 1px solid;
+    border-left: $primary 1px solid;
     display: flex;
   }
 }
@@ -64,6 +64,6 @@
 .theme-ico {
   height: 3vh;
   width: 3vh;
-  fill: $dark;
-  stroke: $dark;
+  fill: $primary;
+  stroke: $primary;
 }
