@@ -54,7 +54,7 @@ echo $_FILES['profilPicture']['tmp_name'];
             ?>
             <form method="post" action="#" enctype="multipart/form-data">
                 <div class="top">
-                    <img src="#" alt="" class="pfp">
+                <?php afficherMonImageDeProfil($id) ?>
                     <input type="text" name="post" id="createpostinput" placeholder="What's happenning ?">
                 </div>
                 <div class="bottom">
