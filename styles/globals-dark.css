@@ -37,9 +37,16 @@ a {
 .SignUp-Form {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
   width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 600ms ease-in-out;
 }
 .Login-Form form,
 .SignUp-Form form {
@@ -49,10 +56,13 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 45vh;
-  width: 25vw;
-  border-radius: 8px;
-  border: #0f172a 3px solid;
+  height: 100vh;
+  width: 30vw;
+}
+.Login-Form form h1,
+.SignUp-Form form h1 {
+  font-size: 3rem;
+  margin: 3vh 0;
 }
 .Login-Form form .uid,
 .Login-Form form .password,
@@ -87,6 +97,7 @@ a {
 }
 .Login-Form form a,
 .SignUp-Form form a {
+  width: 6vw;
   align-self: center;
   width: 50%;
   margin-top: 3vh;

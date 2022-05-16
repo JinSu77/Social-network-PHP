@@ -25,7 +25,7 @@
   - Supprimer son compte ❓
 
 - Relations :
-  - Pouvoir recherche un membre
+  - Pouvoir recherche un membre ✅
   - Pouvoir ajouter ou supprimer un membre comme connexion
 
 - Contenu : **Team 1**
