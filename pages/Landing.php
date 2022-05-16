@@ -69,10 +69,11 @@ echo $_FILES['profilPicture']['tmp_name'];
                 </div>
             </form>
         </section>
-        <?php                      if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        <?php       if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         $post = new Post($bdd);
                          $test = $post-> getLastPost($_SESSION["userid"]); 
-                         var_dump($test) ; ?>
+                         /*var_dump($test) ; */
+                    ?>
                          
                   <?php  }?>
                  <?php foreach($test as $teest): ?> 
@@ -90,13 +91,12 @@ echo $_FILES['profilPicture']['tmp_name'];
                                 <div class="date-post"><?= $teest["post_date"]?></div>
                             </div>
                             <i class="material-icons">rr</i>
-                        <?= $teest["post_text"]; ?>
+                        <?= $teest["post_img"]; ?>
 
                         </div>
                     </div>
                     <div class="content-post">
-                        {{{this.post}}} <a class="hashtag" href="#">test</a> <a class="hashtag" href="#">wohoooOOO</a>
-                        aha <a class="person" href="#">profile</a>
+                    <?= $teest["post_text"]; ?> 
                     </div>
                     <div class="bottom-post">
                         <div class="like-post"><i class="material-icons">thumb_up</i></div>
