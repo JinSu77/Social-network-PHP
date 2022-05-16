@@ -10,6 +10,9 @@ include_once("./includes/functions.inc.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $profil = uploadMaPhoto($myFilePath, $id);
 }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $profil = afficherPostImage($myFilePath, $id);
+}
 
 echo $_FILES['profilPicture']['tmp_name'];
 ?>

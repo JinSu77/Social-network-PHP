@@ -23,6 +23,10 @@ class Post
         $request =  $this->bdd->prepare("SELECT Post.id FROM Post INNER JOIN users ON Post.user_id = users.id WHERE Post.id = ? ");
         $request->execute([$id]);
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($resultat as $values){
+            
+        }
+            
     }
     //recuper les 3 dernier post de l'utilisateur
     public function  getLastPost($uid)
