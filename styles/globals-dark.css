@@ -2,8 +2,8 @@
 :root {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  background: #171717;
-  color: #efefef;
+  background: #efefef;
+  color: #171717;
   overflow-x: hidden;
 }
 
@@ -51,7 +51,7 @@ a {
 .Login-Form form,
 .SignUp-Form form {
   background: #06b6d4;
-  color: #efefef;
+  color: #171717;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,17 +82,17 @@ a {
 .SignUp-Form form input {
   background: none;
   border: none;
-  border-bottom: #171717 2px solid;
+  border-bottom: #efefef 2px solid;
   height: 3vh;
 }
 .Login-Form form button,
 .SignUp-Form form button {
-  background: #efefef;
+  background: #171717;
   border: none;
   height: 5vh;
   width: 5vw;
   border-radius: 8px;
-  color: #171717;
+  color: #efefef;
   font-weight: bold;
 }
 .Login-Form form a,
@@ -118,14 +118,14 @@ a {
   min-height: 90vh;
 }
 #Landing section {
-  background: #efefef;
+  background: #171717;
   border-radius: 8px;
   padding: 2vh 2vw;
 }
 #Landing input {
   border-radius: 2px;
   border: none;
-  background: #171717;
+  background: #efefef;
 }
 #Landing .mid {
   width: 50vw;
@@ -257,14 +257,14 @@ a {
   width: 5px;
 }
 #Landing .right .RecentMessages::-webkit-scrollbar-track {
-  background: #171717;
+  background: #efefef;
   border-radius: 8px;
 }
 #Landing .right .RecentMessages::-webkit-scrollbar-thumb {
-  background: #171717;
+  background: #efefef;
 }
 #Landing .right .RecentMessages::-webkit-scrollbar-thumb:hover {
-  background: #171717;
+  background: #efefef;
 }
 #Landing .right .RecentMessages #searchuser {
   height: 4vh;
@@ -307,8 +307,8 @@ a {
   left: 0;
   height: 3vh;
   width: 15vw;
-  background: #171717;
-  color: #efefef;
+  background: #efefef;
+  color: #171717;
   text-align: center;
 }
 
@@ -324,6 +324,7 @@ a {
   left: 0;
   width: 100vw;
   height: 5vh;
+  color: #171717;
 }
 #navbar .logo {
   height: 4vh;
@@ -340,11 +341,10 @@ a {
   height: 3vh;
   border-radius: 2px;
   border: none;
-  border-bottom: 3px #efefef;
+  border-bottom: 3px #171717;
 }
 #navbar button {
   margin: 0 1vw;
-  color: #171717;
 }
 #navbar button:first-child {
   display: flex;
@@ -362,6 +362,9 @@ a {
   justify-content: right;
   flex: 2;
 }
+#navbar .mid button {
+  color: #171717;
+}
 #navbar .right {
   border-left: #171717 1px solid;
   display: flex;
@@ -376,15 +379,16 @@ a {
 .ico {
   height: 3vh;
   width: 3vh;
+  stroke: #171717;
 }
 
 .theme-ico {
   height: 3vh;
   width: 3vh;
-  fill: #171717;
+  fill: transparent;
   stroke: #171717;
 }
 
 .logSign-board a {
-  color: #efefef;
+  color: #171717;
 }/*# sourceMappingURL=globals-dark.css.map */
