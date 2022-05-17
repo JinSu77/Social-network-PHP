@@ -164,7 +164,7 @@ function afficherPostImage($id)
     $result = $maRequete->fetch();
 
     $myFilePath = $result["user_photo"];
-    echo "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
+    echo "<img style='width: 20%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
 }
 
 function PostMaPhoto($maPhoto)
@@ -200,8 +200,8 @@ function PostMaPhoto($maPhoto)
     }
 
     if ($error == 1) {
-        echo "Erreur, votre photo n'a pas été upload.";
-        $error = 0;
+       /*  echo "Erreur, votre photo n'a pas été upload.";
+        $error = 0; */
     } /* else {
         http_response_code(302);
         header("location: ../Landing.php");
