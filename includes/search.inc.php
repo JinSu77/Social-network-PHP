@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "./db_connect.inc.php";
+require_once "./db_connect.inc.php";
 $db = new DB;
 $searchUserCommand = "SELECT username , id FROM users WHERE username like ?";
 $request = $db->connectDb()->prepare($searchUserCommand);

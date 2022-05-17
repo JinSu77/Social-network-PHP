@@ -1,4 +1,4 @@
-<?php require "./includes/db_connect.inc.php";
+<?php require_once "./includes/db_connect.inc.php";
 ?>
 <div id="navbar">
     <div class="left">

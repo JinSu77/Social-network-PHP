@@ -1,7 +1,7 @@
 <?php
 require "./components/header.php";
 require "./components/navbar.php";
-include_once("./includes/db_connect.inc.php");
+require_once("./includes/db_connect.inc.php");
 include_once("./includes/profile.inc.php");
 include_once("./includes/functions.inc.php");
 

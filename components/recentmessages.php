@@ -19,10 +19,9 @@
             .then((json) => {
                 let list = document.getElementById("discussionlist");
                 list.innerHTML = "";
-                let data = JSON.parse(json);
-                console.log(data);
-                
-                let usercard = document.createElement("span");
+                let data = JSON.parse(json);   
+                let usercard = document.createElement("a");
+                usercard.href = "includes/test.php?id="+data.id
                 usercard.classList.add("user-card");
                 usercard.innerText = data.username;
                 list.appendChild(usercard);
