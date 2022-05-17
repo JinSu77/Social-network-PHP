@@ -19,7 +19,7 @@ require "./components/navbar.php";
                 <p>69420</p>
             </span>
         </section>
-        <section class="UserGroupe">Groupes</section>
+        <section class="UserGroupe"><a href="./landing_group.php"> Groupes </a></section>
     </div>
     <div class="mid column">
         <section class="CreatePost">
