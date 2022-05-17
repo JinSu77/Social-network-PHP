@@ -49,27 +49,4 @@ echo $_FILES['profilPicture']['tmp_name'];
     <div class="right column">
         <?php require_once "./components/recentmessages.php"; ?>
     </div>
-    <script>
-    fetch
-    const allPost = document.getElementById("allPost")
-    const post = document.createElement("div")
-    post.classList.add("main-post")
-    setInterval(
-        fetch("./includes/fetchPost.inc.php", {
-            method: "GET",
-        })
-        .then((resp) => resp.text()).then((json) => {
-            let data = JSON.parse(json)
-            data.forEach(post => {
-                let postContainer = document.createElement("div")
-                postContainer.classList.add("main-post")
-                let postHeader = document.createElement("div")
-                postHeader.classList.add("header-post")
-                let profilePost = document.createElement("div")
-                profilePost.classList.add("profil-post")
-
-            });
-        }), 1000
-    )
-    </script>
 </main>

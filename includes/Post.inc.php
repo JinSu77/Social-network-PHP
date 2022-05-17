@@ -23,17 +23,17 @@ class Post
         $request->execute([$id]);
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
         // foreach ($resultat as $values){
-            
+
         // }
         var_dump($resultat);
     }
     //recuper les 3 dernier post de l'utilisateur
     public function getLastPost($uid)
     {
-        $request = $this->bdd->prepare("SELECT username , post_text , post_img , post_date FROM Post INNER JOIN users ON Post.user_id = users.id WHERE users.id = ? ORDER BY Post.post_date  DESC ");
+        $request = $this->bdd->prepare("SELECT username, post_text , post_img , post_date FROM Post INNER JOIN users ON Post.user_id = users.id WHERE users.id = ? ORDER BY Post.post_date  DESC ");
         $request->execute([$uid]);
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
-/*          foreach($resultat as $result){
+        /*          foreach($resultat as $result){
             echo $_SESSION["useruid"];
             echo $result["post_text"]."</br>";
             echo $result["post_img"]."</br>";
@@ -47,8 +47,7 @@ class Post
         $request->execute([$id]);
         return true;
     }
-    public function uploadPhotoPost(){
-
+    public function uploadPhotoPost()
+    {
     }
-
 }
