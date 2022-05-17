@@ -18,7 +18,7 @@
 
 - Profil : **Team 1**
   - Modifier ses informations perso 
-  - Modifier sa photo de profil et bannière
+  - Modifier sa photo de profil et bannière ♻️
   - Désactiver et réactiver son compte
   - Supprimer son compte ❓
 
@@ -107,3 +107,11 @@
 
 - Finalisation du backend permettant de chercher un utilisateur @Setsudan
 - Finialisation de l'option permettant d'ajouter une photo de profil @gaoubak @JinSu77
+
+#### 17/05/2022
+
+- Changement de l'ui
+- Ajout de la fonctionnalité de messagerie
+- Ajout de la fonctionnalité de post
+- Ajout de la fonctionnalité de changement de photo de profil
+- Ajout de système followers
