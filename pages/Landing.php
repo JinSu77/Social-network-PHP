@@ -1,8 +1,6 @@
 <?php
 require "./components/header.php";
 require "./components/navbar.php";
-include_once("./includes/Post.inc.php");
-include_once("./includes/Post.php");
 include_once("./includes/db_connect.inc.php");
 include_once("./includes/profile.inc.php");
 include_once("./includes/functions.inc.php");
@@ -46,74 +44,32 @@ echo $_FILES['profilPicture']['tmp_name'];
         <section class="UserGroupe">Groupes</section>
     </div>
     <div class="mid column">
-        <section class="CreatePost">
-            <?php
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                $post = new Post($bdd);
-                $post_text = filter_input(INPUT_POST, "post");
-                $post_img = filter_input(INPUT_POST, "createpostImg");
-                $result = $post->sentPost($_SESSION["userid"], $post_text, $post_img);
-/*                 $maPhoto = "createpostImg";
-                PostMaPhoto($maPhoto); */
-            }
-            ?>
-            <form method="post" action="#" enctype="multipart/form-data">
-                <div class="top">
-                <?php afficherMonImageDeProfil($id) ?>
-                    <input type="text" name="post" id="createpostinput" placeholder="What's happenning ?">
-                </div>
-                <div class="bottom">
-                    <input type="file" name="createpostImg" id="createpostImg" placeholder="Image">
-                    <button type="submit" value="post">Send post</button>
-                    <div style="width:400px; background-color: red">
-
-                     </div>
-                </div>
-            </form>
-        </section>
-        <?php       if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                        $post = new Post($bdd);
-                         $test = $post-> getLastPost($_SESSION["userid"]); 
-                         /*var_dump($test) ; */
-                    ?>
-                         
-                  <?php  }?>
-                 <?php foreach($test as $teest): ?> 
-        <section class="Flux">
-        
-
-            <div class="all-posts">
-                <div class="main-post">
-                    <div class="header-post">
-                        <div class="profile-post">
-                            <a class="picture-post" href="/search?query=%40{{this.name}}">&nbsp;</a>
-                            <div class="name-date-post">
-                                <?= $_SESSION["useruid"] ?>
-                                <a href="/search?query=%40{{this.name}}" class="name-post"></a>
-                                <div class="date-post"><?= $teest["post_date"]?></div>
-                            </div>
-                            <i class="material-icons">rr</i>
-                        <?= $teest["post_img"]; ?>
-
-                        </div>
-                    </div>
-                    <div class="content-post">
-                    <?= $teest["post_text"]; ?> 
-                    </div>
-                    <div class="bottom-post">
-                        <div class="like-post"><i class="material-icons">thumb_up</i></div>
-                        <div class="comment-post"><i class="material-icons">comment</i></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <?php endforeach; ?>
+        <?php require "./components/Flux.php" ?>
     </div>
     <div class="right column">
         <?php require_once "./components/recentmessages.php"; ?>
     </div>
-    <?php
-    #Pour accéder au Login/Signup retirer /pages/Landing.php et remplacer le par /Login.php
-    ?>
+    <script>
+    fetch
+    const allPost = document.getElementById("allPost")
+    const post = document.createElement("div")
+    post.classList.add("main-post")
+    setInterval(
+        fetch("./includes/fetchPost.inc.php", {
+            method: "GET",
+        })
+        .then((resp) => resp.text()).then((json) => {
+            let data = JSON.parse(json)
+            data.forEach(post => {
+                let postContainer = document.createElement("div")
+                postContainer.classList.add("main-post")
+                let postHeader = document.createElement("div")
+                postHeader.classList.add("header-post")
+                let profilePost = document.createElement("div")
+                profilePost.classList.add("profil-post")
+
+            });
+        }), 1000
+    )
+    </script>
 </main>
