@@ -37,6 +37,7 @@ setInterval(
     })
     .then((resp) => resp.text()).then((json) => {
         let data = JSON.parse(json)
+        console.log(data);
         data.forEach(post => {
             let postContainer = document.createElement("div")
             postContainer.classList.add("main-post")
