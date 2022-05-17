@@ -20,28 +20,45 @@
         </div>
     </form>
 </section>
-<section class="Flux">
+<span class="Flux" id="flux">
     <div class="all-posts" id="allPost">
-        <div class="main-post">
-            <div class="header-post">
-                <div class="profile-post">
-                    <a class="picture-post" href="/search?query=%40{{this.name}}">&nbsp;</a>
-                    <div class="name-date-post">
-                        <?= $_SESSION["useruid"] ?>
-                        <a href="/search?query=%40{{this.name}}" class="name-post"></a>
-                    </div>
-                    <?= $teest["post_img"]; ?>
-
-                </div>
-            </div>
-            <div class="content-post">
-                <?= $teest["post_text"]; ?>
-                <div class="date-post"><?= $teest["post_date"] ?></div>
-            </div>
-            <div class="bottom-post">
-                <div class="like-post">👍</div>
-                <div class="comment-post">💬</div>
-            </div>
-        </div>
     </div>
-</section>
+</span>
+<script>
+const allPost = document.getElementById("allPost")
+setInterval(
+    fetch("./includes/fetchPost.inc.php", {
+        method: "GET",
+    })
+    .then((resp) => resp.text()).then((json) => {
+        let data = JSON.parse(json)
+        data.forEach(post => {
+            let postContainer = document.createElement("div")
+            postContainer.classList.add("main-post")
+            let postHeader = document.createElement("div")
+            postHeader.classList.add("header-post")
+            postContainer.appendChild(postHeader)
+
+            let profilePost = document.createElement("div")
+            profilePost.classList.add("profil-post")
+            postHeader.appendChild(profilePost)
+
+            let userDOM = document.createElement("div")
+            userDOM.classList.add("name-date-post")
+            userDOM.innerText = post.username
+            profilePost.appendChild(userDOM)
+
+            let contentPost = document.createElement("div")
+            contentPost.classList.add("content-post")
+            contentPost.innerText = post.post_text
+            let date = document.createElement("span")
+            date.classList.add("date")
+            date.innerText = post.post_date
+
+            contentPost.appendChild(date)
+            postContainer.appendChild(contentPost)
+            allPost.appendChild(postContainer)
+        });
+    }), 1000
+)
+</script>

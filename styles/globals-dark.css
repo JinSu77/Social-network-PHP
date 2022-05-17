@@ -107,9 +107,10 @@ a {
 #Landing {
   min-height: 97vh;
   width: 95vw;
+  padding-top: 5vh;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin-top: 3vh;
   z-index: 0;
@@ -173,10 +174,35 @@ a {
   height: 5vh;
   margin: 0 0.5vw;
 }
-#Landing .mid .Flux {
+#Landing .mid span#flux {
+  background: none;
   margin-top: 2vh;
   height: auto;
   width: 90%;
+  border-radius: 8px;
+  padding: 2vh 2vw;
+}
+#Landing .mid span#flux #allPost .main-post {
+  border-radius: 8px;
+  margin: 1.5vh 0;
+  background: #171717;
+  color: #efefef;
+  min-height: 15vh;
+  border: 1px #efefef solid;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 2vh 2vw;
+}
+#Landing .mid span#flux #allPost .main-post .content-post {
+  display: flex;
+  flex-direction: column;
+}
+#Landing .mid span#flux #allPost .main-post .content-post .date {
+  color: #06b6d4;
+  opacity: 0.5;
 }
 #Landing .left,
 #Landing .right {

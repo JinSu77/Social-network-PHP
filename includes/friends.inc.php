@@ -1,5 +1,26 @@
-<?php 
-$db = new DB();
+<?php
+require_once "./db_connect.inc.php"; 
 
+$db = new DB();
+$bdd = $db->connectDb();
+
+$friends = New Friends($bdd);
+
+class Friends
+{
+    public function __construct($bdd)
+    {
+        $this->bdd = $bdd;
+    }
+
+    public function AddFriends($uid, $follower_id)
+    {
+
+     $request = $this->bdd->prepare("INSERT INTO follower(user_id, follower_id) VALUES (?,?)" );
+     $request->execute([$uid,$follower_id]);
+     return true;
+
+    }
+}
 
 ?>
