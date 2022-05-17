@@ -15,8 +15,6 @@
   - Créer son compte ✅
   - Se connecter ✅
   - Se déco ✅
-⬆️
-@gaoubak @Daiiruin @V-eljko @Setsudan (Même fonction que projet fullstack paint)
 
 - Profil : **Team 1**
   - Modifier ses informations perso 
