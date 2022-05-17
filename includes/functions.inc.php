@@ -145,7 +145,6 @@ function uploadMaPhoto()
     }
 
     if ($error == 1) {
-        echo "Erreur, votre photo n'a pas été upload.";
         $error = 0;
     } /* else {
         http_response_code(302);
@@ -184,26 +183,25 @@ function PostMaPhoto()
                 move_uploaded_file($_FILES['createpostImg']['tmp_name'], $myFilePath);
             } else {
                 $error = 1;
+                $myFilePath = NULL;
             }
-
-            $db = new DB();
-            $post = new Post($db->connectDb());
-            $post_text = filter_input(INPUT_POST, "post");
-            $post->sentPost($_SESSION["userid"], $post_text, $myPublicFilePath);
-
             //$request = $db->connectDb()->prepare("INSERT INTO post(user_id,post_text,post_img,post_date) VALUES (?,?,?,now())");
             //$request->execute([$id,"",$myPublicFilePath]);
         } else {
-            $error = 1;
+            $myFilePath = NULL;
         }
+
     } else {
         $error = 1;
     }
 
     if ($error == 1) {
-        echo "Erreur, votre photo n'a pas été upload.";
         $error = 0;
     }
+    $db = new DB();
+    $post = new Post($db->connectDb());
+    $post_text = filter_input(INPUT_POST, "post");
+    $post->sentPost($_SESSION["userid"], $post_text, $myPublicFilePath);
     /* else {
         http_response_code(302);
         header("location: ../Landing.php");
