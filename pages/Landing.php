@@ -1,5 +1,4 @@
 <?php
-require "./components/header.php";
 require "./components/navbar.php";
 require_once("./includes/db_connect.inc.php");
 include_once("./includes/profile.inc.php");

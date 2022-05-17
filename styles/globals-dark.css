@@ -196,6 +196,11 @@ a {
   justify-content: space-evenly;
   padding: 2vh 2vw;
 }
+#Landing .mid span#flux #allPost .main-post img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 2vh;
+}
 #Landing .mid span#flux #allPost .main-post .content-post {
   display: flex;
   flex-direction: column;
