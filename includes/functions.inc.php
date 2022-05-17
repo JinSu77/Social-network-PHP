@@ -77,7 +77,6 @@ function createUser($name, $email, $password)
     $pass = password_hash($password, PASSWORD_DEFAULT);
     $request->execute([$email, $pass, $name]);
 }
-
 function loginUser($uid, $pwd)
 {
     $uidExist = UserNameExist($uid, $uid);
@@ -123,10 +122,10 @@ function uploadMaPhoto()
             $imageInfos = pathinfo($_FILES['profilPicture']['name']);
             $extensionImage = $imageInfos['extension'];
             $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
-            
-            if(in_array($extensionImage, $extensionAutorisee)){
-                $fileName = time().rand().'.'.$extensionImage;
-                $myPublicFilePath = "uploads/".$fileName;
+
+            if (in_array($extensionImage, $extensionAutorisee)) {
+                $fileName = time() . rand() . '.' . $extensionImage;
+                $myPublicFilePath = "uploads/" . $fileName;
                 $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
                 move_uploaded_file($_FILES['profilPicture']['tmp_name'], $myFilePath);
             } else {
@@ -135,8 +134,8 @@ function uploadMaPhoto()
             $db = new DB();
             $request = $db->connectDb()->prepare("UPDATE users SET user_photo=? where id=?");
             $request->execute([
-            $myPublicFilePath,
-            $id
+                $myPublicFilePath,
+                $id
             ]);
         } else {
             $error = 1;
@@ -177,10 +176,10 @@ function PostMaPhoto()
             $imageInfos = pathinfo($_FILES['createpostImg']['name']);
             $extensionImage = $imageInfos['extension'];
             $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
-            
-            if(in_array($extensionImage, $extensionAutorisee)){
-                $fileName = time().rand().'.'.$extensionImage;
-                $myPublicFilePath = "uploads/".$fileName;
+
+            if (in_array($extensionImage, $extensionAutorisee)) {
+                $fileName = time() . rand() . '.' . $extensionImage;
+                $myPublicFilePath = "uploads/" . $fileName;
                 $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
                 move_uploaded_file($_FILES['createpostImg']['tmp_name'], $myFilePath);
             } else {
@@ -191,7 +190,7 @@ function PostMaPhoto()
             $post = new Post($db->connectDb());
             $post_text = filter_input(INPUT_POST, "post");
             $post->sentPost($_SESSION["userid"], $post_text, $myPublicFilePath);
-            
+
             //$request = $db->connectDb()->prepare("INSERT INTO post(user_id,post_text,post_img,post_date) VALUES (?,?,?,now())");
             //$request->execute([$id,"",$myPublicFilePath]);
         } else {
@@ -204,7 +203,7 @@ function PostMaPhoto()
     if ($error == 1) {
         echo "Erreur, votre photo n'a pas été upload.";
         $error = 0;
-    } 
+    }
     /* else {
         http_response_code(302);
         header("location: ../Landing.php");

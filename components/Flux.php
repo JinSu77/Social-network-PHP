@@ -56,6 +56,11 @@ setInterval(
             date.classList.add("date")
             date.innerText = post.post_date
 
+            let PostImg = document.createElement("img")
+            PostImg.classList.add("postImg")
+            PostImg.src = post.post_img
+            contentPost.appendChild(PostImg)
+
             contentPost.appendChild(date)
             postContainer.appendChild(contentPost)
             allPost.appendChild(postContainer)

@@ -17,10 +17,10 @@
   - Se déco ✅
 
 - Profil : **Team 1**
-  - Modifier ses informations perso ❌
-  - Modifier sa photo de profil et bannière ♻️
+  - Modifier ses informations perso ♻️
+  - Modifier sa photo de profil et bannière ✅
   - Désactiver et réactiver son compte ❌
-  - Supprimer son compte ❌
+  - Supprimer son compte ✅
 
 - Relations :
   - Pouvoir recherche un membre ✅
