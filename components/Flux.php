@@ -3,12 +3,7 @@
 <section class="CreatePost">
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $post = new Post($bdd);
-        $post_text = filter_input(INPUT_POST, "post");
-        $post_img = filter_input(INPUT_POST, "createpostImg");
-        $result = $post->sentPost($_SESSION["userid"], $post_text, $post_img);
-        /*                 $maPhoto = "createpostImg";
-                PostMaPhoto($maPhoto); */
+        PostMaPhoto();
     }
     ?>
     <form method="post" action="#" enctype="multipart/form-data">
