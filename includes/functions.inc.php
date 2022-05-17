@@ -123,10 +123,10 @@ function uploadMaPhoto()
             $imageInfos = pathinfo($_FILES['profilPicture']['name']);
             $extensionImage = $imageInfos['extension'];
             $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
-            
-            if(in_array($extensionImage, $extensionAutorisee)){
-                $fileName = time().rand().'.'.$extensionImage;
-                $myPublicFilePath = "uploads/".$fileName;
+
+            if (in_array($extensionImage, $extensionAutorisee)) {
+                $fileName = time() . rand() . '.' . $extensionImage;
+                $myPublicFilePath = "uploads/" . $fileName;
                 $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
                 move_uploaded_file($_FILES['profilPicture']['tmp_name'], $myFilePath);
             } else {
@@ -135,8 +135,8 @@ function uploadMaPhoto()
             $db = new DB();
             $request = $db->connectDb()->prepare("UPDATE users SET user_photo=? where id=?");
             $request->execute([
-            $myPublicFilePath,
-            $id
+                $myPublicFilePath,
+                $id
             ]);
         } else {
             $error = 1;
@@ -177,10 +177,10 @@ function PostMaPhoto($maPhoto)
             $imageInfos = pathinfo($_FILES[$maPhoto]['name']);
             $extensionImage = $imageInfos['extension'];
             $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
-            
-            if(in_array($extensionImage, $extensionAutorisee)){
-                $fileName = time().rand().'.'.$extensionImage;
-                $myPublicFilePath = "uploads/".$fileName;
+
+            if (in_array($extensionImage, $extensionAutorisee)) {
+                $fileName = time() . rand() . '.' . $extensionImage;
+                $myPublicFilePath = "uploads/" . $fileName;
                 $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
                 move_uploaded_file($_FILES[$maPhoto]['tmp_name'], $myFilePath);
             } else {
@@ -189,8 +189,8 @@ function PostMaPhoto($maPhoto)
             $db = new DB();
             $request = $db->connectDb()->prepare("UPDATE Post SET post_img=? where id=?");
             $request->execute([
-            $myPublicFilePath,
-            $id
+                $myPublicFilePath,
+                $id
             ]);
         } else {
             $error = 1;
@@ -199,10 +199,10 @@ function PostMaPhoto($maPhoto)
         $error = 1;
     }
 
-    if ($error == 1) {
+    /* if ($error == 1) {
         echo "Erreur, votre photo n'a pas été upload.";
         $error = 0;
-    } /* else {
+    }   else {
         http_response_code(302);
         header("location: ../Landing.php");
         exit();

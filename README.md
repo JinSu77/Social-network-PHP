@@ -29,7 +29,7 @@
   - Pouvoir ajouter ou supprimer un membre comme connexion
 
 - Contenu : **Team 1**
-  - Créer une publication apparaissant sur son profil
+  - Créer une publication apparaissant sur son profil ✅
   -  Commenter une publication ou un autre commentaire (Un niveau max)
   -  Réagir à une publication ou un commentaire avec un emoji
 
