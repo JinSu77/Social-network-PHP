@@ -3,12 +3,7 @@
 <section class="CreatePost">
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $post = new Post($bdd);
-        $post_text = filter_input(INPUT_POST, "post");
-        $post_img = filter_input(INPUT_POST, "createpostImg");
-        $result = $post->sentPost($_SESSION["userid"], $post_text, $post_img);
-        /*                 $maPhoto = "createpostImg";
-                PostMaPhoto($maPhoto); */
+        PostMaPhoto();
     }
     ?>
     <form method="post" action="#" enctype="multipart/form-data">
@@ -30,41 +25,41 @@
     </div>
 </span>
 <script>
-    const allPost = document.getElementById("allPost")
-    setInterval(
-        fetch("./includes/fetchPost.inc.php", {
-            method: "GET",
-        })
-        .then((resp) => resp.text()).then((json) => {
-            let data = JSON.parse(json)
-            console.log(data);
-            data.forEach(post => {
-                let postContainer = document.createElement("div")
-                postContainer.classList.add("main-post")
-                let postHeader = document.createElement("div")
-                postHeader.classList.add("header-post")
-                postContainer.appendChild(postHeader)
+const allPost = document.getElementById("allPost")
+setInterval(
+    fetch("./includes/fetchPost.inc.php", {
+        method: "GET",
+    })
+    .then((resp) => resp.text()).then((json) => {
+        let data = JSON.parse(json)
+        console.log(data);
+        data.forEach(post => {
+            let postContainer = document.createElement("div")
+            postContainer.classList.add("main-post")
+            let postHeader = document.createElement("div")
+            postHeader.classList.add("header-post")
+            postContainer.appendChild(postHeader)
 
-                let profilePost = document.createElement("div")
-                profilePost.classList.add("profil-post")
-                postHeader.appendChild(profilePost)
+            let profilePost = document.createElement("div")
+            profilePost.classList.add("profil-post")
+            postHeader.appendChild(profilePost)
 
-                let userDOM = document.createElement("div")
-                userDOM.classList.add("name-date-post")
-                userDOM.innerText = post.username
-                profilePost.appendChild(userDOM)
+            let userDOM = document.createElement("div")
+            userDOM.classList.add("name-date-post")
+            userDOM.innerText = post.username
+            profilePost.appendChild(userDOM)
 
-                let contentPost = document.createElement("div")
-                contentPost.classList.add("content-post")
-                contentPost.innerText = post.post_text
-                let date = document.createElement("span")
-                date.classList.add("date")
-                date.innerText = post.post_date
+            let contentPost = document.createElement("div")
+            contentPost.classList.add("content-post")
+            contentPost.innerText = post.post_text
+            let date = document.createElement("span")
+            date.classList.add("date")
+            date.innerText = post.post_date
 
-                contentPost.appendChild(date)
-                postContainer.appendChild(contentPost)
-                allPost.appendChild(postContainer)
-            });
-        }), 1000
-    )
+            contentPost.appendChild(date)
+            postContainer.appendChild(contentPost)
+            allPost.appendChild(postContainer)
+        });
+    }), 1000
+)
 </script>

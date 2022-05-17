@@ -123,10 +123,10 @@ function uploadMaPhoto()
             $imageInfos = pathinfo($_FILES['profilPicture']['name']);
             $extensionImage = $imageInfos['extension'];
             $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
-
-            if (in_array($extensionImage, $extensionAutorisee)) {
-                $fileName = time() . rand() . '.' . $extensionImage;
-                $myPublicFilePath = "uploads/" . $fileName;
+            
+            if(in_array($extensionImage, $extensionAutorisee)){
+                $fileName = time().rand().'.'.$extensionImage;
+                $myPublicFilePath = "uploads/".$fileName;
                 $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
                 move_uploaded_file($_FILES['profilPicture']['tmp_name'], $myFilePath);
             } else {
@@ -135,8 +135,8 @@ function uploadMaPhoto()
             $db = new DB();
             $request = $db->connectDb()->prepare("UPDATE users SET user_photo=? where id=?");
             $request->execute([
-                $myPublicFilePath,
-                $id
+            $myPublicFilePath,
+            $id
             ]);
         } else {
             $error = 1;
@@ -159,39 +159,41 @@ function afficherPostImage($id)
 {
     $id = $_SESSION["userid"];
     $db = new DB();
-    $maRequete = $db->connectDb()->prepare("SELECT post_img from Post where id= ? ");
+    $maRequete = $db->connectDb()->prepare("SELECT post_photo from Post where id= ? ");
     $maRequete->execute([$id]);
     $result = $maRequete->fetch();
 
     $myFilePath = $result["user_photo"];
-    echo "<img style='width: 20%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
+    echo "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
 }
 
-function PostMaPhoto($maPhoto)
+function PostMaPhoto()
 {
     $id = $_SESSION["userid"];
     $error = 0;
-    if (isset($_FILES[$maPhoto]) && $_FILES[$maPhoto]['error'] == 0) {
+    if (isset($_FILES['createpostImg']) && $_FILES['createpostImg']['error'] == 0) {
         // La size de la photo de profil doit être inférieur à 10mo.
-        if ($_FILES[$maPhoto]['size'] <= 10000000) {
-            $imageInfos = pathinfo($_FILES[$maPhoto]['name']);
+        if ($_FILES['createpostImg']['size'] <= 10000000) {
+            $imageInfos = pathinfo($_FILES['createpostImg']['name']);
             $extensionImage = $imageInfos['extension'];
             $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
-
-            if(in_array($extensionImage, $extensionAutorisee)) {
+            
+            if(in_array($extensionImage, $extensionAutorisee)){
                 $fileName = time().rand().'.'.$extensionImage;
                 $myPublicFilePath = "uploads/".$fileName;
                 $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
-                move_uploaded_file($_FILES[$maPhoto]['tmp_name'], $myFilePath);
+                move_uploaded_file($_FILES['createpostImg']['tmp_name'], $myFilePath);
             } else {
                 $error = 1;
             }
+
             $db = new DB();
-            $request = $db->connectDb()->prepare("UPDATE Post SET post_img=? where id=?");
-            $request->execute([
-                $myPublicFilePath,
-                $id
-            ]);
+            $post = new Post($db->connectDb());
+            $post_text = filter_input(INPUT_POST, "post");
+            $post->sentPost($_SESSION["userid"], $post_text, $myPublicFilePath);
+            
+            //$request = $db->connectDb()->prepare("INSERT INTO post(user_id,post_text,post_img,post_date) VALUES (?,?,?,now())");
+            //$request->execute([$id,"",$myPublicFilePath]);
         } else {
             $error = 1;
         }
@@ -200,9 +202,10 @@ function PostMaPhoto($maPhoto)
     }
 
     if ($error == 1) {
-       /*  echo "Erreur, votre photo n'a pas été upload.";
-        $error = 0; */
-    } /* else {
+        echo "Erreur, votre photo n'a pas été upload.";
+        $error = 0;
+    } 
+    /* else {
         http_response_code(302);
         header("location: ../Landing.php");
         exit();
