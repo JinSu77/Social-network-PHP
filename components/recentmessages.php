@@ -20,6 +20,8 @@
                 let list = document.getElementById("discussionlist");
                 list.innerHTML = "";
                 let data = JSON.parse(json);
+                console.log(data);
+                
                 let usercard = document.createElement("span");
                 usercard.classList.add("user-card");
                 usercard.innerText = data.username;
