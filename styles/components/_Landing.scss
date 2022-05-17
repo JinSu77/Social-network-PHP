@@ -87,6 +87,11 @@
           align-items: flex-start;
           justify-content: space-evenly;
           padding: 2vh 2vw;
+          img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 2vh;
+          }
           .content-post {
             display: flex;
             flex-direction: column;
