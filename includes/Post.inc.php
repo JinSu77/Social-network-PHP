@@ -30,7 +30,7 @@ class Post
     //recuper les 3 dernier post de l'utilisateur
     public function getLastPost($uid)
     {
-        $request = $this->bdd->prepare("SELECT user_id , post_text , post_img , post_date FROM Post INNER JOIN users ON Post.user_id = users.id WHERE users.id = ? ORDER BY Post.post_date  DESC ");
+        $request = $this->bdd->prepare("SELECT username , post_text , post_img , post_date FROM Post INNER JOIN users ON Post.user_id = users.id WHERE users.id = ? ORDER BY Post.post_date  DESC ");
         $request->execute([$uid]);
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
 /*          foreach($resultat as $result){
