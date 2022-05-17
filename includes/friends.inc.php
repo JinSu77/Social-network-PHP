@@ -14,28 +14,33 @@ class Friends
     }
     public function FriendsExist($uid,$follower_id)
     {
-     $request = $this->bdd->prepare("SELECT FROM follower where user_id = ? AND follower_id = ?");
-     $request->execute([$uid]);
+     $request = $this->bdd->prepare("SELECT * FROM follower where user_id = ? AND follower_id = ?");
+     $request->execute([$uid, $follower_id]);
      $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
+     return $resultat;
     }
     public function AddFriends($uid, $follower_id)
     {
-     $exit = $this->FriendsExist($uid,$follower_id);
-     if(!isset($exit)){
+     $exist = $this->FriendsExist($uid,$follower_id);
+     if($exist){
+     //   exit();
          return null;
      }
      else {
          $request = $this->bdd->prepare("INSERT INTO follower(user_id, follower_id) VALUES (?,?)" );
         $request->execute([$uid,$follower_id]);
-        return true;
+        //echo "<script>console.log(ououi) <script/>";
     }
      
     }
-
-    public function CreateChannel($uid){
-     $request = $this->bdd->prepare("INSERT INTO chanel(user_id, )");
-
+    
+    public function CreateChannel($uid,$follower_uid){
+     $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES (?,?)");
+     $request->execute([$uid,$follower_uid]);
     }
+     public function ShowChannel($chanel_id){
+
+     }
 }
 
 ?>

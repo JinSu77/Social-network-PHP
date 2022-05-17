@@ -62,7 +62,7 @@ const addUser = (searchInput) => {
             list.innerHTML = "";
             let data = JSON.parse(json);
             let usercard = document.createElement("a");
-            usercard.href = "includes/addUser.php?id=" + data.id
+            usercard.href = "includes/addUser.php?id=" +data.id+"&username="+data.username
             usercard.classList.add("user-card");
             usercard.innerText = data.username;
             list.appendChild(usercard);
