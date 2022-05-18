@@ -425,6 +425,17 @@ a {
   stroke: #171717;
 }
 
+.userPage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background: #171717;
+  height: 40vh;
+  width: auto;
+}
+
 .logSign-board a {
   color: #171717;
 }/*# sourceMappingURL=globals-dark.css.map */

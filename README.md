@@ -32,17 +32,17 @@
   -  Réagir à une publication ou un commentaire avec un emoji ❌
 
 - Groupes: **Team 2**
-  - Pouvoir créer un groupe public ou privé ❌
-  - Pouvoir s'inscire à un groupe public, ou candidater à groupe privé ❌
-  - Pouvoir voir les publications des groupes public ❌
+  - Pouvoir créer un groupe public ou privé (DB : Boolean)❌
+  - Pouvoir s'inscire à un groupe public, ou candidater à groupe privé (DB: Liste d'attente ?)❌
+  - Pouvoir voir les publications des groupes public ❌ (DB: pas complicado on reprend le code du Flux.php)
   - En tant que membres :
-    - Pouvoir voir les publications,publier et réagir au sein d'un groupe privé auquel on est inscrit ❌
-    - Pouvoir inviter ses relations au groupe ❌
+    - Pouvoir voir les publications,publier et réagir au sein d'un groupe privé auquel on est inscrit (Pareil qu'au dessus)❌
+    - Pouvoir inviter ses relations au groupe (Liste d'amis avec bouton "invite" qui mets un msg dans le chat ?)❌
   - En tant qu'admin :
-    - Pouvoir accepter ou refuser les candidatures à groupe privé ❌
-    - Pouvoir changer les droits d'un utilisateur ❌
-    - Pouvoir exclure un membre d'un groupe ❌
-    - Pouvoir changer les informations du groupe ❌
+    - Pouvoir accepter ou refuser les candidatures à groupe privé (Système de notif ? ou un channel spécial avec toute les demandes en tant que msg ?)❌
+    - Pouvoir changer les droits d'un utilisateur (DB:Boolean Update)❌
+    - Pouvoir exclure un membre d'un groupe (DB: DELETE user_id WHERE user_id = ?)❌
+    - Pouvoir changer les informations du groupe (DB: UPDATE groupes_bio etc)❌
 
 - Pages : **Team 2**
   - Pouvoir créer des pages publiques ❌
@@ -59,9 +59,9 @@
   - Pouvoir définir le nom et l'image du groupe de messagerie ♻️
 
 - Autre fonctionalité à rajouter:
-  - Une navbar avec les options
-  - Compteur d'amis
-  - Ajout d'une User Page
+  - Une navbar avec les options ✅
+  - Compteur d'amis ✅
+  - Ajout d'une User Page ✅
 
 | Team   | Membre 1 | Membre 2 |
 | ------ | -------- | -------- |
