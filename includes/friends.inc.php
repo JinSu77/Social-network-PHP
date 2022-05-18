@@ -45,18 +45,17 @@ class Friends
         return $resultat;
     }
 
-    public function CreateChannel($uid, $follower_uid)
-    {
-        $exist = $this->ChannelExist($uid, $follower_uid);
-        if ($exist) {
-            return null;
-        } else {
-            $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES (?,?)");
-            $request->execute([$uid, $_SESSION["follower_uid"]]);
-        }
-    }
-    public function ShowChannel($chanel_id)
-    {
+    public function CreateChannel($uid,$follower_uid){
+     $exist = $this->ChannelExist($uid,$follower_uid);
+     if($exist){
+         /* var_dump($follower_uid); */
+         exit();
+     }
+     else {
+         $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES ($uid,$follower_uid)");
+         $request->execute();
+     }
+     
     }
 }
 session_start();
