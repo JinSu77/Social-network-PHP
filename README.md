@@ -67,46 +67,46 @@
 | Team 2 | Veljko   | Arsène   |
 | Team 3 | Ethan    | Carim    |
 
-| Personne            | Rôle                               | Github                                   | Linkedin                                                                               |
-| ------------------- | ---------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------- |
-| VIDEAU Ethan        | --                                 | [@Setsudan](https://github.com/Setsudan) | [Launay Ethan](https://www.linkedin.com/in/videau-launay-ethan/)                       |
-| GAOUSSOU Bakayoko   | Archi Réseau && Backend Dev Master | [@gaoubak](https://github.com/gaoubak)   | [Gaoussou Bakayoko](https://www.linkedin.com/in/kader-bakayoko-341b53190/)             |
-| DOBROVOLSKYY Arsène | --                                 | [@Daiiruin](https://github.com/Daiiruin) | [DOBROVOLSKYY Arsène](https://www.linkedin.com/in/ars%C3%A8ne-dobrovolskyy-458045226/) |
-| VOJINOVIC Veljko    | --                                 | [@V-eljko](https://github.com/V-eljko)   | [Vojinovic Veljko](https://www.linkedin.com/in/veljko-vojinovic-365823226/)            |
-| Adrien HA           | --                                 | [@JinSu77](https://github.com/JinSu77)   | [Adrien HA](https://www.linkedin.com/in/adrien-ha-b39045226/)                          |
-| Carim               | --                                 | [@carim75](https://github.com/carim75)   | [--]()                                                                                 |
+| Personne            | Rôle                        | Github                                   | Linkedin                                                                               |
+| ------------------- | --------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------- |
+| DOBROVOLSKYY Arsène | --                          | [@Daiiruin](https://github.com/Daiiruin) | [DOBROVOLSKYY Arsène](https://www.linkedin.com/in/ars%C3%A8ne-dobrovolskyy-458045226/) |
+| GAOUSSOU Bakayoko   | Archi Réseau && Backend Dev | [@gaoubak](https://github.com/gaoubak)   | [Gaoussou Bakayoko](https://www.linkedin.com/in/kader-bakayoko-341b53190/)             |
+| HA Adrien           | --                          | [@JinSu77](https://github.com/JinSu77)   | [Adrien HA](https://www.linkedin.com/in/adrien-ha-b39045226/)                          |
+| Carim               | --                          | [@carim75](https://github.com/carim75)   | [--]()                                                                                 |
+| VIDEAU Ethan        | Front End && Design         | [@Setsudan](https://github.com/Setsudan) | [Launay Ethan](https://www.linkedin.com/in/videau-launay-ethan/)                       |
+| VOJINOVIC Veljko    | --                          | [@V-eljko](https://github.com/V-eljko)   | [Vojinovic Veljko](https://www.linkedin.com/in/veljko-vojinovic-365823226/)            |
 
 ## Progress tracker
 
 #### 09/05/2022
 
-- Design de l'archi réseau @gaoubak
-- Login/Logout/SignUp @Setsudan
-- Création du squelette de l'interface @Setsudan
-- Ajout du dark mode @Setsudan
+- Design de l'archi réseau 
+- Login/Logout/SignUp 
+- Création du squelette de l'interface 
+- Ajout du dark mode 
 
 #### 10/05/2022
 
-- update de l'ui @Setsudan
-- Implémentation du système de connection @Setsudan
-- Ajout du système des messages récent @Setsudan
+- update de l'ui 
+- Implémentation du système de connection 
+- Ajout du système des messages récent 
 - Ajout des logos proposé
-- Finalisation de l'archi réseau + ajout de la BDD SQL @gaoubak
+- Finalisation de l'archi réseau + ajout de la BDD SQL 
 
 #### 11/05/2022
 
-- Debug de la BDD + ajout de la fonctionalité des post @gaoubak
-- Ajouts de la fonctionnalité permettant de poster @gaoubak
+- Debug de la BDD + ajout de la fonctionalité des post 
+- Ajouts de la fonctionnalité permettant de poster 
 
 #### 12/05/2022
 
-- Création de l'interface pour chercher les utilisateurs @Setsudan
-- Ajout de la fonctionalité d'ajout de post @gaoubak @JinSu77
+- Création de l'interface pour chercher les utilisateurs 
+- Ajout de la fonctionalité d'ajout de post 
 
 #### 13/05/2022
 
-- Finalisation du backend permettant de chercher un utilisateur @Setsudan
-- Finialisation de l'option permettant d'ajouter une photo de profil @gaoubak @JinSu77
+- Finalisation du backend permettant de chercher un utilisateur n
+- Finialisation de l'option permettant d'ajouter une photo de profil 
 
 #### 17/05/2022
 
@@ -115,3 +115,5 @@
 - Ajout de la fonctionnalité de post
 - Ajout de la fonctionnalité de changement de photo de profil
 - Ajout de système followers
+
+#### 18/05/2022
