@@ -65,6 +65,34 @@ fetch("./includes/friends.inc.php", {
     .then((res) => {
         document.getElementById("friends").innerText = res;
     })
+
+const searchUser = () => {
+    let input = document.getElementById("searchUser").value;
+    let data = new FormData();
+    data.append("search", input);
+    fetch("./includes/search.inc.php", {
+            method: "POST",
+            body: data,
+        })
+        .then((resp) => resp.text())
+        .then((json) => {
+            let list = document.getElementById("searchuserlist");
+            list.innerHTML = "";
+            let data = JSON.parse(json);
+            let usercard = document.createElement("a");
+
+            usercard.href = "pages/userpage.php?id=" + data.id + "&username=" + data.username
+            usercard.classList.add("user-card");
+            usercard.innerText = data.username;
+            list.appendChild(usercard);
+            console.log(data["username"]);
+
+        });
+};
+
+const addUser = (username, id) => {
+    header(`location: includes/addUser.php?username=${username}&id=${id}`)
+};
 </script>
 </body>
 
