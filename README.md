@@ -61,6 +61,7 @@
 - Autre fonctionalité à rajouter:
   - Une navbar avec les options
   - Compteur d'amis
+  - Ajout d'une User Page
 
 | Team   | Membre 1 | Membre 2 |
 | ------ | -------- | -------- |
