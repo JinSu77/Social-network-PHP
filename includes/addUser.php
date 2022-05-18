@@ -4,8 +4,8 @@ include_once "./friends.inc.php";
 session_start();
 $follower_id = filter_input(INPUT_GET, "id");
 $follower_uid = filter_input(INPUT_GET, "username");
+$_SESSION["follower_uid"]=$follower_uid; 
 $friends->AddFriends($_SESSION["userid"],$follower_id);
 $friends->CreateChannel($_SESSION["userid"],$follower_uid);
-header("location: ../index.php");
- 
+header("location: ../index.php"); 
 ?>

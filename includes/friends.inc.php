@@ -33,10 +33,23 @@ class Friends
     }
      
     }
-    
+    public function ChannelExist($uid,$follower_uid){
+        $request = $this->bdd->prepare("SELECT * FROM chanel where user_id=? AND nom=?");
+        $request->execute([$uid,$follower_uid]);
+        $resultat = $request->dba_fetchAll(PDO::FETCH_ASSOC);
+        return $resultat;
+    }
+
     public function CreateChannel($uid,$follower_uid){
-     $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES (?,?)");
-     $request->execute([$uid,$follower_uid]);
+     $exist = $this->ChannelExist($uid,$follower_uid);
+     if($exist){
+         return null;
+     }
+     else {
+         $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES (?,?)");
+         $request->execute([$uid,$follower_uid]);
+     }
+     
     }
      public function ShowChannel($chanel_id){
 

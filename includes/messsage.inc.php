@@ -9,8 +9,8 @@ if (isset($_GET['id']) and !empty($_GET['id'])) {
     if ($recupUser->rowCount() > 0) {
         if (isset($_POST['envoyer'])) {
             $message = htmlspecialchars($_POST['message']);
-            $insererMessage = $bdd->prepare('INSERT INTO chanel(messages, id_destinataire, id_auteur)VALUES(?, ?, ?)');
-            $insererMessage->execute(array($message, $getid, $_SESSION['id']));
+            $insererMessage = $bdd->prepare('INSERT INTO chanel(user_id,nom,messages)VALUES(?, ?, ?)');
+            $insererMessage->execute(array($_SESSION['id'],$nom,$messages));
         }
     } else {
         echo "aucun user trouver";
