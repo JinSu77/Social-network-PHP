@@ -35,8 +35,8 @@ class Friends
     }
     public function ChannelExist($uid,$follower_uid){
         $request = $this->bdd->prepare("SELECT * FROM chanel where user_id=? AND nom=?");
-        $request->execute([$uid,$follower_uid]);
-        $resultat = $request->dba_fetchAll(PDO::FETCH_ASSOC);
+        $request->execute([$uid,$$_SESSION["follower_uid"]]);
+        $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
         return $resultat;
     }
 
@@ -47,7 +47,7 @@ class Friends
      }
      else {
          $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES (?,?)");
-         $request->execute([$uid,$follower_uid]);
+         $request->execute([$uid,$_SESSION["follower_uid"]]);
      }
      
     }
