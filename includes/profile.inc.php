@@ -2,7 +2,7 @@
 $db = new DB();
 $bdd = $db->connectDb();
 
-$post = new Profile($bdd);
+$profile = new Profile($bdd);
 
 class Profile
 {
