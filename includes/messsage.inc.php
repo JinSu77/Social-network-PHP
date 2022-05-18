@@ -18,3 +18,4 @@ if (isset($_GET['id']) and !empty($_GET['id'])) {
 } else {
     echo "aucun id à était trouver";
 }
+
