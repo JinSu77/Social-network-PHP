@@ -54,6 +54,8 @@
           #createpostinput {
             height: 5vh;
             width: 80%;
+            background: none;
+            border-bottom: 1px $primary solid;
           }
         }
         .bottom {
@@ -140,11 +142,13 @@
         font-size: 1.35rem;
         margin: 3vh auto;
         text-align: center;
+        color: $primary;
       }
       #userbio {
         font-size: 1rem;
         width: 80%;
         text-align: left;
+        color: $primary;
       }
       .stats {
         display: flex;
@@ -153,6 +157,7 @@
         justify-content: space-evenly;
         width: 100%;
         margin: auto 0;
+        color: $primary;
 
         #userfollowers,
         #userfollows {
