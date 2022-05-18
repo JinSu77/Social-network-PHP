@@ -53,11 +53,12 @@ class Friends
     public function CreateChannel($uid,$follower_uid){
      $exist = $this->ChannelExist($uid,$follower_uid);
      if($exist){
-         return null;
+         /* var_dump($follower_uid); */
+         exit();
      }
      else {
-         $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES (?,?)");
-         $request->execute([$uid,$_SESSION["follower_uid"]]);
+         $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES ($uid,$follower_uid)");
+         $request->execute();
      }
      
     }
