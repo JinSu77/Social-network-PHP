@@ -59,6 +59,7 @@
   - Pouvoir définir le nom et l'image du groupe de messagerie ♻️
 
 - Autre fonctionalité à rajouter:
+  - voir message récents ♻️
   - Une navbar avec les options ✅
   - Compteur d'amis ✅
   - Ajout d'une User Page ✅
