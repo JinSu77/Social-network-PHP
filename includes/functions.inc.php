@@ -1,7 +1,6 @@
 <?php
-//Fichier contenant la majorité des fonction php utilisé
-// Vérifie que le formulaire n'est pas d'input vide
-// @Setsudan
+require_once(realpath(__DIR__ . DIRECTORY_SEPARATOR . 'db_connect.inc.php'));
+
 function EmptyInputSignUp($name, $email, $password, $pwdcheck)
 {
     if (empty($name) || empty($email) || empty($password) || empty($pwdcheck)) {
@@ -47,52 +46,6 @@ function pwdMatch($password, $pwdcheck)
     }
     return $result;
 }
-
-//Vérifie qu'un mail ou nom d'utilisateur est déjà pris
-//@Setsudan
-
-function UsernameExist($connection, $name, $email)
-{
-    $sql = "SELECT * FROM users WHERE username = ? OR email = ?;";
-    $stmt = mysqli_stmt_init($connection);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../signUp.php?error=stmtFailed");
-        exit();
-    }
-    mysqli_stmt_bind_param($stmt, "ss", $name, $email);
-    mysqli_stmt_execute($stmt);
-    $resultData = mysqli_stmt_get_result($stmt);
-
-    if ($row = mysqli_fetch_assoc($resultData)) {
-        return $row;
-    } else {
-        $result = false;
-        return $result;
-    }
-
-    mysqli_stmt_close($stmt);
-}
-
-// Créer un utilisateur dans la base de donnée
-// @Setsudan
-function createUser($connection, $name, $email, $password)
-{
-    $sql = "INSERT INTO users (email,password,username) VALUES (?,?,?);";
-    $stmt = mysqli_stmt_init($connection);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../signup.php?error=JeSaisPas");
-        exit();
-    }
-    $hashedpwd = password_hash($password, PASSWORD_DEFAULT);
-    mysqli_stmt_bind_param($stmt, "sss", $email, $hashedpwd, $name);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ../Login.php");
-    exit();
-}
-
-// Vérifie que le formulaire n'est pas d'input vide
-// @Setsudan
 function EmptyInputLogin($username, $pwd)
 {
     if (empty($username) || empty($pwd)) {
@@ -103,11 +56,30 @@ function EmptyInputLogin($username, $pwd)
     return $result;
 }
 
-// Login l'utilisateur
-// @Setsudan
-function loginUser($connection, $uid, $pwd)
+function UserNameExist($name, $email)
 {
-    $uidExist = UsernameExist($connection, $uid, $uid);
+    $db = new DB();
+    $request = $db->connectDb()->prepare("SELECT * FROM users WHERE username = ? OR email = ?;");
+    $request->execute([$name, $email]);
+    $resultat = $request->fetch(PDO::FETCH_ASSOC);
+
+    if ($resultat) {
+        return $resultat;
+    } else {
+        return false;
+    }
+}
+
+function createUser($name, $email, $password)
+{
+    $db = new DB();
+    $request = $db->connectDb()->prepare("INSERT INTO users (email,password,username) VALUES (?,?,?);");
+    $pass = password_hash($password, PASSWORD_DEFAULT);
+    $request->execute([$email, $pass, $name]);
+}
+function loginUser($uid, $pwd)
+{
+    $uidExist = UserNameExist($uid, $uid);
 
     if ($uidExist === false) {
         header("location: ../Login.php?error=wrongLogin");
@@ -121,9 +93,118 @@ function loginUser($connection, $uid, $pwd)
         exit();
     } else if ($checkPass === true) {
         session_start();
-        $_SESSION["userid"] = $uidExist['usersId'];
+        $_SESSION["userid"] = $uidExist['id'];
         $_SESSION["useruid"] = $uidExist['username'];
         header("location: ../index.php");
         exit();
     }
+}
+
+function afficherMonImageDeProfil($id)
+{
+    $id = $_SESSION["userid"];
+    $db = new DB();
+    $maRequete = $db->connectDb()->prepare("SELECT user_photo from users where id= ? ");
+    $maRequete->execute([$id]);
+    $result = $maRequete->fetch();
+
+    $myFilePath = $result["user_photo"];
+    echo "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
+}
+
+function uploadMaPhoto()
+{
+    $id = $_SESSION["userid"];
+    $error = 0;
+    if (isset($_FILES['profilPicture']) && $_FILES['profilPicture']['error'] == 0) {
+        // La size de la photo de profil doit être inférieur à 10mo.
+        if ($_FILES['profilPicture']['size'] <= 10000000) {
+            $imageInfos = pathinfo($_FILES['profilPicture']['name']);
+            $extensionImage = $imageInfos['extension'];
+            $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
+
+            if (in_array($extensionImage, $extensionAutorisee)) {
+                $fileName = time() . rand() . '.' . $extensionImage;
+                $myPublicFilePath = "uploads/" . $fileName;
+                $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
+                move_uploaded_file($_FILES['profilPicture']['tmp_name'], $myFilePath);
+            } else {
+                $error = 1;
+            }
+            $db = new DB();
+            $request = $db->connectDb()->prepare("UPDATE users SET user_photo=? where id=?");
+            $request->execute([
+                $myPublicFilePath,
+                $id
+            ]);
+        } else {
+            $error = 1;
+        }
+    } else {
+        $error = 1;
+    }
+
+    if ($error == 1) {
+        $error = 0;
+    } /* else {
+        http_response_code(302);
+        header("location: ../Landing.php");
+        exit();
+    } */
+}
+
+function afficherPostImage($id)
+{
+    $id = $_SESSION["userid"];
+    $db = new DB();
+    $maRequete = $db->connectDb()->prepare("SELECT post_photo from Post where id= ? ");
+    $maRequete->execute([$id]);
+    $result = $maRequete->fetch();
+
+    $myFilePath = $result["user_photo"];
+    echo "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
+}
+
+function PostMaPhoto()
+{
+    $id = $_SESSION["userid"];
+    $error = 0;
+    if (isset($_FILES['createpostImg']) && $_FILES['createpostImg']['error'] == 0) {
+        // La size de la photo de profil doit être inférieur à 10mo.
+        if ($_FILES['createpostImg']['size'] <= 10000000) {
+            $imageInfos = pathinfo($_FILES['createpostImg']['name']);
+            $extensionImage = $imageInfos['extension'];
+            $extensionAutorisee = array('png', 'jpeg', 'jpg', 'gif');
+
+            if (in_array($extensionImage, $extensionAutorisee)) {
+                $fileName = time() . rand() . '.' . $extensionImage;
+                $myPublicFilePath = "uploads/" . $fileName;
+                $myFilePath = __DIR__ . "/../" . $myPublicFilePath;
+                move_uploaded_file($_FILES['createpostImg']['tmp_name'], $myFilePath);
+            } else {
+                $error = 1;
+                $myFilePath = NULL;
+            }
+            //$request = $db->connectDb()->prepare("INSERT INTO post(user_id,post_text,post_img,post_date) VALUES (?,?,?,now())");
+            //$request->execute([$id,"",$myPublicFilePath]);
+        } else {
+            $myFilePath = NULL;
+        }
+
+    } else {
+        $error = 1;
+    }
+
+    if ($error == 1) {
+        $error = 0;
+    }
+    $db = new DB();
+    $post = new Post($db->connectDb());
+    $post_text = filter_input(INPUT_POST, "post");
+    $post->sentPost($_SESSION["userid"], $post_text, $myPublicFilePath);
+    /* else {
+        http_response_code(302);
+        header("location: ../Landing.php");
+        exit();
+    } */
 }

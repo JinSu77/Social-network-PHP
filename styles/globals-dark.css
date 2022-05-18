@@ -2,8 +2,8 @@
 :root {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  background: #0f172a;
-  color: #f8fafc;
+  background: #efefef;
+  color: #171717;
   overflow-x: hidden;
 }
 
@@ -29,7 +29,7 @@ body {
 }
 
 a {
-  color: #f8fafc;
+  color: #efefef;
   text-decoration: none;
 }
 
@@ -37,22 +37,32 @@ a {
 .SignUp-Form {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
   width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 600ms ease-in-out;
 }
 .Login-Form form,
 .SignUp-Form form {
   background: #06b6d4;
-  color: #0f172a;
+  color: #171717;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 45vh;
-  width: 25vw;
-  border-radius: 8px;
-  border: #0f172a 3px solid;
+  height: 100vh;
+  width: 30vw;
+}
+.Login-Form form h1,
+.SignUp-Form form h1 {
+  font-size: 3rem;
+  margin: 3vh 0;
 }
 .Login-Form form .uid,
 .Login-Form form .password,
@@ -72,21 +82,22 @@ a {
 .SignUp-Form form input {
   background: none;
   border: none;
-  border-bottom: #f8fafc 2px solid;
+  border-bottom: #efefef 2px solid;
   height: 3vh;
 }
 .Login-Form form button,
 .SignUp-Form form button {
-  background: #0f172a;
+  background: #171717;
   border: none;
   height: 5vh;
   width: 5vw;
   border-radius: 8px;
-  color: #f8fafc;
+  color: #efefef;
   font-weight: bold;
 }
 .Login-Form form a,
 .SignUp-Form form a {
+  width: 6vw;
   align-self: center;
   width: 50%;
   margin-top: 3vh;
@@ -94,26 +105,28 @@ a {
 }
 
 #Landing {
-  min-height: 100vh;
+  min-height: 97vh;
   width: 95vw;
+  padding-top: 5vh;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  margin-top: 3vh;
   z-index: 0;
 }
 #Landing .column {
   min-height: 90vh;
 }
 #Landing section {
-  background: #1e293b;
-  border-radius: 18px;
+  background: #171717;
+  border-radius: 8px;
   padding: 2vh 2vw;
 }
 #Landing input {
   border-radius: 2px;
   border: none;
-  background: #64748b;
+  background: #efefef;
 }
 #Landing .mid {
   width: 50vw;
@@ -161,10 +174,40 @@ a {
   height: 5vh;
   margin: 0 0.5vw;
 }
-#Landing .mid .Flux {
+#Landing .mid span#flux {
+  background: none;
   margin-top: 2vh;
   height: auto;
   width: 90%;
+  border-radius: 8px;
+  padding: 2vh 2vw;
+}
+#Landing .mid span#flux #allPost .main-post {
+  border-radius: 8px;
+  margin: 1.5vh 0;
+  background: #171717;
+  color: #efefef;
+  min-height: 15vh;
+  border: 1px #efefef solid;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 2vh 2vw;
+}
+#Landing .mid span#flux #allPost .main-post img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 2vh;
+}
+#Landing .mid span#flux #allPost .main-post .content-post {
+  display: flex;
+  flex-direction: column;
+}
+#Landing .mid span#flux #allPost .main-post .content-post .date {
+  color: #06b6d4;
+  opacity: 0.5;
 }
 #Landing .left,
 #Landing .right {
@@ -175,48 +218,50 @@ a {
   justify-content: center;
 }
 #Landing .left .UserProfile {
+  padding: 0;
+  margin: 0;
   height: 50vh;
-  margin: 0.5vh 0;
   width: 90%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #Landing .left .UserProfile #bannerimg {
   width: 100%;
-  grid-column: 1/3;
-  grid-row: 1;
+  height: 15vh;
   background-color: cadetblue;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 #Landing .left .UserProfile #userpfp {
+  position: relative;
+  top: 10vh;
   border-radius: 60%;
-  background: red;
   height: 6vh;
   width: 6vh;
-  grid-column: 1/3;
-  align-self: center;
-  grid-row: 1/3;
-  margin: auto;
 }
 #Landing .left .UserProfile #username {
-  width: 100%;
+  width: 80%;
   font-size: 1.35rem;
   margin: 3vh auto;
   text-align: center;
-  grid-column: 1/3;
-  grid-row: 3;
 }
 #Landing .left .UserProfile #userbio {
-  grid-column: 1/3;
-  grid-row: 4;
   font-size: 1rem;
-  width: 100%;
+  width: 80%;
   text-align: left;
 }
-#Landing .left .UserProfile #userfollowers,
-#Landing .left .UserProfile #userfollows {
+#Landing .left .UserProfile .stats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
   width: 100%;
   margin: auto 0;
+}
+#Landing .left .UserProfile .stats #userfollowers,
+#Landing .left .UserProfile .stats #userfollows {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,26 +288,26 @@ a {
   width: 5px;
 }
 #Landing .right .RecentMessages::-webkit-scrollbar-track {
-  background: #f8fafc;
+  background: #efefef;
   border-radius: 8px;
 }
 #Landing .right .RecentMessages::-webkit-scrollbar-thumb {
-  background: #06b6d4;
+  background: #efefef;
 }
 #Landing .right .RecentMessages::-webkit-scrollbar-thumb:hover {
-  background: #06b6d4;
+  background: #efefef;
 }
 #Landing .right .RecentMessages #searchuser {
   height: 4vh;
 }
-#Landing .right .RecentMessages .recent-messages-list {
+#Landing .right .RecentMessages #discussionlist {
   flex: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: safe;
 }
-#Landing .right .RecentMessages .recent-messages-list .message-box {
+#Landing .right .RecentMessages #discussionlist .message-box {
   margin: 2vh 0;
   height: 7vh;
   display: flex;
@@ -273,7 +318,7 @@ a {
   font-weight: 300;
   width: auto;
 }
-#Landing .right .RecentMessages .recent-messages-list .message-box .userpfp {
+#Landing .right .RecentMessages #discussionlist .message-box .userpfp {
   background: url("./img/pfp.jpg");
   background-size: cover;
   height: 6vh;
@@ -281,11 +326,21 @@ a {
   margin-right: 0.5vw;
   border-radius: 60%;
 }
-#Landing .right .RecentMessages .recent-messages-list .message-box .latest-message {
+#Landing .right .RecentMessages #discussionlist .message-box .latest-message {
   text-align: left;
 }
-#Landing .right .RecentMessages .recent-messages-list .read-false {
+#Landing .right .RecentMessages #discussionlist .read-false {
   font-weight: 600;
+}
+#Landing .right .RecentMessages #discussionlist .user-card {
+  position: relative;
+  top: 5vh;
+  left: 0;
+  height: 3vh;
+  width: 15vw;
+  background: #efefef;
+  color: #171717;
+  text-align: center;
 }
 
 #navbar {
@@ -300,6 +355,7 @@ a {
   left: 0;
   width: 100vw;
   height: 5vh;
+  color: #171717;
 }
 #navbar .logo {
   height: 4vh;
@@ -316,11 +372,10 @@ a {
   height: 3vh;
   border-radius: 2px;
   border: none;
-  background: #64748b;
+  border-bottom: 3px #171717;
 }
 #navbar button {
   margin: 0 1vw;
-  color: #f8fafc;
 }
 #navbar button:first-child {
   display: flex;
@@ -338,8 +393,11 @@ a {
   justify-content: right;
   flex: 2;
 }
+#navbar .mid button {
+  color: #171717;
+}
 #navbar .right {
-  border-left: #f8fafc 1px solid;
+  border-left: #171717 1px solid;
   display: flex;
 }
 
@@ -352,15 +410,16 @@ a {
 .ico {
   height: 3vh;
   width: 3vh;
+  stroke: #171717;
 }
 
 .theme-ico {
   height: 3vh;
   width: 3vh;
-  fill: #f8fafc;
-  stroke: #f8fafc;
+  fill: transparent;
+  stroke: #171717;
 }
 
 .logSign-board a {
-  color: #f8fafc;
+  color: #171717;
 }/*# sourceMappingURL=globals-dark.css.map */

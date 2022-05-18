@@ -1,44 +1,51 @@
 <?php
-require "./components/header.php";
 require "./components/navbar.php";
+require_once("./includes/db_connect.inc.php");
+include_once("./includes/profile.inc.php");
+include_once("./includes/functions.inc.php");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $profil = uploadMaPhoto($myFilePath, $id);
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $profil = afficherPostImage($myFilePath, $id);
+}
+
+echo $_FILES['profilPicture']['tmp_name'];
 ?>
 <main id="Landing">
     <? #Chaque section est à remplacer par vos parties 
+
     ?>
     <div class="left column">
         <section class="UserProfile">
             <img src="#" alt="" id="bannerimg">
-            <img src="#" alt="" id="userpfp">
-            <span id="username">Loading</span>
+            <?php afficherMonImageDeProfil($id) ?>
+            <form method="post" action="" enctype="multipart/form-data">
+                <button type="submit">Changer</button>
+                <input type="file" name="profilPicture"><br>
+            </form>
+            <span id="username">
+                <?php echo $_SESSION["useruid"] ?>
+            </span>
             <p id="userbio">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 neque voluptates maiores.</p>
-            <span class="userfollower">
-                <p>69420</p>
+            <span class="stats">
+                <span class="userfollower">
+                    <p>69420</p>
+                </span>
+                <span class="userfollows">
+                    <p>69420</p>
+                </span>
             </span>
-            <span class="userfollows">
-                <p>69420</p>
-            </span>
+
         </section>
         <section class="UserGroupe"><a href="./landing_group.php"> Groupes </a></section>
     </div>
     <div class="mid column">
-        <section class="CreatePost">
-            <form action="#">
-                <div class="top">
-                    <img src="#" alt="" class="pfp">
-                    <input type="text" name="createpostText" id="createpostinput" placeholder="What's happenning ?">
-                </div>
-                <div class="bottom">
-                    <input type="file" name="createpostImg" id="createpostImg" placeholder="Image">
-                    <button type="submit">Send post</button>
-                </div>
-            </form>
-        </section>
-        <section class="Flux">Flux de post</section>
+        <?php require "./components/Flux.php" ?>
     </div>
     <div class="right column">
         <?php require_once "./components/recentmessages.php"; ?>
     </div>
-    <?php #Pour accéder au Login/Signup retirer /pages/Landing.php et remplacer le par /Login.php
-    ?>
 </main>
