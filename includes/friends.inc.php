@@ -43,7 +43,7 @@ class Friends
     {
         $request = $this->bdd->prepare("SELECT * FROM chanel where user_id=? AND nom=?");
         $request->execute([$id, $follower_uid]);
-        $resultat = $request->fetchAll(PDO::FETCH_ASSOC);        
+        $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
         return $resultat;
     }
     /* create the chanel where i will send the message */
@@ -61,15 +61,10 @@ class Friends
             exit();
         }
     }
-    public function ShowChanel(){
-        $getChannels =$this->bdd->prepare("SELECT * FROM chanel WHERE user_id = ?");
-        $getChannels ->execute([ $_SESSION["userid"]]) ;
+    public function ShowChanel()
+    {
+        $getChannels = $this->bdd->prepare("SELECT * FROM chanel WHERE user_id = ?");
+        $getChannels->execute([$_SESSION["userid"]]);
         $resultat = $getChannels->fetchAll(PDO::FETCH_ASSOC);
     }
-
 }
-session_start();
-$req = $bdd->prepare("SELECT COUNT(*) FROM follower WHERE user_id = ? OR follower_id =?");
-$req->execute([$_SESSION["userid"], $_SESSION["userid"]]);
-$res = $req->fetch(PDO::FETCH_ASSOC);
-echo $res["COUNT(*)"];

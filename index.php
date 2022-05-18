@@ -59,7 +59,7 @@ const fetchPost = () => {
 };
 setInterval(fetchPost(), 1000)
 //Compte le nombre d'amis
-fetch("./includes/friends.inc.php", {
+fetch("./includes/getUserFriends.inc.php", {
         method: "GET",
     })
     .then((resp) => resp.text())
