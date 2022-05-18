@@ -49,5 +49,4 @@ class Profile
         return true;
         header("location: ../login.php?error=wrongLogin");
     }
-    // Recup le nb d'amis de l'utilisateur
 }

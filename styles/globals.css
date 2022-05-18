@@ -165,6 +165,8 @@ a {
 #Landing .mid .CreatePost form .top #createpostinput {
   height: 5vh;
   width: 80%;
+  background: none;
+  border-bottom: 1px #171717 solid;
 }
 #Landing .mid .CreatePost form .bottom {
   justify-content: flex-end;
@@ -245,11 +247,13 @@ a {
   font-size: 1.35rem;
   margin: 3vh auto;
   text-align: center;
+  color: #171717;
 }
 #Landing .left .UserProfile #userbio {
   font-size: 1rem;
   width: 80%;
   text-align: left;
+  color: #171717;
 }
 #Landing .left .UserProfile .stats {
   display: flex;
@@ -258,6 +262,7 @@ a {
   justify-content: space-evenly;
   width: 100%;
   margin: auto 0;
+  color: #171717;
 }
 #Landing .left .UserProfile .stats #userfollowers,
 #Landing .left .UserProfile .stats #userfollows {
