@@ -32,7 +32,7 @@ echo $_FILES['profilPicture']['tmp_name'];
                 neque voluptates maiores.</p>
             <span class="stats">
                 <span class="userfollower">
-                    <p>69420</p>
+                    <p><?php $profil->getUserFriends() ?></p>
                 </span>
                 <span class="userfollows">
                     <p>69420</p>
