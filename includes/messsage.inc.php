@@ -10,7 +10,7 @@ if (isset($_GET['id']) and !empty($_GET['id'])) {
         if (isset($_POST['envoyer'])) {
             $message = htmlspecialchars($_POST['message']);
             $insererMessage = $bdd->prepare('INSERT INTO chanel(user_id,nom,messages)VALUES(?, ?, ?)');
-            $insererMessage->execute(array($_SESSION['id'],$nom,$messages));
+            $insererMessage->execute([$_SESSION['id'],$nom,$messages]);
         }
     } else {
         echo "aucun user trouver";
