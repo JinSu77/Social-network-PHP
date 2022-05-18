@@ -31,14 +31,9 @@ echo $_FILES['profilPicture']['tmp_name'];
             <p id="userbio">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 neque voluptates maiores.</p>
             <span class="stats">
-                <span class="userfollower">
-                    <p><?php $profil->getUserFriends() ?></p>
-                </span>
-                <span class="userfollows">
-                    <p>69420</p>
-                </span>
+                <span id="friends"></span>
+                <span>Friends</span>
             </span>
-
         </section>
         <section class="UserGroupe">Groupes</section>
     </div>
