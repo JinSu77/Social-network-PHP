@@ -60,6 +60,7 @@
 
 - Autre fonctionalité à rajouter:
   - Une navbar avec les options
+  - Compteur d'amis
 
 | Team   | Membre 1 | Membre 2 |
 | ------ | -------- | -------- |
@@ -119,3 +120,4 @@
 #### 18/05/2022
 
 - Ajout de la suppression de compte
+- Ajout du compteur d'amis

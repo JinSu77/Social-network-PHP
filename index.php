@@ -58,6 +58,13 @@ const fetchPost = () => {
         });
 };
 setInterval(fetchPost(), 1000)
+fetch("./includes/friends.inc.php", {
+        method: "GET",
+    })
+    .then((resp) => resp.text())
+    .then((res) => {
+        document.getElementById("friends").innerText = res;
+    })
 </script>
 </body>
 
