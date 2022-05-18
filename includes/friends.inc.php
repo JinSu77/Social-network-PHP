@@ -31,11 +31,21 @@ class Friends
         $request->execute([$uid,$follower_id]);
         //echo "<script>console.log(ououi) <script/>";
     }
+   
      
     }
+    
+    public function accesUsername($follower_id)
+    {
+     $request = $this->bdd->prepare("SELECT username FROM users where user_id=?");
+     $request ->execute([$follower_id]);
+     $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
+     return $resultat;   
+    }
+
     public function ChannelExist($uid,$follower_uid){
         $request = $this->bdd->prepare("SELECT * FROM chanel where user_id=? AND nom=?");
-        $request->execute([$uid,$$_SESSION["follower_uid"]]);
+        $request->execute([$uid, $follower_uid]);
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
         return $resultat;
     }
