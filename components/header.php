@@ -17,6 +17,7 @@ session_start();
         echo '<link rel="stylesheet" href="./styles/globals.css" />';
     }
     ?>
+    <script src="./js/main.js"></script>
 </head>
 
 <body>

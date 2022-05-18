@@ -117,3 +117,5 @@
 - Ajout de système followers
 
 #### 18/05/2022
+
+- Ajout de la suppression de compte
