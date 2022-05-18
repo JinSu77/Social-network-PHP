@@ -40,7 +40,7 @@ echo $_FILES['profilPicture']['tmp_name'];
             </span>
 
         </section>
-        <section class="UserGroupe">Groupes</section>
+        <section class="UserGroupe"><a href="./landing_group.php"> Groupes </a></section>
     </div>
     <div class="mid column">
         <?php require "./components/Flux.php" ?>

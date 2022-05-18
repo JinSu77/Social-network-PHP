@@ -1,0 +1,84 @@
+/* Il faut mettre le header ici */
+
+* {
+    font-family: sans-serif;
+}
+
+body{
+    background-color: #f8fafc;
+}
+
+.card{
+    
+    background-color: #cbd5e1;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.box-group{
+    background-color: rgba(250, 250, 250, 0.863);
+    margin-top: 40%;
+    height: 80px;
+    border-radius: 20px;
+}
+
+.box-group p{
+    margin-top: -35%;
+    color: #1e293b;
+    text-align: center;
+}
+
+.grid-box-group{
+    margin-top: 20%;
+    margin-left: 3% ;
+    margin-right: 3%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid{
+    margin-top: 5%;
+    display: grid;
+    grid-gap: 100px;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(1, 135%);
+}
+
+.card h3{
+    text-align: center;
+    color: #1e293b;
+}
+
+.group_presentation{
+    margin-left: 3%;
+    display: grid;
+    grid-template-columns: 100px 200px;
+}
+
+.pp_group{
+    background-color: rgba(250, 250, 250, 0.863);
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+}
+
+.chat{
+    background-color: rgba(250, 250, 250, 0.863);
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border-radius: 20px;
+    height: 55%;
+}
+
+.message{
+    background-color: rgba(250, 250, 250, 0.863);
+    margin: 3%;
+    border-radius: 20px;
+    height: 15%;
+}
+
+.message p{
+    margin-left: 2%;
+}
