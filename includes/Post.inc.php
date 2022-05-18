@@ -27,7 +27,8 @@ class Post
         // }
         var_dump($resultat);
     }
-    //recuper les 3 dernier post de l'utilisateur
+    //recuper posts de l'utilisateur
+    //TODO : Ajouter les posts des amis dans la liste
     public function getLastPost($uid)
     {
         $request = $this->bdd->prepare("SELECT username, post_text , post_img , post_date FROM Post INNER JOIN users ON Post.user_id = users.id WHERE users.id = ? ORDER BY Post.post_date  DESC ");
