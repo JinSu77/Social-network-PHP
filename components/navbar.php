@@ -3,7 +3,7 @@
 <div id="navbar">
     <div class="left">
         <img src="./styles/img/logo.png" alt="logo" class="logo" />
-        <input type="search" name="searchpeople" id="searchUser" oninput="searchUser()">
+        <input type="search" name="searchpeople" id="searchUserPage" oninput="searchUserPage()">
         <div id="searchuserlist"></div>
     </div>
     <div class="mid">
@@ -47,3 +47,32 @@
             ?></button>
     </div>
 </div>
+<script>
+// Cherche un utilisateur
+const searchUserPage = () => {
+    let input = document.getElementById("searchUserPage").value;
+    let data = new FormData();
+    data.append("search", input);
+    fetch("./includes/search.inc.php", {
+            method: "POST",
+            body: data,
+        })
+        .then((resp) => resp.text())
+        .then((json) => {
+            let list = document.getElementById("searchuserlist");
+            list.innerHTML = "";
+            let data = JSON.parse(json);
+            let usercard = document.createElement("a");
+
+            usercard.href = "pages/userpage.php?id=" + data.id + "&username=" + data.username
+            usercard.classList.add("user-card");
+            usercard.innerText = data.username;
+            list.appendChild(usercard);
+
+        });
+};
+
+const addUser = (username, id) => {
+    header(`location: includes/addUser.php?username=${username}&id=${id}`)
+};
+</script>
