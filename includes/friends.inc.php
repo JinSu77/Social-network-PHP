@@ -19,7 +19,7 @@ class Friends
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
         return $resultat;
     }
-    
+
     public function AddFriends($uid, $follower_id)
     {
         $exist = $this->FriendsExist($uid, $follower_id);
@@ -42,27 +42,27 @@ class Friends
     {
         $request = $this->bdd->prepare("SELECT * FROM chanel where user_id=? AND nom=?");
         $request->execute([$id, $follower_uid]);
-        $resultat = $request->fetchAll(PDO::FETCH_ASSOC);        return $resultat;
+        $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
+        return $resultat;
     }
-      /* create the chanel where i will send the message */
-    public function CreateChannel($id,$follower_uid){
-     $exist = $this->ChannelExist($id,$follower_uid);
-     if($exist){
-         /* var_dump($follower_uid); 
+    /* create the chanel where i will send the message */
+    public function CreateChannel($id, $follower_uid)
+    {
+        $exist = $this->ChannelExist($id, $follower_uid);
+        if ($exist) {
+            /* var_dump($follower_uid); 
          exit(); */
-         return null;
-     }
-     else {
-         $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES (?,?)");
-         $request->execute([$id,$follower_uid]);
-         var_dump($id,$follower_uid); 
-         exit();
-     }
-     
+            return null;
+        } else {
+            $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES (?,?)");
+            $request->execute([$id, $follower_uid]);
+            var_dump($id, $follower_uid);
+            exit();
+        }
     }
 }
-/* session_start();
+session_start();
 $req = $bdd->prepare("SELECT COUNT(*) FROM follower WHERE user_id = ? OR follower_id =?");
 $req->execute([$_SESSION["userid"], $_SESSION["userid"]]);
 $res = $req->fetch(PDO::FETCH_ASSOC);
-echo $res["COUNT(*)"]; */
+echo $res["COUNT(*)"];

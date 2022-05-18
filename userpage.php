@@ -15,9 +15,20 @@ include_once("./includes/functions.inc.php");
         <p id="userbio">Lorem ipsum dolor sit amet consectetur adipisicing elit.
             neque voluptates maiores.</p>
         <span class="stats">
+            <span id="friends"></span>
             <span>Friends</span>
             <button onclick="addUser(<?php echo $username . ',' . $id ?>)">Follow User</button>
         </span>
     </section>
     <section class="UserGroupe">Groupes</section>
 </section>
+
+<script>
+fetch("./includes/friends.inc.php", {
+        method: "GET",
+    })
+    .then((resp) => resp.text())
+    .then((res) => {
+        document.getElementById("friends").innerText = res;
+    })
+</script>
