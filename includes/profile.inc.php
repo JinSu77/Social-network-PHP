@@ -47,7 +47,11 @@ class Profile
         return true;
         header("location: ../login.php?error=wrongLogin");
     }
+    // Recup le nb d'amis de l'utilisateur
+    public function getUserFriends(){
+        $req = $this->bdd->prepare("SELECT user_id FROM follower WHERE user_id = ?");
+        $req->execute([$_SESSION["id"]]);
+        return $req->fetch(PDO::FETCH_ASSOC);
+    }
 
 }
-
-?>
