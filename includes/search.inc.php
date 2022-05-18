@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "./db_connect.inc.php";
+require_once realpath(__DIR__ . '/../includes/db_connect.inc.php');
 $db = new DB;
 $searchUserCommand = "SELECT username,id FROM users WHERE username like ?";
 $request = $db->connectDb()->prepare($searchUserCommand);

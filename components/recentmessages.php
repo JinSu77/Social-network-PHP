@@ -1,3 +1,6 @@
+<?php 
+require_once "./includes/friends.inc.php"; 
+?>
 <section class="RecentMessages">
     <input type="search" name="" id="searchChannel" onkeydown="searchUser()">
     <div class="content">
@@ -24,10 +27,9 @@ const searchUser = (searchInput) => {
             usercard.classList.add("user-card");
             usercard.innerText = data.username;
             list.appendChild(usercard);
+            <?php $friends->ShowChanel();  ?>
+
 
         });
 };
 </script>
-<?php
-$getChannels = "SELECT * FROM chanel WHERE user_id = {$_SESSION['uid']}"
-?>

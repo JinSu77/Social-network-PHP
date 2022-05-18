@@ -1,6 +1,6 @@
 <?php
 require "./components/navbar.php";
-require_once("./includes/db_connect.inc.php");
+require_once realpath(__DIR__ . '/../includes/db_connect.inc.php');
 include_once("./includes/profile.inc.php");
 include_once("./includes/functions.inc.php");
 

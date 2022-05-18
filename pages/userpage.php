@@ -2,7 +2,7 @@
 session_start();
 $id = $_GET["id"];
 $username = $_GET["username"];
-include_once("../includes/db_connect.inc.php");
+require_once realpath(__DIR__ . '/../includes/db_connect.inc.php');
 include_once("../includes/functions.inc.php");
 
 ?>

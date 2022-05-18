@@ -1,6 +1,6 @@
 <?php
 require "./components/navbar.php";
-require_once("./includes/db_connect.inc.php");
+require_once realpath(__DIR__ . '/../includes/db_connect.inc.php');
 ?>
 <main id="Landing">
     <div class="left column">

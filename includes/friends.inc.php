@@ -1,5 +1,6 @@
 <?php
-require_once "./db_connect.inc.php";
+require_once realpath(__DIR__ . '/../includes/db_connect.inc.php');
+
 
 $db = new DB();
 $bdd = $db->connectDb();
@@ -19,7 +20,7 @@ class Friends
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
         return $resultat;
     }
-    
+
     public function AddFriends($uid, $follower_id)
     {
         $exist = $this->FriendsExist($uid, $follower_id);
@@ -42,7 +43,8 @@ class Friends
     {
         $request = $this->bdd->prepare("SELECT * FROM chanel where user_id=? AND nom=?");
         $request->execute([$id, $follower_uid]);
-        $resultat = $request->fetchAll(PDO::FETCH_ASSOC);        return $resultat;
+        $resultat = $request->fetchAll(PDO::FETCH_ASSOC);        
+        return $resultat;
     }
       /* create the chanel where i will send the message */
     public function CreateChannel($id,$follower_uid){
@@ -60,6 +62,12 @@ class Friends
      }
      
     }
+    public function ShowChanel(){
+        $getChannels =$this->bdd->prepare("SELECT * FROM chanel WHERE user_id = ?");
+        $getChannels ->execute([ $_SESSION["userid"]]) ;
+        $resultat = $getChannels->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 /* session_start();
 $req = $bdd->prepare("SELECT COUNT(*) FROM follower WHERE user_id = ? OR follower_id =?");
