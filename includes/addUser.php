@@ -1,10 +1,9 @@
 <?php
-$follower_uid = filter_input(INPUT_GET, "username");
 require_once "./db_connect.inc.php";
 include_once "./friends.inc.php";
 session_start();
 $follower_id = filter_input(INPUT_GET, "id");
-
+$follower_uid = filter_input(INPUT_GET, "username");
 /* $_SESSION["follower_uid"]=$follower_uid; */
 /* $follower_uid = $friends->accesUsername($follower_id); */
 $friends->AddFriends($_SESSION["userid"],$follower_id);
