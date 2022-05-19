@@ -32,7 +32,7 @@ class Post
     public function getLastPost($uid)
     {
         $request = $this->bdd->prepare("
-            SELECT username, post_text , post_img , post_date 
+            SELECT username, post_text , post_img , post_date , id
             FROM Post 
             INNER JOIN users ON Post.user_id = users.id
             WHERE users.id IN(

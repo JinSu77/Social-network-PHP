@@ -12,10 +12,12 @@ class like
     {
         $this->bdd = $bdd;
     }
+    
 
     public function AddLike($id,$post_id,)
     {
-        $request = $this->bdd->prepare("Ins")
+        $request = $this->bdd->prepare("INSERT INTO reaction_like(user_id,post_id) values (?,?)")
+        $request ->execute([$_SESSION["userid"],])
     }
 }
 
