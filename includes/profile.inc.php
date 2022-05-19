@@ -44,7 +44,7 @@ class Profile
     //supprimé un profile 
     public function DeleteUser()
     {
-        $request = $this->bdd->prepare("DELETE * FROM users where id = ?");
+        $request = $this->bdd->prepare("DELETE FROM users where id = ?");
         $request->execute($_SESSION["userid"]);
         header("location: ../login.php?error=wrongLogin");
     }
