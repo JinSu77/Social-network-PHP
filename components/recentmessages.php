@@ -28,8 +28,6 @@ const searchUser = (searchInput) => {
             usercard.innerText = data.username;
             list.appendChild(usercard);
             <?php $friends->ShowChanel();  ?>
-
-
         });
 };
 </script>
