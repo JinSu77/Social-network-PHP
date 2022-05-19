@@ -109,7 +109,7 @@ function afficherMonImageDeProfil($id)
     $result = $maRequete->fetch();
 
     $myFilePath = $result["user_photo"];
-    echo "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
+    //echo "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>" . '<br>';
 }
 
 function uploadMaPhoto()
@@ -190,7 +190,6 @@ function PostMaPhoto()
         } else {
             $myFilePath = NULL;
         }
-
     } else {
         $error = 1;
     }

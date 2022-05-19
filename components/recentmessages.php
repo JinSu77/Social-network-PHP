@@ -1,12 +1,11 @@
-<?php 
-require_once "./includes/friends.inc.php"; 
+<?php
+require_once "./includes/friends.inc.php";
 ?>
 <section class="RecentMessages">
     <input type="search" name="" id="searchChannel" onkeydown="searchUser()">
     <div class="content">
     </div>
     <div id="discussionlist" class="recent-messages-list">
-
     </div>
 </section>
 <script>

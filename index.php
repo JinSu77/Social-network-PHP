@@ -18,8 +18,8 @@ const fetchPost = () => {
         })
         .then((resp) => resp.text())
         .then((json) => {
+            console.log(json);
             let data = JSON.parse(json);
-            console.log(data);
             data.forEach((post) => {
                 let postContainer = document.createElement("div");
                 postContainer.classList.add("main-post");
@@ -59,13 +59,16 @@ const fetchPost = () => {
 };
 setInterval(fetchPost(), 1000)
 //Compte le nombre d'amis
-fetch("./includes/friends.inc.php", {
+fetch("./includes/getUserFriends.inc.php", {
         method: "GET",
     })
     .then((resp) => resp.text())
     .then((res) => {
         document.getElementById("friends").innerText = res;
     })
+const toggleModal = () => {
+    document.getElementById("modal").classList.toggle("visible")
+}
 </script>
 </body>
 
