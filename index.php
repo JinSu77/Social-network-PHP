@@ -23,7 +23,7 @@ const fetchPost = () => {
             data.forEach((post) => {
                 let postContainer = document.createElement("div");
                 postContainer.classList.add("main-post");
-
+                postContainer.id = post.id
                 let postHeader = document.createElement("div");
                 postHeader.classList.add("header-post");
 
@@ -70,7 +70,7 @@ const toggleModal = () => {
     document.getElementById("modal").classList.toggle("visible")
 }
 const delUser = () => {
-    window.location("includes/delUser.inc.php")
+    window.location.replace("includes/delUser.inc.php")
 }
 </script>
 </body>
