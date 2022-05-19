@@ -33,7 +33,8 @@ require_once realpath(__DIR__ . '/../includes/db_connect.inc.php');
         </button>
     </div>
     <div class="right">
-        <button><img class="pfp" src="./styles/img/pfp.jpg" alt="pfp"><?php echo $_SESSION['useruid']; ?></button>
+        <button><?php echo $_COOKIE["imgsrc"];
+                echo $_SESSION['useruid']; ?></button>
         <button onclick="Logout()">Logout</button>
         <button id="ThemeSwitch" onclick="ThemeToggle()">
             <?php

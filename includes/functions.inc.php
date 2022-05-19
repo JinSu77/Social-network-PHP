@@ -109,7 +109,7 @@ function afficherMonImageDeProfil($id)
     $result = $maRequete->fetch();
 
     $myFilePath = $result["user_photo"];
-    setcookie("imgsrc", "<img style='width: 10%;' src='$myFilePath' alt='Image de profil'>");
+    setcookie("imgsrc", "<img class='pfp' src='$myFilePath' alt='Image de profil'>");
 }
 
 function uploadMaPhoto()

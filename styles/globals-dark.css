@@ -235,12 +235,11 @@ a {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
-#Landing .left .UserProfile #userpfp {
+#Landing .left .UserProfile .pfp {
   position: relative;
-  top: 10vh;
   border-radius: 60%;
-  height: 6vh;
-  width: 6vh;
+  height: 7vh;
+  width: 7vh;
 }
 #Landing .left .UserProfile #username {
   width: 80%;
@@ -324,7 +323,6 @@ a {
   width: auto;
 }
 #Landing .right .RecentMessages #discussionlist .message-box .userpfp {
-  background: url("./img/pfp.jpg");
   background-size: cover;
   height: 6vh;
   width: 6vh;
@@ -407,8 +405,8 @@ a {
 }
 
 .pfp {
-  height: 3vh;
-  width: 3vh;
+  height: 5vh;
+  width: 5vh;
   border-radius: 60%;
 }
 
