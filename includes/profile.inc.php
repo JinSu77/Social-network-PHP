@@ -25,7 +25,7 @@ class Profile
     // envoyer les donner du profile
     public function ModifyUsername($username)
     {
-        $NewuidExist = $this->NewUsernameExist($$username);
+        $NewuidExist = $this->NewUsernameExist($username);
 
         if ($NewuidExist !== false) {
             header("location: ../landing.php?error=usersnamealreadyexist");
