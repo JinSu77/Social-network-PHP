@@ -17,7 +17,7 @@ include_once("./includes/functions.inc.php");
         <span class="stats">
             <span id="friends"></span>
             <span>Friends</span>
-            <button onclick="addUser(<?php echo $username . ',' . $id ?>)">Follow User</button>
+            <button onclick="addUser(<?php echo '`' . $username . '`,' . $id ?>)">Follow User</button>
         </span>
     </section>
     <section class="UserGroupe">Groupes</section>

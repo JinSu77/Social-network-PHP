@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input id="username" value="<?php echo $_SESSION["useruid"] ?>" name="modifyUsername">
             <button type="submit">Changer</button>
             <input type="file" name="profilPicture"><br>
-            <input style="width: 100%;
-      height: 25vh;" id="userbio" value="" placeholder="Tell something about yourself....">
+            <input style="width: 100%;height: 25vh;" id="userbio" name="userBioModify"
+                placeholder="Tell something about yourself....">
             <span class="action" onclick="toggleModal()">
                 Cancel edit
             </span>
@@ -37,8 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <span id="username">
                 <?php echo $_SESSION["useruid"] ?>
             </span>
-            <p id="userbio">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                neque voluptates maiores.</p>
+            <p id="userbio"><?php echo $_SESSION["bio"] ?></p>
             <span class="stats">
                 <span id="friends"></span>
                 <span>Friends</span>

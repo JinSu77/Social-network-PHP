@@ -49,4 +49,11 @@ class Profile
         return true;
         header("location: ../login.php?error=wrongLogin");
     }
+    public function getUserBio()
+    {
+        $sqlReq = "SELECT bio FROM users WHERE id=?";
+        $reqSQL = $this->bdd->prepare($sqlReq);
+        $reqSQL->execute([$_SESSION["userid"]]);
+        $resultat = $reqSQL->fetch(PDO::FETCH_ASSOC);
+    }
 }

@@ -18,8 +18,8 @@ const fetchPost = () => {
         })
         .then((resp) => resp.text())
         .then((json) => {
+            console.log(json);
             let data = JSON.parse(json);
-            console.log(data);
             data.forEach((post) => {
                 let postContainer = document.createElement("div");
                 postContainer.classList.add("main-post");

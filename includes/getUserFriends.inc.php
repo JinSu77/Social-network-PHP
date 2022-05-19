@@ -7,3 +7,4 @@ $req = $bdd->prepare("SELECT COUNT(*) FROM follower WHERE user_id = ? OR followe
 $req->execute([$_SESSION["userid"], $_SESSION["userid"]]);
 $res = $req->fetch(PDO::FETCH_ASSOC);
 echo $res["COUNT(*)"];
+

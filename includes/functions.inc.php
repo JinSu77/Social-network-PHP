@@ -190,7 +190,6 @@ function PostMaPhoto()
         } else {
             $myFilePath = NULL;
         }
-
     } else {
         $error = 1;
     }
