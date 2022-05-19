@@ -2,11 +2,11 @@
 
 <section class="CreatePost">
     <?php
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if ($_SERVER['REQUEST_METHOD'] == "GET") {
         PostMaPhoto();
     }
     ?>
-    <form method="post" action="#" enctype="multipart/form-data">
+    <form method="get" action="#" enctype="multipart/form-data">
         <div class="top">
             <?php afficherMonImageDeProfil($id) ?>
             <input type="text" name="post" id="createpostinput" placeholder="What's happenning ?">

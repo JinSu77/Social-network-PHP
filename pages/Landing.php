@@ -18,14 +18,20 @@ echo $_FILES['profilPicture']['tmp_name'];
     <? #Chaque section est à remplacer par vos parties 
 
     ?>
+    <div id="modal">
+        <form method="post" action="" enctype="multipart/form-data">
+            <input id="username" value="Modifiez l'username">
+            <?php echo $_SESSION["useruid"] ?>
+            <button type="submit">Changer</button>
+            <input type="file" name="profilPicture"><br>
+            <input id="userbio" value="Décrivez vous">
+        </form>
+    </div>
     <div class="left column">
         <section class="UserProfile">
             <img src="#" alt="" id="bannerimg">
+            <input type="button" value="Modifier le profil">
             <?php afficherMonImageDeProfil($id) ?>
-            <form method="post" action="" enctype="multipart/form-data">
-                <button type="submit">Changer</button>
-                <input type="file" name="profilPicture"><br>
-            </form>
             <span id="username">
                 <?php echo $_SESSION["useruid"] ?>
             </span>
