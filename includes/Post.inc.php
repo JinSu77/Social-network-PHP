@@ -61,6 +61,6 @@ class Post
     }
     public function commentPost(){
         $request= $this->bdd->prepare("INSERT INTO reaction_comment(user_id, post_id, text, post_date) VALUES (?,?,?,now()");
-        
+        $request->execute(['user_id, post_id, text']);
     }
 }
