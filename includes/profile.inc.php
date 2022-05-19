@@ -25,7 +25,7 @@ class Profile
     // envoyer les donner du profile
     public function ModifyUsername($username)
     {
-        $NewuidExist = $this->NewUsernameExist($$username);
+        $NewuidExist = $this->NewUsernameExist($username);
 
         if ($NewuidExist !== false) {
             header("location: ../landing.php?error=usersnamealreadyexist");
@@ -48,5 +48,12 @@ class Profile
         $request->execute([$id]);
         return true;
         header("location: ../login.php?error=wrongLogin");
+    }
+    public function getUserBio()
+    {
+        $sqlReq = "SELECT bio FROM users WHERE id=?";
+        $reqSQL = $this->bdd->prepare($sqlReq);
+        $reqSQL->execute([$_SESSION["userid"]]);
+        $resultat = $reqSQL->fetch(PDO::FETCH_ASSOC);
     }
 }
