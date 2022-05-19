@@ -11,6 +11,7 @@ require_once "./components/header.php" ?>
     ?>
 </div>
 <script>
+
 const allPost = document.getElementById("allPost");
 const fetchPost = () => {
     fetch("./includes/fetchPost.inc.php", {

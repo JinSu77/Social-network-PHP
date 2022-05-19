@@ -56,6 +56,7 @@ class Post
         $request->execute([$id]);
         return true;
     }
+    /* verifie si le like exist deja pour eviter de liker 2 fois le meme post */
     public function LikeExist($id,$post_id)
     {
         $request = $this->bdd->prepare("SELECT * FROM reaction_like where user_id = ? AND post_id = ?");
@@ -63,6 +64,7 @@ class Post
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
         return $resultat;
     }
+    /* Permet de liker un Post */
     public function AddLike($id,$post_id,)
     {
         $exist = $this->LikeExist($id,$post_id);
