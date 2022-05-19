@@ -31,8 +31,22 @@ class Post
     //TODO : Ajouter les posts des amis dans la liste
     public function getLastPost($uid)
     {
-        $request = $this->bdd->prepare("SELECT username, post_text , post_img , post_date FROM Post INNER JOIN users ON Post.user_id = users.id WHERE users.id = ? ORDER BY Post.post_date  DESC ");
-        $request->execute([$uid]);
+        $request = $this->bdd->prepare("
+            SELECT username, post_text , post_img , post_date 
+            FROM Post 
+            INNER JOIN users ON Post.user_id = users.id
+            WHERE users.id IN(
+                (
+                    SELECT user_id FROM follower
+                    WHERE follower_id = :id
+                ) UNION (
+                    SELECT follower_id FROM follower
+                    WHERE user_id = :id
+                )
+            )
+            OR users.id = :id
+            ORDER BY Post.post_date  DESC ");
+        $request->execute([":id" => $uid]);
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
         return $resultat;
     }
