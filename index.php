@@ -69,6 +69,9 @@ fetch("./includes/getUserFriends.inc.php", {
 const toggleModal = () => {
     document.getElementById("modal").classList.toggle("visible")
 }
+const delUser = () => {
+    window.location("includes/delUser.inc.php")
+}
 </script>
 </body>
 

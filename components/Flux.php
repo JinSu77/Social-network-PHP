@@ -8,7 +8,7 @@
     ?>
     <form method="post" action="#" enctype="multipart/form-data">
         <div class="top">
-            <?php afficherMonImageDeProfil($id) ?>
+            <?php echo $_COOKIE["imgsrc"] ?>
             <input type="text" name="post" id="createpostinput" placeholder="What's happenning ?">
         </div>
         <div class="bottom">

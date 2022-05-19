@@ -130,12 +130,11 @@
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
       }
-      #userpfp {
+      .pfp {
         position: relative;
-        top: 10vh;
         border-radius: 60%;
-        height: 6vh;
-        width: 6vh;
+        height: 7vh;
+        width: 7vh;
       }
       #username {
         width: 80%;
@@ -223,7 +222,6 @@
           font-weight: 300;
           width: auto;
           .userpfp {
-            background: url("./img/pfp.jpg");
             background-size: cover;
             height: 6vh;
             width: 6vh;

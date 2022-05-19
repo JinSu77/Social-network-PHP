@@ -11,29 +11,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $profil = afficherPostImage($myFilePath, $id);
 }
 
-
+setcookie("imagepfp", afficherMonImageDeProfil($id));
 ?>
 <main id="Landing">
     <? #Chaque section est à remplacer par vos parties 
 
     ?>
     <div id="modal">
-        <form method="post" action="" enctype="multipart/form-data">
+        <form method="post" action="includes/modifyUser.inc.php" enctype="multipart/form-data">
             <label for="modifyUsername">Username</label>
             <input id="username" value="<?php echo $_SESSION["useruid"] ?>" name="modifyUsername">
-            <button type="submit">Changer</button>
             <input type="file" name="profilPicture"><br>
             <input style="width: 100%;height: 25vh;" id="userbio" name="userBioModify"
                 placeholder="Tell something about yourself....">
             <span class="action" onclick="toggleModal()">
                 Cancel edit
             </span>
+            <button class="action" type="submit">Changer</button>
+            <button class="warn" onclick="delUser()">Supprimer compte</button>
         </form>
     </div>
     <div class="left column">
         <section class="UserProfile">
             <img src="#" alt="" id="bannerimg">
-            <?php echo $_COOKIE['imagepfp'] ?>
+            <?php echo $_COOKIE["imgsrc"] ?>
             <span id="username">
                 <?php echo $_SESSION["useruid"] ?>
             </span>
