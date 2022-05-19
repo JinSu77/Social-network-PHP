@@ -32,7 +32,7 @@ class Post
     public function getLastPost($uid)
     {
         $request = $this->bdd->prepare("
-            SELECT username, post_text , post_img , post_date , id
+            SELECT  username, post_text , post_img , post_date 
             FROM Post 
             INNER JOIN users ON Post.user_id = users.id
             WHERE users.id IN(
@@ -56,7 +56,10 @@ class Post
         $request->execute([$id]);
         return true;
     }
-    public function uploadPhotoPost()
+    public function AddLike($id,$post_id,)
     {
+        $request = $this->bdd->prepare("INSERT INTO reaction_like(user_id,post_id) values (?,?)");
+        $request ->execute([$_SESSION["userid"],$post_id]);
     }
+    
 }
