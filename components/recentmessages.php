@@ -1,14 +1,16 @@
+<?php
+require_once "./includes/friends.inc.php";
+?>
 <section class="RecentMessages">
-    <input type="search" name="" id="searchuser" onkeydown="searchUser()">
+    <input type="search" name="" id="searchChannel" onkeydown="searchUser()">
     <div class="content">
     </div>
     <div id="discussionlist" class="recent-messages-list">
-
     </div>
 </section>
 <script>
 const searchUser = (searchInput) => {
-    let input = document.getElementById("searchuser").value;
+    let input = document.getElementById("searchChannel").value;
     let data = new FormData();
     data.append("search", input);
     fetch("./includes/search.inc.php", {
@@ -24,10 +26,9 @@ const searchUser = (searchInput) => {
             usercard.classList.add("user-card");
             usercard.innerText = data.username;
             list.appendChild(usercard);
+            <?php $friends->ShowChanel();  ?>
+
 
         });
 };
 </script>
-<?php
-$getChannels = "SELECT * FROM chanel WHERE user-id = {$_SESSION['uid']}"
-?>

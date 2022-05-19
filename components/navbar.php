@@ -1,16 +1,18 @@
-<?php require_once "./includes/db_connect.inc.php";
+<?php 
+require_once realpath(__DIR__ . '/../includes/db_connect.inc.php');
 ?>
 <div id="navbar">
     <div class="left">
         <img src="./styles/img/logo.png" alt="logo" class="logo" />
-        <input type="search" name="searchpeople" id="addUser" oninput="addUser()">
+        <input type="search" name="searchpeople" id="searchUserPage" oninput="searchUserPage()">
         <div id="searchuserlist"></div>
     </div>
     <div class="mid">
-        <button><svg class="theme-ico" viewBox="0 0 20 20" fill="currentColor">
+        <a href="index.php"><svg class="theme-ico" viewBox="0 0 20 20" fill="currentColor">
                 <path
                     d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-            </svg></button>
+            </svg>
+        </a>
         <button>
             <svg class="ico" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -48,8 +50,9 @@
     </div>
 </div>
 <script>
-const addUser = (searchInput) => {
-    let input = document.getElementById("addUser").value;
+// Cherche un utilisateur
+const searchUserPage = () => {
+    let input = document.getElementById("searchUserPage").value;
     let data = new FormData();
     data.append("search", input);
     fetch("./includes/search.inc.php", {
@@ -62,11 +65,16 @@ const addUser = (searchInput) => {
             list.innerHTML = "";
             let data = JSON.parse(json);
             let usercard = document.createElement("a");
-            usercard.href = "includes/addUser.php?id=" + data.id
+
+            usercard.href = "userpage.php?id=" + data.id + "&username=" + data.username
             usercard.classList.add("user-card");
             usercard.innerText = data.username;
             list.appendChild(usercard);
 
         });
+};
+
+const addUser = (username, id) => {
+    header(`location: includes/addUser.php?username=${username}&id=${id}`)
 };
 </script>
