@@ -18,16 +18,16 @@ echo $_FILES['profilPicture']['tmp_name'];
 
     ?>
     <div id="modal">
-        <form method="post" action="" enctype="multipart/form-data">
+        <form method="post" action="includes/modifyUser.inc.php" enctype="multipart/form-data">
             <label for="modifyUsername">Username</label>
             <input id="username" value="<?php echo $_SESSION["useruid"] ?>" name="modifyUsername">
-            <button type="submit">Changer</button>
             <input type="file" name="profilPicture"><br>
             <input style="width: 100%;
-      height: 25vh;" id="userbio" value="" placeholder="Tell something about yourself....">
+      height: 25vh;" id="userbio" name="userBioModify" placeholder="Tell something about yourself....">
             <span class="action" onclick="toggleModal()">
                 Cancel edit
             </span>
+            <input type="submit" value="Modify Profile">
         </form>
     </div>
     <div class="left column">
