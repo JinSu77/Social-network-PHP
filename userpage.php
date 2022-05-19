@@ -8,7 +8,7 @@ include_once("./includes/functions.inc.php");
 <section class="userPage">
     <section class="UserProfile">
         <img src="#" alt="" id="bannerimg">
-        <?php afficherMonImageDeProfil($id) ?>
+        <?php afficherMonImageDeProfil($_GET['id']) ?>
         <span id="username">
             <?php echo $username ?>
         </span>
