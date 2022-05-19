@@ -57,8 +57,6 @@ class Friends
         } else {
             $request = $this->bdd->prepare("INSERT INTO chanel(user_id, nom) VALUES (?,?)");
             $request->execute([$id, $follower_uid]);
-            var_dump($id, $follower_uid);
-            exit();
         }
     }
     public function ShowChanel()
