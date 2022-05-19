@@ -45,7 +45,7 @@ class Profile
     public function DeleteUser()
     {
         $request = $this->bdd->prepare("DELETE FROM users where id = ?");
-        $request->execute($_SESSION["userid"]);
+        $request->execute([$_SESSION["userid"]]);
         header("location: ../login.php?error=wrongLogin");
     }
     public function getUserBio()

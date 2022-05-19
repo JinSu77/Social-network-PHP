@@ -29,4 +29,25 @@ const searchUser = (searchInput) => {
             <?php $friends->ShowChanel();  ?>
         });
 };
+const searchchanel = () => {
+    fetch("./includes/fetchMessage.inc.php", {
+            method: "GET",
+        })
+        .then((resp)=> resp.text())
+        .then((json) => {
+            let data = JSON.parse(json);
+            data.forEach(chanel => {
+                let chanel = document.createElement("div");
+                chanel.classList.add("main-chanel");
+                chanel.id = chanel.id;
+
+                let chanelHeader =  document.createElement("div");
+                chanelHeader.classList.add("header");
+
+                let chanelDOM = document.createElement("div");
+                chanelDOM.classList.add("name-date-post");
+                chanelDOM.innerText = chanel.name;
+            });
+        })
+}
 </script>
