@@ -28,7 +28,7 @@ setcookie("imagepfp", afficherMonImageDeProfil($id));
                 Cancel edit
             </span>
             <button class="action" type="submit">Changer</button>
-            <button class="warn" onclick="delUser()">Supprimer compte</button>
+            <span class="warn" onclick="delUser()">Supprimer compte</span>
         </form>
     </div>
     <div class="left column">
