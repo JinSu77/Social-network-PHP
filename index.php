@@ -18,7 +18,6 @@ const fetchPost = () => {
         })
         .then((resp) => resp.text())
         .then((json) => {
-            console.log(json);
             let data = JSON.parse(json);
             data.forEach((post) => {
                 let postContainer = document.createElement("div");
@@ -48,10 +47,27 @@ const fetchPost = () => {
                     postHeader.appendChild(PostImg);
                 }
 
+                const likeBtn = document.createElement("button")
+                likeBtn.classList.add("likeBtn")
+                likeBtn.innerText = "Like"
+                likeBtn.onclick = function likePost(e) {
+                    window.location.replace("includes/addLike.inc.php?postId=", e.target
+                        .parentElement.id);
+                }
+
+                const commentbtn = document.createElement("button")
+                commentbtn.classList.add("commentbtn")
+                commentbtn.innerText = "commentbtn"
+                likeBtn.onclick = function commentPost(e) {
+                    console.log(e.target.parentElement.id);
+                }
+
                 postContainer.appendChild(postHeader);
                 postHeader.appendChild(profilePost);
                 profilePost.appendChild(userDOM);
                 contentPost.appendChild(date);
+                postContainer.appendChild(likeBtn);
+                postContainer.appendChild(commentbtn);
                 postContainer.appendChild(contentPost);
                 allPost.appendChild(postContainer);
             });
