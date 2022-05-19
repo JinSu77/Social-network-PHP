@@ -208,3 +208,9 @@ function PostMaPhoto()
         exit();
     } */
 }
+
+function CommentPublication(){
+    $cmd = "INSERT INTO post (comment) = text WHERE post_id = $post_id";
+    $db->connect()->prepare($cmd);
+    $request->execute([$post_id]);
+}
