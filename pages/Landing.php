@@ -19,17 +19,20 @@ echo $_FILES['profilPicture']['tmp_name'];
     ?>
     <div id="modal">
         <form method="post" action="" enctype="multipart/form-data">
-            <input id="username" value="Modifiez l'username">
-            <?php echo $_SESSION["useruid"] ?>
+            <label for="modifyUsername">Username</label>
+            <input id="username" value="<?php echo $_SESSION["useruid"] ?>" name="modifyUsername">
             <button type="submit">Changer</button>
             <input type="file" name="profilPicture"><br>
-            <input id="userbio" value="Décrivez vous">
+            <input style="width: 100%;
+      height: 25vh;" id="userbio" value="" placeholder="Tell something about yourself....">
+            <span class="action" onclick="toggleModal()">
+                Cancel edit
+            </span>
         </form>
     </div>
     <div class="left column">
         <section class="UserProfile">
             <img src="#" alt="" id="bannerimg">
-            <input type="button" value="Modifier le profil">
             <?php afficherMonImageDeProfil($id) ?>
             <span id="username">
                 <?php echo $_SESSION["useruid"] ?>
@@ -39,6 +42,9 @@ echo $_FILES['profilPicture']['tmp_name'];
             <span class="stats">
                 <span id="friends"></span>
                 <span>Friends</span>
+            </span>
+            <span class="action" onclick="toggleModal()">
+                Edit profile
             </span>
         </section>
         <section class="UserGroupe">Groupes</section>

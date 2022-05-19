@@ -436,6 +436,54 @@ a {
   width: auto;
 }
 
+#modal {
+  background: #171717;
+  color: #efefef;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 50vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+}
+#modal input {
+  color: white;
+  margin: 0.5vh 0.5vw;
+}
+#modal input::-moz-placeholder {
+  opacity: 1;
+  color: white;
+}
+#modal input:-ms-input-placeholder {
+  opacity: 1;
+  color: white;
+}
+#modal input::placeholder {
+  opacity: 1;
+  color: white;
+}
+
+#modal.visible {
+  display: flex;
+}
+
+.action {
+  height: 2vh;
+  width: 50%;
+  background: #06b6d4;
+  color: #171717;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 2vh;
+  text-align: center;
+}
+
 .logSign-board a {
   color: #171717;
 }/*# sourceMappingURL=globals-dark.css.map */

@@ -66,6 +66,9 @@ fetch("./includes/getUserFriends.inc.php", {
     .then((res) => {
         document.getElementById("friends").innerText = res;
     })
+const toggleModal = () => {
+    document.getElementById("modal").classList.toggle("visible")
+}
 </script>
 </body>
 
