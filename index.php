@@ -83,6 +83,13 @@ fetch("./includes/getUserFriends.inc.php", {
     .then((res) => {
         document.getElementById("friends").innerText = res;
     })
+fetch("./includes/addLike.inc.php", {
+    method: "GET",
+})
+.then((resp) => resp.text())
+.then((res) => {
+    document.getElementById("like").innerText = res;
+})
 const toggleModal = () => {
     document.getElementById("modal").classList.toggle("visible")
 }
