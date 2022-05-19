@@ -59,4 +59,8 @@ class Post
     public function uploadPhotoPost()
     {
     }
+    public function commentPost(){
+        $request= $this->bdd->prepare("INSERT INTO reaction_comment(user_id, post_id, text, post_date) VALUES (?,?,?,now()");
+        
+    }
 }
