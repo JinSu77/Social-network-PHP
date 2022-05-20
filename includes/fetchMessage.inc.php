@@ -1,6 +1,8 @@
 <?php
 require_once "./db_connect.inc.php";
-session_start();
 require "./message.inc.php";
+require "./friends.inc.php";
+session_start();
 
-echo json_encode($test);
+$friends->ShowChanel($_SESSION["userid"]);
+echo json_encode($friends);

@@ -1,6 +1,7 @@
 <?php
+require_once "./db_connect.inc.php";
 
-if (isset($_GET['id']) and !empty($_GET['id'])) {
+if (isset($_GET["id"]) and !empty($_GET["id"])) {
 
     $getid = $_GET['id'];
     //!  changer la requetes en dessous pour récup les messages du channel et pas de l'utilisateur

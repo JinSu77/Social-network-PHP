@@ -59,10 +59,11 @@ class Friends
             $request->execute([$id, $follower_uid]);
         }
     }
-    public function ShowChanel()
+    public function ShowChanel($id)
     {
+        $id = $_SESSION["userid"];
         $getChannels = $this->bdd->prepare("SELECT * FROM chanel WHERE user_id = ?");
-        $getChannels->execute([$_SESSION["userid"]]);
+        $getChannels->execute([$id]);
         $resultat = $getChannels->fetchAll(PDO::FETCH_ASSOC);
     }
 }

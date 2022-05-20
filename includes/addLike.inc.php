@@ -8,3 +8,4 @@ $req = $bdd->prepare("SELECT COUNT(*) FROM reaction_like WHERE user_id = ? OR po
 $req->execute([$_SESSION["userid"], $post_id]);
 $res = $req->fetch(PDO::FETCH_ASSOC);
 echo $res["COUNT(*)"];
+header("location: ../index.php");

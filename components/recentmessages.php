@@ -1,5 +1,6 @@
 <?php
-require_once "./includes/friends.inc.php";
+require_once realpath(__DIR__ . '/../includes/friends.inc.php');
+
 ?>
 <section class="RecentMessages">
     <input type="search" name="" id="searchChannel" onkeydown="searchUser()">
@@ -26,9 +27,10 @@ const searchUser = (searchInput) => {
             usercard.classList.add("user-card");
             usercard.innerText = data.username;
             list.appendChild(usercard);
-            <?php $friends->ShowChanel();  ?>
         });
 };
+
+setInterval(function() {
 const searchchanel = () => {
     fetch("./includes/fetchMessage.inc.php", {
             method: "GET",
@@ -36,18 +38,26 @@ const searchchanel = () => {
         .then((resp)=> resp.text())
         .then((json) => {
             let data = JSON.parse(json);
+            console.log('tet')
             data.forEach(chanel => {
-                let chanel = document.createElement("div");
-                chanel.classList.add("main-chanel");
-                chanel.id = chanel.id;
-
+               /*  let chanel = document.createElement("div"); */
+                 /* chanel.classList.add("main-chanel"); */
+                /* chanel.id = chanel.id; */
+/* 
                 let chanelHeader =  document.createElement("div");
                 chanelHeader.classList.add("header");
 
                 let chanelDOM = document.createElement("div");
                 chanelDOM.classList.add("name-date-post");
-                chanelDOM.innerText = chanel.name;
+                chanelHeader.innerText = chanel.name;
+                chanelDOM.innertext = /* dernier message  */
+
+                /* chanel.appendChild(chanelHeader);
+                chanel.appendChild(chanelDOM); */
             });
         })
 }
+}, 3000);
+
+
 </script>

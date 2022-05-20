@@ -25,7 +25,7 @@ class Post
         // foreach ($resultat as $values){
 
         // }
-        var_dump($resultat);
+       /*  var_dump($resultat); */
     }
     //recuper posts de l'utilisateur
     //TODO : Ajouter les posts des amis dans la liste
@@ -64,7 +64,7 @@ class Post
         $resultat = $request->fetchAll(PDO::FETCH_ASSOC);
         return $resultat;
     }
-    /* Permet de liker un Post */
+    /* Permet de liker un */
     public function AddLike($id,$post_id,)
     {
         $exist = $this->LikeExist($id,$post_id);

@@ -41,13 +41,35 @@ class Profile
         $request->execute([$bio, $_SESSION["userid"]]);
         $_SESSION["useruid"] = $bio;
     }
+    public function DeleteAllCommente()
+    {
+        $request = $this->bdd->prepare("DELETE FROM reaction_comment where user_id= ?");
+        $request->execute([$_SESSION["userid"]]);
+    }
+    public function DeleteAllLike()
+    {
+        $request = $this->bdd->prepare("DELETE FROM reaction_like where user_id= ?");
+        $request->execute([$_SESSION["userid"]]);
+    }
+    public function DeleteAllPOST()
+    {
+        $request = $this->bdd->prepare("DELETE FROM post where user_id= ?");
+        $request->execute([$_SESSION["userid"]]);
+    }
+    public function DeleteAllFollow()
+    {
+        $request = $this->bdd->prepare("DELETE FROM follower where user_id= ?");
+        $request->execute([$_SESSION["userid"]]);
+    }
     //supprimé un profile 
     public function DeleteUser()
     {
+        $delete = $this->DeleteAllFollow();
+        $deleteP =$this->DeleteAllPOST();
         $request = $this->bdd->prepare("DELETE FROM users where id = ?");
         $request->execute([$_SESSION["userid"]]);
-        header("location: ../login.php?error=wrongLogin");
     }
+    /* Permet d'avoir une bio */
     public function getUserBio()
     {
         $sqlReq = "SELECT bio FROM users WHERE id=?";
