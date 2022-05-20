@@ -57,7 +57,7 @@ class Post
         return true;
     }
     /* verifie si le like exist deja pour eviter de liker 2 fois le meme post */
-    public function LikeExist($id,$post_id)
+    public function LikeExist($id, $post_id)
     {
         $request = $this->bdd->prepare("SELECT * FROM reaction_like where user_id = ? AND post_id = ?");
         $request->execute([$_SESSION["userid"], $post_id]);
@@ -65,18 +65,19 @@ class Post
         return $resultat;
     }
     /* Permet de liker un Post */
-    public function AddLike($id,$post_id,)
+    public function AddLike($id, $post_id,)
     {
-        $exist = $this->LikeExist($id,$post_id);
+        $exist = $this->LikeExist($id, $post_id);
         if ($exist) {
-            return null;
+            exit;
         } else {
-        $request = $this->bdd->prepare("INSERT INTO reaction_like(user_id,post_id) values (?,?)");
-        $request ->execute([$_SESSION["userid"],$post_id]);
+            $request = $this->bdd->prepare("INSERT INTO reaction_like(user_id,post_id) values (?,?)");
+            $request->execute([$_SESSION["userid"], $post_id]);
         }
     }
-    public function commentPost(){
-        $request= $this->bdd->prepare("INSERT INTO reaction_comment(user_id, post_id, text, post_date) VALUES (?,?,?,now()");
+    public function commentPost()
+    {
+        $request = $this->bdd->prepare("INSERT INTO reaction_comment(user_id, post_id, text, post_date) VALUES (?,?,?,now()");
         $request->execute(['user_id, post_id, text']);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 $id = $_GET["id"];
 $username = $_GET["username"];
-require("./components/header.php");
+require_once("./components/header.php");
 require("./components/navbar.php");
 include_once("./includes/functions.inc.php");
 ?>

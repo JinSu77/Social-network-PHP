@@ -11,7 +11,6 @@ require_once "./components/header.php" ?>
     ?>
 </div>
 <script>
-
 const allPost = document.getElementById("allPost");
 const fetchPost = () => {
     fetch("./includes/fetchPost.inc.php", {
@@ -50,12 +49,26 @@ const fetchPost = () => {
 
                 const likeBtn = document.createElement("button")
                 likeBtn.classList.add("likeBtn")
-                likeBtn.innerText = "Like"
                 likeBtn.onclick = function likePost(e) {
-                    window.location.replace("includes/addLike.inc.php?postId=" + e.target
-                        .parentElement.id);
+                    fetch("includes/addLike.inc.php?postId=" + e.target
+                        .parentElement.id).then(
+                        fetch(`./includes/getLikes.inc.php?postId=${post.id}`, {
+                            method: "GET",
+                        })
+                        .then((resp) => resp.text())
+                        .then((res) => {
+                            likeBtn.innerText = res + " Likes"
+                        })
+                    )
                 }
+                fetch(`./includes/getLikes.inc.php?postId=${post.id}`, {
+                        method: "GET",
+                    })
+                    .then((resp) => resp.text())
+                    .then((res) => {
+                        likeBtn.innerText = res + " Likes"
 
+                    })
                 const commentbtn = document.createElement("button")
                 commentbtn.classList.add("commentbtn")
                 commentbtn.innerText = "commentbtn"
@@ -85,12 +98,12 @@ fetch("./includes/getUserFriends.inc.php", {
         document.getElementById("friends").innerText = res;
     })
 fetch("./includes/addLike.inc.php", {
-    method: "GET",
-})
-.then((resp) => resp.text())
-.then((res) => {
-    document.getElementById("like").innerText = res;
-})
+        method: "GET",
+    })
+    .then((resp) => resp.text())
+    .then((res) => {
+        document.getElementById("like").innerText = res;
+    })
 const toggleModal = () => {
     document.getElementById("modal").classList.toggle("visible")
 }
