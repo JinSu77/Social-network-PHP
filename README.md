@@ -1,4 +1,7 @@
 # Projet Back
+## Projet rendu le 22/05/2022
+
+Le code ne sera plus maintenu sur ce repo. Il sera surement fork et améliorer par les contributeurs
 
 ## Structure du dossier
 
